@@ -22,7 +22,7 @@ public object KaTypeRendererForSource {
         definitelyNotNullTypeRenderer = KaDefinitelyNotNullTypeRenderer.AS_TYPE_INTERSECTION
         dynamicTypeRenderer = KaDynamicTypeRenderer.AS_DYNAMIC_WORD
         flexibleTypeRenderer = KaFlexibleTypeRenderer.AS_SHORT
-        functionalTypeRenderer = KaFunctionalTypeRenderer.AS_CLASS_TYPE_FOR_REFLECTION_TYPES
+        functionalTypeRenderer = KaFunctionalTypeRenderer.AS_CLASS_TYPE_FOR_REFLECTION_TYPES_WITH_PARAMETER_NAMES
         intersectionTypeRenderer = KaIntersectionTypeRenderer.AS_INTERSECTION
         errorTypeRenderer = KaErrorTypeRenderer.AS_CODE_IF_POSSIBLE
         typeParameterTypeRenderer = KaTypeParameterTypeRenderer.AS_SOURCE
