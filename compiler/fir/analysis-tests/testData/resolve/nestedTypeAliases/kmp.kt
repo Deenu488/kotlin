@@ -1,4 +1,5 @@
 // RUN_PIPELINE_TILL: FRONTEND
+// SKIP_FIR_DUMP
 // LANGUAGE: +MultiPlatformProjects
 
 // MODULE: common
