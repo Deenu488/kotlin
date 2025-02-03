@@ -11,9 +11,11 @@ import org.jetbrains.kotlin.config.ReturnValueCheckerMode
 import org.jetbrains.kotlin.diagnostics.DiagnosticReporter
 import org.jetbrains.kotlin.diagnostics.reportOn
 import org.jetbrains.kotlin.fir.FirSession
+import org.jetbrains.kotlin.fir.analysis.checkers.MppCheckerKind
 import org.jetbrains.kotlin.fir.analysis.checkers.context.CheckerContext
 import org.jetbrains.kotlin.fir.analysis.checkers.getContainingSymbol
 import org.jetbrains.kotlin.fir.analysis.diagnostics.FirErrors
+import org.jetbrains.kotlin.fir.declarations.FirDeclaration
 import org.jetbrains.kotlin.fir.declarations.toAnnotationClassId
 import org.jetbrains.kotlin.fir.expressions.*
 import org.jetbrains.kotlin.fir.references.resolved
@@ -30,6 +32,29 @@ import org.jetbrains.kotlin.fir.types.isUnit
 import org.jetbrains.kotlin.fir.types.resolvedType
 import org.jetbrains.kotlin.name.CallableId
 import org.jetbrains.kotlin.name.StandardClassIds
+
+
+object FirReturnValueAnnotationsChecker : FirBasicDeclarationChecker(MppCheckerKind.Common) {
+    override fun check(
+        declaration: FirDeclaration,
+        context: CheckerContext,
+        reporter: DiagnosticReporter,
+    ) {
+        if (context.languageVersionSettings.getFlag(AnalysisFlags.returnValueCheckerMode) != ReturnValueCheckerMode.DISABLED) return
+
+        val session = context.session
+        val annotations = declaration.annotations
+        // @MustUseValue and @Ignorable have targets sets without intersection, so it is safe to query them both at once.
+        val annotation = annotations.find { it.isMustUseReturnValue(session) } ?: annotations.find { it.isIgnorableValue(session) } ?: return
+
+        reporter.reportOn(
+            annotation.source,
+            FirErrors.IGNORABILITY_ANNOTATIONS_WITH_CHECKER_DISABLED,
+            context
+        )
+    }
+}
+
 
 object FirUnusedReturnValueChecker : FirUnusedCheckerBase() {
     override fun isEnabled(context: CheckerContext): Boolean =
