@@ -259,6 +259,12 @@ public class SerializationIrBoxTestGenerated extends AbstractSerializationIrBoxT
   }
 
   @Test
+  @TestMetadata("polymorphicTypeParameter.kt")
+  public void testPolymorphicTypeParameter() {
+    runTest("plugins/kotlinx-serialization/testData/boxIr/polymorphicTypeParameter.kt");
+  }
+
+  @Test
   @TestMetadata("privateCustomSerializer.kt")
   public void testPrivateCustomSerializer() {
     runTest("plugins/kotlinx-serialization/testData/boxIr/privateCustomSerializer.kt");
