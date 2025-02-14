@@ -8,6 +8,8 @@ package org.jetbrains.kotlin.library.metadata
 import org.jetbrains.kotlin.descriptors.SourceFile
 import org.jetbrains.kotlin.library.KotlinLibrary
 import org.jetbrains.kotlin.library.metadata.KlibMetadataProtoBuf.Header
+import org.jetbrains.kotlin.library.metadataVersion
+import org.jetbrains.kotlin.metadata.deserialization.MetadataVersion
 import org.jetbrains.kotlin.name.FqName
 import org.jetbrains.kotlin.serialization.deserialization.DeserializationConfiguration
 import org.jetbrains.kotlin.serialization.deserialization.IncompatibleVersionErrorData
