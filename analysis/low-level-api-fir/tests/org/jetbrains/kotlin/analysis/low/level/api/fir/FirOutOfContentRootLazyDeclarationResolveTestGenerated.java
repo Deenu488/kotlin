@@ -1254,6 +1254,30 @@ public class FirOutOfContentRootLazyDeclarationResolveTestGenerated extends Abst
     }
 
     @Test
+    @TestMetadata("danglingAnnotationOnMemberFunction.kt")
+    public void testDanglingAnnotationOnMemberFunction() {
+      runTest("analysis/low-level-api-fir/testData/lazyResolve/errors/danglingAnnotationOnMemberFunction.kt");
+    }
+
+    @Test
+    @TestMetadata("danglingAnnotationOnTopLevelFunction.kt")
+    public void testDanglingAnnotationOnTopLevelFunction() {
+      runTest("analysis/low-level-api-fir/testData/lazyResolve/errors/danglingAnnotationOnTopLevelFunction.kt");
+    }
+
+    @Test
+    @TestMetadata("danglingAnnotationOnTopLevelFunction2.kt")
+    public void testDanglingAnnotationOnTopLevelFunction2() {
+      runTest("analysis/low-level-api-fir/testData/lazyResolve/errors/danglingAnnotationOnTopLevelFunction2.kt");
+    }
+
+    @Test
+    @TestMetadata("danglingAnnotationOnTopLevelFunctionWithParameter.kt")
+    public void testDanglingAnnotationOnTopLevelFunctionWithParameter() {
+      runTest("analysis/low-level-api-fir/testData/lazyResolve/errors/danglingAnnotationOnTopLevelFunctionWithParameter.kt");
+    }
+
+    @Test
     @TestMetadata("danglingAnnotationWithNestedDeclarations.kt")
     public void testDanglingAnnotationWithNestedDeclarations() {
       runTest("analysis/low-level-api-fir/testData/lazyResolve/errors/danglingAnnotationWithNestedDeclarations.kt");
