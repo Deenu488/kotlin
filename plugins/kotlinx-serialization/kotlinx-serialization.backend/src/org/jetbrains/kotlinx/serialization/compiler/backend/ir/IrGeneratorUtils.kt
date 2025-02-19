@@ -49,7 +49,7 @@ fun IrClass.addDefaultConstructorBodyIfAbsent(ctx: IrPluginContext) {
 }
 
 /**
- * Find the [parentType] heirs along the chain up to [childType], with order from [childType] to the [childType],
+ * Find the [parentType] heirs along the chain up to [childType], with order from [childType] to the [parentType],
  * or `null` of [childType] isn't inheritor of [parentType].
  */
 fun findPath(childType: IrSimpleType, parentType: IrSimpleType): List<IrSimpleType>? {
