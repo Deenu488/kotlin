@@ -75,7 +75,7 @@ private fun findPathInternal(
 /**
  * Try to find the use of type parameter of the parent type ([path]`.last()`) in the child ([path]`.first()`)
  *
- * Шt checks whether a typical parameter with the [indexInChild] index is inherited from the [path]`.last()` parent,
+ * It checks whether a typical parameter with the [indexInChild] index is inherited from the [path]`.last()` parent,
  * if so, the index of the parent's type parameter is returned, if not, `null`.
  *
  * If [path] is empty then `null` is returned.
