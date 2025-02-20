@@ -86,34 +86,13 @@ public class SirVisibilityCheckerImpl(
 
     private fun KaNamedClassSymbol.isConsumableBySirBuilder(ktAnalysisSession: KaSession): Boolean =
         with(ktAnalysisSession) {
-            if (
-                classKind != KaClassKind.CLASS &&
-                classKind != KaClassKind.OBJECT &&
-                classKind != KaClassKind.COMPANION_OBJECT &&
-                classKind != KaClassKind.ENUM_CLASS &&
-                classKind != KaClassKind.INTERFACE
-            ) {
-                unsupportedDeclarationReporter
-                    .report(this@isConsumableBySirBuilder, "${classKind.name.lowercase()} classifiers are not supported yet.")
+            if (classKind == KaClassKind.ANNOTATION_CLASS || classKind == KaClassKind.ANONYMOUS_OBJECT) {
                 return@with false
             }
             if (classKind == KaClassKind.INTERFACE && modality == KaSymbolModality.SEALED) {
                 return false
             }
-            if (classKind == KaClassKind.ENUM_CLASS) {
-                return@with true
-            }
-            if (superTypes.any { it.symbol.let { it?.classId != DefaultTypeClassIds.ANY && it?.sirVisibility(ktAnalysisSession) != SirVisibility.PUBLIC } }) {
-                unsupportedDeclarationReporter
-                    .report(this@isConsumableBySirBuilder, "inheritance from non-classes is not supported yet.")
-                return@with false
-            }
-            if (typeParameters.isNotEmpty() || superTypes.any { (it as? KaClassType)?.typeArguments?.isEmpty() == false }) {
-                unsupportedDeclarationReporter.report(this@isConsumableBySirBuilder, "generics are not supported yet.")
-                return@with false
-            }
             if (classId == DefaultTypeClassIds.ANY) {
-                unsupportedDeclarationReporter.report(this@isConsumableBySirBuilder, "${classId} is not supported yet.")
                 return@with false
             }
             if (isInline) {
