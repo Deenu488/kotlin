@@ -9,7 +9,6 @@ import org.jetbrains.kotlin.analysis.api.KaExperimentalApi
 import org.jetbrains.kotlin.analysis.api.KaSession
 import org.jetbrains.kotlin.analysis.api.components.DefaultTypeClassIds
 import org.jetbrains.kotlin.analysis.api.symbols.*
-import org.jetbrains.kotlin.analysis.api.types.KaClassType
 import org.jetbrains.kotlin.analysis.api.types.KaType
 import org.jetbrains.kotlin.analysis.api.types.symbol
 import org.jetbrains.kotlin.builtins.StandardNames
@@ -34,7 +33,7 @@ public class SirVisibilityCheckerImpl(
 
         val isConsumable = isPublic() && when (ktSymbol) {
             is KaNamedClassSymbol -> {
-                ktSymbol.isConsumableBySirBuilder(ktAnalysisSession) && !ktSymbol.hasHiddenAncestors(ktAnalysisSession)
+                ktSymbol.isExported(ktAnalysisSession) && !ktSymbol.hasHiddenAncestors(ktAnalysisSession)
             }
             is KaConstructorSymbol -> {
                 if ((ktSymbol.containingSymbol as? KaClassSymbol)?.modality?.isAbstract() != false) {
@@ -45,7 +44,7 @@ public class SirVisibilityCheckerImpl(
                 true
             }
             is KaNamedFunctionSymbol -> {
-                ktSymbol.isConsumableBySirBuilder(ktSymbol.containingSymbol as? KaClassSymbol)
+                ktSymbol.isExported(ktSymbol.containingSymbol as? KaClassSymbol)
             }
             is KaVariableSymbol -> {
                 !ktSymbol.hasHiddenAccessors
@@ -60,31 +59,31 @@ public class SirVisibilityCheckerImpl(
         return if (isConsumable && !isHidden && !containsContextParameters) SirVisibility.PUBLIC else SirVisibility.PRIVATE
     }
 
-    private fun KaNamedFunctionSymbol.isConsumableBySirBuilder(parent: KaClassSymbol?): Boolean {
+    private fun KaNamedFunctionSymbol.isExported(parent: KaClassSymbol?): Boolean {
         if (isStatic && parent?.let { isValueOfOnEnum(it) } != true) {
-            unsupportedDeclarationReporter.report(this@isConsumableBySirBuilder, "static functions are not supported yet.")
+            unsupportedDeclarationReporter.report(this@isExported, "static functions are not supported yet.")
             return false
         }
         if (origin !in SUPPORTED_SYMBOL_ORIGINS) {
-            unsupportedDeclarationReporter.report(this@isConsumableBySirBuilder, "${origin.name.lowercase()} origin is not supported yet.")
+            unsupportedDeclarationReporter.report(this@isExported, "${origin.name.lowercase()} origin is not supported yet.")
             return false
         }
         if (isSuspend) {
-            unsupportedDeclarationReporter.report(this@isConsumableBySirBuilder, "suspend functions are not supported yet.")
+            unsupportedDeclarationReporter.report(this@isExported, "suspend functions are not supported yet.")
             return false
         }
         if (isOperator) {
-            unsupportedDeclarationReporter.report(this@isConsumableBySirBuilder, "operators are not supported yet.")
+            unsupportedDeclarationReporter.report(this@isExported, "operators are not supported yet.")
             return false
         }
         if (isInline) {
-            unsupportedDeclarationReporter.report(this@isConsumableBySirBuilder, "inline functions are not supported yet.")
+            unsupportedDeclarationReporter.report(this@isExported, "inline functions are not supported yet.")
             return false
         }
         return true
     }
 
-    private fun KaNamedClassSymbol.isConsumableBySirBuilder(ktAnalysisSession: KaSession): Boolean =
+    private fun KaNamedClassSymbol.isExported(ktAnalysisSession: KaSession): Boolean =
         with(ktAnalysisSession) {
             if (classKind == KaClassKind.ANNOTATION_CLASS || classKind == KaClassKind.ANONYMOUS_OBJECT) {
                 return@with false
@@ -96,7 +95,7 @@ public class SirVisibilityCheckerImpl(
                 return@with false
             }
             if (isInline) {
-                unsupportedDeclarationReporter.report(this@isConsumableBySirBuilder, "inline classes are not supported yet.")
+                unsupportedDeclarationReporter.report(this@isExported, "inline classes are not supported yet.")
                 return@with false
             }
 
