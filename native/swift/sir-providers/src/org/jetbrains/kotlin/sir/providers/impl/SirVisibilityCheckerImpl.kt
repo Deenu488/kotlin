@@ -31,7 +31,7 @@ public class SirVisibilityCheckerImpl(
 
         val containsContextParameters = ktSymbol is KaCallableSymbol && ktSymbol.contextParameters.isNotEmpty()
 
-        val isConsumable = isPublic() && when (ktSymbol) {
+        val isExported = isPublic() && when (ktSymbol) {
             is KaNamedClassSymbol -> {
                 ktSymbol.isExported(ktAnalysisSession) && !ktSymbol.hasHiddenAncestors(ktAnalysisSession)
             }
@@ -56,7 +56,7 @@ public class SirVisibilityCheckerImpl(
             else -> false
         }
 
-        return if (isConsumable && !isHidden && !containsContextParameters) SirVisibility.PUBLIC else SirVisibility.PRIVATE
+        return if (isExported && !isHidden && !containsContextParameters) SirVisibility.PUBLIC else SirVisibility.PRIVATE
     }
 
     private fun KaNamedFunctionSymbol.isExported(parent: KaClassSymbol?): Boolean {
