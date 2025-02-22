@@ -693,6 +693,7 @@ allprojects {
         }
 
         mavenCentral()
+        mavenLocal()
     }
 }
 
