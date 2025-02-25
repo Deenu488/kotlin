@@ -13,6 +13,7 @@ import org.jetbrains.kotlin.analysis.api.types.KaClassType
 import org.jetbrains.kotlin.analysis.api.types.KaType
 import org.jetbrains.kotlin.analysis.api.types.symbol
 import org.jetbrains.kotlin.builtins.StandardNames
+import org.jetbrains.kotlin.name.FqName
 import org.jetbrains.kotlin.sir.SirVisibility
 import org.jetbrains.kotlin.sir.providers.SirVisibilityChecker
 import org.jetbrains.kotlin.sir.providers.utils.UnsupportedDeclarationReporter
@@ -101,9 +102,14 @@ public class SirVisibilityCheckerImpl(
                 return false
             }
             if (classKind == KaClassKind.ENUM_CLASS) {
+                if (superTypes.any { it.symbol?.classId?.asSingleFqName() == FqName("kotlinx.cinterop.CEnum") }) {
+                    unsupportedDeclarationReporter
+                        .report(this@isConsumableBySirBuilder, "C enums are not supported yet.")
+                    return@with false
+                }
                 return@with true
             }
-            if (superTypes.any { it.symbol.let { it?.classId != DefaultTypeClassIds.ANY && it?.sirVisibility(ktAnalysisSession) != SirVisibility.PUBLIC } }) {
+            if (superTypes.any { it.symbol.let { it?.classId != DefaultTypeClassIds.ANY && it?.sirVisibility(ktAnalysisSession) != SirVisibility.PUBLIC }}) {
                 unsupportedDeclarationReporter
                     .report(this@isConsumableBySirBuilder, "inheritance from non-classes is not supported yet.")
                 return@with false

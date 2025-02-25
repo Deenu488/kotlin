@@ -5,6 +5,7 @@
 
 package org.jetbrains.kotlin.swiftexport.ide.session
 
+import org.jetbrains.kotlin.analysis.api.projectStructure.KaLibraryModule
 import org.jetbrains.kotlin.analysis.api.projectStructure.KaModule
 import org.jetbrains.kotlin.name.FqName
 import org.jetbrains.kotlin.sir.SirModule
@@ -16,11 +17,14 @@ import org.jetbrains.sir.lightclasses.SirDeclarationFromKtSymbolProvider
 public class IdeSirSession(
     kaModule: KaModule,
     moduleForPackageEnums: SirModule,
+    platformLibs: Collection<KaLibraryModule>,
     unsupportedDeclarationReporter: UnsupportedDeclarationReporter,
     targetPackageFqName: FqName?,
 ) : SirSession {
     override val declarationNamer: SirDeclarationNamer = SirDeclarationNamerImpl()
-    override val moduleProvider: SirModuleProvider = SirOneToOneModuleProvider()
+    override val moduleProvider: SirModuleProvider = SirOneToOneModuleProvider(
+        platformLibs = platformLibs,
+    )
     override val declarationProvider: SirDeclarationProvider = CachingSirDeclarationProvider(
         declarationsProvider = SirDeclarationFromKtSymbolProvider(
             ktModule = kaModule,
