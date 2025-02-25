@@ -51342,6 +51342,12 @@ public class PhasedJvmDiagnosticLightTreeTestGenerated extends AbstractPhasedJvm
       }
 
       @Test
+      @TestMetadata("notImplementedEqualsWithContextParameters.kt")
+      public void testNotImplementedEqualsWithContextParameters() {
+        runTest("compiler/fir/analysis-tests/testData/resolve/checkers/notImplementedEqualsWithContextParameters.kt");
+      }
+
+      @Test
       @TestMetadata("notUselessCast_1.kt")
       public void testNotUselessCast_1() {
         runTest("compiler/fir/analysis-tests/testData/resolve/checkers/notUselessCast_1.kt");
