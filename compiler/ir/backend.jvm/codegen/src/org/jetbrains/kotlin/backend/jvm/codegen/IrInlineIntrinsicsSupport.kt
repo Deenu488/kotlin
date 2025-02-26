@@ -38,7 +38,7 @@ import org.jetbrains.org.objectweb.asm.tree.InsnList
 
 class IrInlineIntrinsicsSupport(
     private val classCodegen: ClassCodegen,
-    private val reportErrorsOn: IrExpression,
+    private val reportErrorsOn: IrExpression?,
     private val containingFile: IrFile,
 ) : ReifiedTypeInliner.IntrinsicsSupport<IrType> {
     override val config: JvmBackendConfig
@@ -119,10 +119,12 @@ class IrInlineIntrinsicsSupport(
         generateExternalEntriesForEnumTypeIfNeeded(type, classCodegen)
 
     override fun reportSuspendTypeUnsupported() {
+        if (reportErrorsOn == null) return
         classCodegen.context.ktDiagnosticReporter.at(reportErrorsOn, containingFile).report(JvmBackendErrors.TYPEOF_SUSPEND_TYPE)
     }
 
     override fun reportNonReifiedTypeParameterWithRecursiveBoundUnsupported(typeParameterName: Name) {
+        if (reportErrorsOn == null) return
         classCodegen.context.ktDiagnosticReporter.at(reportErrorsOn, containingFile)
             .report(JvmBackendErrors.TYPEOF_NON_REIFIED_TYPE_PARAMETER_WITH_RECURSIVE_BOUND, typeParameterName.asString())
     }

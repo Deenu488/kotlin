@@ -126,7 +126,7 @@ abstract class AbstractCompilerFacilityTest : AbstractAnalysisApiBasedTest() {
 
             val exceptionExpected = mainModule.testModule.directives.contains(Directives.CODE_COMPILATION_EXCEPTION)
             val result = try {
-                compile(mainFile, compilerConfiguration, target, allowedErrorFilter)
+                compile(mainFile, compilerConfiguration, target, debuggerExtension = null, allowedErrorFilter)
             } catch (e: Throwable) {
                 if (exceptionExpected && e is KaCodeCompilationException) {
                     e.cause?.message?.let { testServices.assertions.assertEqualsToTestDataFileSibling("CODE_COMPILATION_EXCEPTION:\n$it") }

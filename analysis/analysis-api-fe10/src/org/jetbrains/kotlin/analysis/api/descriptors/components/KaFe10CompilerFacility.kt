@@ -29,6 +29,7 @@ import org.jetbrains.kotlin.config.JVMConfigurationKeys
 import org.jetbrains.kotlin.descriptors.DeclarationDescriptor
 import org.jetbrains.kotlin.diagnostics.Severity
 import org.jetbrains.kotlin.load.kotlin.toSourceElement
+import org.jetbrains.kotlin.psi.KtCallExpression
 import org.jetbrains.kotlin.psi.KtClassOrObject
 import org.jetbrains.kotlin.psi.KtCodeFragment
 import org.jetbrains.kotlin.psi.KtFile
@@ -53,6 +54,7 @@ internal class KaFe10CompilerFacility(
         file: KtFile,
         configuration: CompilerConfiguration,
         target: KaCompilerTarget,
+        debuggerExtension: DebuggerExtension?,
         allowedErrorFilter: (KaDiagnostic) -> Boolean
     ): KaCompilationResult = withValidityAssertion {
         try {

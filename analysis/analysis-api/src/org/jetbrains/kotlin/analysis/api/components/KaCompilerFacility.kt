@@ -5,19 +5,16 @@
 
 package org.jetbrains.kotlin.analysis.api.components
 
-import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import org.jetbrains.kotlin.analysis.api.KaExperimentalApi
-import org.jetbrains.kotlin.analysis.api.KaImplementationDetail
 import org.jetbrains.kotlin.analysis.api.compile.CodeFragmentCapturedValue
 import org.jetbrains.kotlin.analysis.api.diagnostics.KaDiagnostic
-import org.jetbrains.kotlin.codegen.*
 import org.jetbrains.kotlin.config.CommonConfigurationKeys
 import org.jetbrains.kotlin.config.CompilerConfiguration
 import org.jetbrains.kotlin.config.CompilerConfigurationKey
+import org.jetbrains.kotlin.psi.KtCallExpression
 import org.jetbrains.kotlin.psi.KtCodeFragment
 import org.jetbrains.kotlin.psi.KtFile
-import org.jetbrains.kotlin.resolve.jvm.diagnostics.JvmDeclarationOrigin
 import java.io.File
 
 /**
@@ -38,7 +35,8 @@ public sealed class KaCompilationResult {
     @KaExperimentalApi
     public class Success(
         public val output: List<KaCompiledFile>,
-        public val capturedValues: List<CodeFragmentCapturedValue>
+        public val capturedValues: List<CodeFragmentCapturedValue>,
+        public var forbiddenToCache: Boolean = false,
     ) : KaCompilationResult()
 
     /**
@@ -147,7 +145,8 @@ public interface KaCompilerFacility : KaSessionComponent {
         file: KtFile,
         configuration: CompilerConfiguration,
         target: KaCompilerTarget,
-        allowedErrorFilter: (KaDiagnostic) -> Boolean
+        debuggerExtension: DebuggerExtension?,
+        allowedErrorFilter: (KaDiagnostic) -> Boolean,
     ): KaCompilationResult
 }
 
@@ -158,3 +157,5 @@ public interface KaCompilerFacility : KaSessionComponent {
  */
 @KaExperimentalApi
 public class KaCodeCompilationException(cause: Throwable) : RuntimeException(cause)
+
+public class DebuggerExtension(public val getInvocationPsiAtStackDepth: (Int) -> KtCallExpression?)
