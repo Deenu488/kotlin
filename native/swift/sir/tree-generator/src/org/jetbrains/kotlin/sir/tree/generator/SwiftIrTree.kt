@@ -105,7 +105,7 @@ object SwiftIrTree : AbstractSwiftIrTreeBuilder() {
     val protocol: Element by element {
         customParentInVisitor = namedDeclaration
         parent(namedDeclaration)
-        parent(declarationContainer)
+        parent(mutableDeclarationContainer)
 
         +field("superClass", typeType, nullable = true)
         +listField("protocols", protocol)

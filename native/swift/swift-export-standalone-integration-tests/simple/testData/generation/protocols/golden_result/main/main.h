@@ -13,6 +13,10 @@ uintptr_t ContainerProtocol_NestedClass_init_allocate();
 
 void ContainerProtocol_NestedClass_init_initialize__TypesOfArguments__Swift_UInt__(uintptr_t __kt);
 
+uintptr_t ContainerProtocol_NestedProtocol_NestedClass2_init_allocate();
+
+void ContainerProtocol_NestedProtocol_NestedClass2_init_initialize__TypesOfArguments__Swift_UInt__(uintptr_t __kt);
+
 NSArray<id> * ENUM_WITH_INTERFACE_INHERITANCE_entries_get();
 
 uintptr_t ENUM_WITH_INTERFACE_INHERITANCE_valueOf__TypesOfArguments__Swift_String__(NSString * value);

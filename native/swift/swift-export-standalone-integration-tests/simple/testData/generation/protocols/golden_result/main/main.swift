@@ -141,12 +141,14 @@ open class NestedClass: KotlinRuntime.KotlinBase, KotlinRuntimeSupport._KotlinBr
 }
 open class NestedClass2: KotlinRuntime.KotlinBase, KotlinRuntimeSupport._KotlinBridged {
     public override init() {
-        fatalError()
+        let __kt = ContainerProtocol_NestedProtocol_NestedClass2_init_allocate()
+        super.init(__externalRCRef: __kt)
+        ContainerProtocol_NestedProtocol_NestedClass2_init_initialize__TypesOfArguments__Swift_UInt__(__kt)
     }
     package override init(
         __externalRCRef: Swift.UInt
     ) {
-        fatalError()
+        super.init(__externalRCRef: __externalRCRef)
     }
 }
 public final class OBJECT_WITH_INTERFACE_INHERITANCE: KotlinRuntime.KotlinBase, main.ContainerProtocol, KotlinRuntimeSupport._KotlinBridged {

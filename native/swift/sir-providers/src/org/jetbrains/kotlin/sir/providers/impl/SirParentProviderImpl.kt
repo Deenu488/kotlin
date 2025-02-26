@@ -64,7 +64,9 @@ public class SirParentProviderImpl(
         } else {
             with(sirSession) {
                 if (symbol is KaClassSymbol && parentSymbol is KaNamedClassSymbol && parentSymbol.classKind == KaClassKind.INTERFACE) {
-                    parentSymbol.getSirParent(ktAnalysisSession) as? SirDeclarationContainer
+                    with(ktAnalysisSession) {
+                        parentSymbol.containingModule.sirModule()
+                    }
                 } else {
                     parentSymbol.toSir().primaryDeclaration as? SirDeclarationContainer
                 }

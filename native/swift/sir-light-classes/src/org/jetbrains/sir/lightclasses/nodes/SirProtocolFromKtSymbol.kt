@@ -62,28 +62,27 @@ internal class SirProtocolFromKtSymbol(
 
     override val attributes: List<SirAttribute> by lazy { this.translatedAttributes }
 
-    override val declarations: List<SirDeclaration> by lazyWithSessions {
+    override val declarations: MutableList<SirDeclaration> by lazyWithSessions {
         ktSymbol.combinedDeclaredMemberScope
             .extractDeclarations(useSiteSession)
-            .mapNotNull { declaration ->
+            .flatMap { declaration ->
                 when (declaration) {
-                    is SirVariable, is SirFunction -> declaration
-                    is SirNamedDeclaration -> buildTypealias {
-                        origin = SirOrigin.Trampoline(declaration)
-                        visibility = SirVisibility.INTERNAL // visibility modifiers are disallowed in protocols
-                        name = declaration.name
-                        type = SirNominalType(declaration)
-                    }.apply {
-                        parent = this@SirProtocolFromKtSymbol
-                    }.also {
-                        (declaration.parent as? SirMutableDeclarationContainer)?.let {
-                            it.addChild { declaration }
-                        }
-                    }
-                    else -> declaration
+                    is SirVariable, is SirFunction -> listOf(declaration)
+                    is SirNamedDeclaration -> listOf(
+                        buildTypealias {
+                            origin = SirOrigin.Trampoline(declaration)
+                            visibility = SirVisibility.INTERNAL // visibility modifiers are disallowed in protocols
+                            name = declaration.name
+                            type = SirNominalType(declaration)
+                        }.apply {
+                            parent = this@SirProtocolFromKtSymbol
+                        },
+                        declaration
+                    )
+                    else -> listOf(declaration)
                 }
             }
-            .toList()
+            .toMutableList()
     }
 }
 

@@ -6,6 +6,7 @@
 @file:kotlin.native.internal.objc.BindClassToObjCName(INHERITANCE_SINGLE_PROTO::class, "4main24INHERITANCE_SINGLE_PROTOC")
 @file:kotlin.native.internal.objc.BindClassToObjCName(MyObject::class, "4main8MyObjectC")
 @file:kotlin.native.internal.objc.BindClassToObjCName(ContainerProtocol.NestedClass::class, "4main11NestedClassC")
+@file:kotlin.native.internal.objc.BindClassToObjCName(ContainerProtocol.NestedProtocol.NestedClass2::class, "4main12NestedClass2C")
 @file:kotlin.native.internal.objc.BindClassToObjCName(OBJECT_WITH_INTERFACE_INHERITANCE::class, "4main33OBJECT_WITH_INTERFACE_INHERITANCEC")
 
 import kotlin.native.internal.ExportedBridge
@@ -52,6 +53,18 @@ public fun ContainerProtocol_NestedClass_init_allocate(): kotlin.native.internal
 public fun ContainerProtocol_NestedClass_init_initialize__TypesOfArguments__Swift_UInt__(__kt: kotlin.native.internal.NativePtr): Unit {
     val ____kt = kotlin.native.internal.ref.dereferenceExternalRCRef(__kt)!!
     kotlin.native.internal.initInstance(____kt, ContainerProtocol.NestedClass())
+}
+
+@ExportedBridge("ContainerProtocol_NestedProtocol_NestedClass2_init_allocate")
+public fun ContainerProtocol_NestedProtocol_NestedClass2_init_allocate(): kotlin.native.internal.NativePtr {
+    val _result = kotlin.native.internal.createUninitializedInstance<ContainerProtocol.NestedProtocol.NestedClass2>()
+    return kotlin.native.internal.ref.createRetainedExternalRCRef(_result)
+}
+
+@ExportedBridge("ContainerProtocol_NestedProtocol_NestedClass2_init_initialize__TypesOfArguments__Swift_UInt__")
+public fun ContainerProtocol_NestedProtocol_NestedClass2_init_initialize__TypesOfArguments__Swift_UInt__(__kt: kotlin.native.internal.NativePtr): Unit {
+    val ____kt = kotlin.native.internal.ref.dereferenceExternalRCRef(__kt)!!
+    kotlin.native.internal.initInstance(____kt, ContainerProtocol.NestedProtocol.NestedClass2())
 }
 
 @ExportedBridge("ENUM_WITH_INTERFACE_INHERITANCE_entries_get")
