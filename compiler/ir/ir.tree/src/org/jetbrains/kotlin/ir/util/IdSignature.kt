@@ -491,6 +491,42 @@ sealed class IdSignature {
     }
 
     /**
+     * Used to represent fake override member of a local class (starting from kotlin 2.2.0).
+     *
+     * It is similar to [CommonSignature], the difference is that instead of an FQ name, that would include a name the containing class,
+     * it has an [IdSignature] of that class. Also, unline [CommonSignature], the [id] is composed solely out of this declaration
+     * (such as its name and parameters), an _not_ out of its parent(s). That simplifies "moving" an FO member from one class to another
+     * (in the case of inlining) by just replacing the [containingClass] field. It is therefore more similar to JVM signatures.
+     *
+     */
+    data class LocalFakeOverrideSignature(
+        val containingClass: IdSignature,
+        val id: Long,
+        val mask: Long,
+        val description: String?,
+    ) : IdSignature() {
+        override val isPubliclyVisible: Boolean
+            get() = containingClass.isPubliclyVisible
+
+        override val visibleCrossFile: Boolean
+            get() = containingClass.visibleCrossFile
+
+        override val isLocal: Boolean
+            get() = containingClass.visibleCrossFile
+
+        override fun topLevelSignature() =
+            containingClass.topLevelSignature()
+
+        override fun nearestPublicSig() =
+            if (isPubliclyVisible)
+                this
+            else
+                containingClass.nearestPublicSig()
+
+        override fun packageFqName() = containingClass.packageFqName()
+    }
+
+    /**
      * [KT-42020](https://youtrack.jetbrains.com/issue/KT-42020)
      *
      * This special signature is required to disambiguate fake overrides 'foo(x: T)[T = String]' and 'foo(x: String)' in the code below:
