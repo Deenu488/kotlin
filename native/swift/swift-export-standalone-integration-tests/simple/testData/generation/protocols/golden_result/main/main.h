@@ -9,6 +9,10 @@ uintptr_t Barable_bar__TypesOfArguments__anyU20main_Foeble__(uintptr_t self, uin
 
 uintptr_t Barable_baz_get(uintptr_t self);
 
+uintptr_t ContainerProtocol_NestedClass_init_allocate();
+
+void ContainerProtocol_NestedClass_init_initialize__TypesOfArguments__Swift_UInt__(uintptr_t __kt);
+
 NSArray<id> * ENUM_WITH_INTERFACE_INHERITANCE_entries_get();
 
 uintptr_t ENUM_WITH_INTERFACE_INHERITANCE_valueOf__TypesOfArguments__Swift_String__(NSString * value);
@@ -28,6 +32,14 @@ void __root___Bar_init_initialize__TypesOfArguments__Swift_UInt__(uintptr_t __kt
 uintptr_t __root___Foo_init_allocate();
 
 void __root___Foo_init_initialize__TypesOfArguments__Swift_UInt__(uintptr_t __kt);
+
+uintptr_t __root___INHERITANCE_COUPLE_init_allocate();
+
+void __root___INHERITANCE_COUPLE_init_initialize__TypesOfArguments__Swift_UInt__(uintptr_t __kt);
+
+uintptr_t __root___INHERITANCE_SINGLE_PROTO_init_allocate();
+
+void __root___INHERITANCE_SINGLE_PROTO_init_initialize__TypesOfArguments__Swift_UInt__(uintptr_t __kt);
 
 uintptr_t __root___MyObject_get();
 

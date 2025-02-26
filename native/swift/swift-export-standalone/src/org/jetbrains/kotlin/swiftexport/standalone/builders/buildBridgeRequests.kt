@@ -30,11 +30,13 @@ internal fun buildBridgeRequests(generator: BridgeGenerator, container: SirDecla
     addAll(
         container
             .allClasses()
+            .toList()
             .flatMap { it.constructTypeBindingBridgeRequests() }
     )
     addAll(
         container
             .allContainers()
+            .toList()
             .flatMap { buildBridgeRequests(generator, it) }
     )
 }

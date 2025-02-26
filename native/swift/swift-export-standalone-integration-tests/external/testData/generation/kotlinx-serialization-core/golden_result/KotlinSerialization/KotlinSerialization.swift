@@ -1204,31 +1204,7 @@ public extension ExportedKotlinPackages.kotlinx.serialization.encoding {
         ) -> Swift.Void
     }
     public protocol CompositeDecoder: KotlinRuntime.KotlinBase {
-        public final class Companion: KotlinRuntime.KotlinBase, KotlinRuntimeSupport._KotlinBridged {
-            public var DECODE_DONE: Swift.Int32 {
-                get {
-                    return kotlinx_serialization_encoding_CompositeDecoder_Companion_DECODE_DONE_get(self.__externalRCRef())
-                }
-            }
-            public var UNKNOWN_NAME: Swift.Int32 {
-                get {
-                    return kotlinx_serialization_encoding_CompositeDecoder_Companion_UNKNOWN_NAME_get(self.__externalRCRef())
-                }
-            }
-            public static var shared: ExportedKotlinPackages.kotlinx.serialization.encoding.CompositeDecoder.Companion {
-                get {
-                    return ExportedKotlinPackages.kotlinx.serialization.encoding.CompositeDecoder.Companion(__externalRCRef: kotlinx_serialization_encoding_CompositeDecoder_Companion_get())
-                }
-            }
-            package override init(
-                __externalRCRef: Swift.UInt
-            ) {
-                super.init(__externalRCRef: __externalRCRef)
-            }
-            private override init() {
-                fatalError()
-            }
-        }
+        typealias Companion = ExportedKotlinPackages.kotlinx.serialization.encoding.Companion
         var serializersModule: ExportedKotlinPackages.kotlinx.serialization.modules.SerializersModule {
             get
         }
@@ -1778,6 +1754,31 @@ public extension ExportedKotlinPackages.kotlinx.serialization.encoding {
             super.init(__externalRCRef: __externalRCRef)
         }
     }
+    public final class Companion: KotlinRuntime.KotlinBase, KotlinRuntimeSupport._KotlinBridged {
+        public var DECODE_DONE: Swift.Int32 {
+            get {
+                return kotlinx_serialization_encoding_CompositeDecoder_Companion_DECODE_DONE_get(self.__externalRCRef())
+            }
+        }
+        public var UNKNOWN_NAME: Swift.Int32 {
+            get {
+                return kotlinx_serialization_encoding_CompositeDecoder_Companion_UNKNOWN_NAME_get(self.__externalRCRef())
+            }
+        }
+        public static var shared: ExportedKotlinPackages.kotlinx.serialization.encoding.Companion {
+            get {
+                return ExportedKotlinPackages.kotlinx.serialization.encoding.Companion(__externalRCRef: kotlinx_serialization_encoding_CompositeDecoder_Companion_get())
+            }
+        }
+        package override init(
+            __externalRCRef: Swift.UInt
+        ) {
+            super.init(__externalRCRef: __externalRCRef)
+        }
+        private override init() {
+            fatalError()
+        }
+    }
 }
 public extension ExportedKotlinPackages.kotlinx.serialization.encoding.ChunkedDecoder where Self : KotlinRuntimeSupport._KotlinBridged {
     public func decodeStringChunked(
@@ -1790,31 +1791,6 @@ public extension ExportedKotlinPackages.kotlinx.serialization.encoding.ChunkedDe
     }
 }
 public extension ExportedKotlinPackages.kotlinx.serialization.encoding.CompositeDecoder where Self : KotlinRuntimeSupport._KotlinBridged {
-    public final class Companion: KotlinRuntime.KotlinBase, KotlinRuntimeSupport._KotlinBridged {
-        public var DECODE_DONE: Swift.Int32 {
-            get {
-                return kotlinx_serialization_encoding_CompositeDecoder_Companion_DECODE_DONE_get(self.__externalRCRef())
-            }
-        }
-        public var UNKNOWN_NAME: Swift.Int32 {
-            get {
-                return kotlinx_serialization_encoding_CompositeDecoder_Companion_UNKNOWN_NAME_get(self.__externalRCRef())
-            }
-        }
-        public static var shared: ExportedKotlinPackages.kotlinx.serialization.encoding.CompositeDecoder.Companion {
-            get {
-                return ExportedKotlinPackages.kotlinx.serialization.encoding.CompositeDecoder.Companion(__externalRCRef: kotlinx_serialization_encoding_CompositeDecoder_Companion_get())
-            }
-        }
-        package override init(
-            __externalRCRef: Swift.UInt
-        ) {
-            super.init(__externalRCRef: __externalRCRef)
-        }
-        private override init() {
-            fatalError()
-        }
-    }
     public var serializersModule: ExportedKotlinPackages.kotlinx.serialization.modules.SerializersModule {
         get {
             return ExportedKotlinPackages.kotlinx.serialization.modules.SerializersModule(__externalRCRef: kotlinx_serialization_encoding_CompositeDecoder_serializersModule_get(self.__externalRCRef()))

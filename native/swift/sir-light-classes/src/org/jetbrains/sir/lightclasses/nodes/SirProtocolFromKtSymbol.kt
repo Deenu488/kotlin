@@ -11,12 +11,14 @@ import org.jetbrains.kotlin.analysis.api.symbols.KaClassSymbol
 import org.jetbrains.kotlin.analysis.api.symbols.KaNamedClassSymbol
 import org.jetbrains.kotlin.analysis.api.types.symbol
 import org.jetbrains.kotlin.sir.*
+import org.jetbrains.kotlin.sir.builder.buildTypealias
 import org.jetbrains.kotlin.sir.providers.SirSession
 import org.jetbrains.kotlin.sir.providers.source.KotlinSource
 import org.jetbrains.kotlin.sir.providers.utils.KotlinRuntimeModule
 import org.jetbrains.kotlin.sir.providers.utils.KotlinRuntimeSupportModule
 import org.jetbrains.kotlin.sir.providers.utils.containingModule
 import org.jetbrains.kotlin.sir.providers.utils.updateImport
+import org.jetbrains.kotlin.sir.util.addChild
 import org.jetbrains.kotlin.utils.addToStdlib.firstIsInstanceOrNull
 import org.jetbrains.sir.lightclasses.SirFromKtSymbol
 import org.jetbrains.sir.lightclasses.extensions.documentation
@@ -63,6 +65,24 @@ internal class SirProtocolFromKtSymbol(
     override val declarations: List<SirDeclaration> by lazyWithSessions {
         ktSymbol.combinedDeclaredMemberScope
             .extractDeclarations(useSiteSession)
+            .mapNotNull { declaration ->
+                when (declaration) {
+                    is SirVariable, is SirFunction -> declaration
+                    is SirNamedDeclaration -> buildTypealias {
+                        origin = SirOrigin.Trampoline(declaration)
+                        visibility = SirVisibility.INTERNAL // visibility modifiers are disallowed in protocols
+                        name = declaration.name
+                        type = SirNominalType(declaration)
+                    }.apply {
+                        parent = this@SirProtocolFromKtSymbol
+                    }.also {
+                        (declaration.parent as? SirMutableDeclarationContainer)?.let {
+                            it.addChild { declaration }
+                        }
+                    }
+                    else -> declaration
+                }
+            }
             .toList()
     }
 }
@@ -111,11 +131,11 @@ internal class SirBridgedProtocolImplementationFromKtSymbol(
     override val declarations: MutableList<SirDeclaration> by lazyWithSessions {
         ktSymbol.combinedDeclaredMemberScope
             .extractDeclarations(useSiteSession)
-            .map {
+            .mapNotNull {
                 when (it) {
                     is SirFunction -> SirRelocatedFunction(it).also { it.parent = this@SirBridgedProtocolImplementationFromKtSymbol }
                     is SirVariable -> SirRelocatedVariable(it).also { it.parent = this@SirBridgedProtocolImplementationFromKtSymbol }
-                    else -> it
+                    else -> null
                 }
             }
             .toMutableList()

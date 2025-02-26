@@ -2,7 +2,10 @@
 @file:kotlin.native.internal.objc.BindClassToObjCName(Bar::class, "4main3BarC")
 @file:kotlin.native.internal.objc.BindClassToObjCName(ENUM_WITH_INTERFACE_INHERITANCE::class, "4main31ENUM_WITH_INTERFACE_INHERITANCEC")
 @file:kotlin.native.internal.objc.BindClassToObjCName(Foo::class, "4main3FooC")
+@file:kotlin.native.internal.objc.BindClassToObjCName(INHERITANCE_COUPLE::class, "4main18INHERITANCE_COUPLEC")
+@file:kotlin.native.internal.objc.BindClassToObjCName(INHERITANCE_SINGLE_PROTO::class, "4main24INHERITANCE_SINGLE_PROTOC")
 @file:kotlin.native.internal.objc.BindClassToObjCName(MyObject::class, "4main8MyObjectC")
+@file:kotlin.native.internal.objc.BindClassToObjCName(ContainerProtocol.NestedClass::class, "4main11NestedClassC")
 @file:kotlin.native.internal.objc.BindClassToObjCName(OBJECT_WITH_INTERFACE_INHERITANCE::class, "4main33OBJECT_WITH_INTERFACE_INHERITANCEC")
 
 import kotlin.native.internal.ExportedBridge
@@ -37,6 +40,18 @@ public fun Barable_baz_get(self: kotlin.native.internal.NativePtr): kotlin.nativ
     val __self = kotlin.native.internal.ref.dereferenceExternalRCRef(self) as Barable
     val _result = __self.baz
     return kotlin.native.internal.ref.createRetainedExternalRCRef(_result)
+}
+
+@ExportedBridge("ContainerProtocol_NestedClass_init_allocate")
+public fun ContainerProtocol_NestedClass_init_allocate(): kotlin.native.internal.NativePtr {
+    val _result = kotlin.native.internal.createUninitializedInstance<ContainerProtocol.NestedClass>()
+    return kotlin.native.internal.ref.createRetainedExternalRCRef(_result)
+}
+
+@ExportedBridge("ContainerProtocol_NestedClass_init_initialize__TypesOfArguments__Swift_UInt__")
+public fun ContainerProtocol_NestedClass_init_initialize__TypesOfArguments__Swift_UInt__(__kt: kotlin.native.internal.NativePtr): Unit {
+    val ____kt = kotlin.native.internal.ref.dereferenceExternalRCRef(__kt)!!
+    kotlin.native.internal.initInstance(____kt, ContainerProtocol.NestedClass())
 }
 
 @ExportedBridge("ENUM_WITH_INTERFACE_INHERITANCE_entries_get")
@@ -104,6 +119,30 @@ public fun __root___Foo_init_allocate(): kotlin.native.internal.NativePtr {
 public fun __root___Foo_init_initialize__TypesOfArguments__Swift_UInt__(__kt: kotlin.native.internal.NativePtr): Unit {
     val ____kt = kotlin.native.internal.ref.dereferenceExternalRCRef(__kt)!!
     kotlin.native.internal.initInstance(____kt, Foo())
+}
+
+@ExportedBridge("__root___INHERITANCE_COUPLE_init_allocate")
+public fun __root___INHERITANCE_COUPLE_init_allocate(): kotlin.native.internal.NativePtr {
+    val _result = kotlin.native.internal.createUninitializedInstance<INHERITANCE_COUPLE>()
+    return kotlin.native.internal.ref.createRetainedExternalRCRef(_result)
+}
+
+@ExportedBridge("__root___INHERITANCE_COUPLE_init_initialize__TypesOfArguments__Swift_UInt__")
+public fun __root___INHERITANCE_COUPLE_init_initialize__TypesOfArguments__Swift_UInt__(__kt: kotlin.native.internal.NativePtr): Unit {
+    val ____kt = kotlin.native.internal.ref.dereferenceExternalRCRef(__kt)!!
+    kotlin.native.internal.initInstance(____kt, INHERITANCE_COUPLE())
+}
+
+@ExportedBridge("__root___INHERITANCE_SINGLE_PROTO_init_allocate")
+public fun __root___INHERITANCE_SINGLE_PROTO_init_allocate(): kotlin.native.internal.NativePtr {
+    val _result = kotlin.native.internal.createUninitializedInstance<INHERITANCE_SINGLE_PROTO>()
+    return kotlin.native.internal.ref.createRetainedExternalRCRef(_result)
+}
+
+@ExportedBridge("__root___INHERITANCE_SINGLE_PROTO_init_initialize__TypesOfArguments__Swift_UInt__")
+public fun __root___INHERITANCE_SINGLE_PROTO_init_initialize__TypesOfArguments__Swift_UInt__(__kt: kotlin.native.internal.NativePtr): Unit {
+    val ____kt = kotlin.native.internal.ref.dereferenceExternalRCRef(__kt)!!
+    kotlin.native.internal.initInstance(____kt, INHERITANCE_SINGLE_PROTO())
 }
 
 @ExportedBridge("__root___MyObject_get")

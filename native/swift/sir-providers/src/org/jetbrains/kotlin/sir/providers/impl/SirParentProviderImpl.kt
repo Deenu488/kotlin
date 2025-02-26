@@ -63,7 +63,11 @@ public class SirParentProviderImpl(
             }
         } else {
             with(sirSession) {
-                parentSymbol.toSir().primaryDeclaration as? SirDeclarationContainer
+                if (symbol is KaClassSymbol && parentSymbol is KaNamedClassSymbol && parentSymbol.classKind == KaClassKind.INTERFACE) {
+                    parentSymbol.getSirParent(ktAnalysisSession) as? SirDeclarationContainer
+                } else {
+                    parentSymbol.toSir().primaryDeclaration as? SirDeclarationContainer
+                }
             } ?: error("parent declaration does not produce suitable SIR")
         }
     }

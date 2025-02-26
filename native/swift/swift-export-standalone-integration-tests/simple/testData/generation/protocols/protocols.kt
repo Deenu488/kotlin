@@ -28,23 +28,23 @@ class Bar: Barable, Foeble, Bazzable {
 
 // FILE: less_trivial.kt
 
-interface OUTSIDE_PROTO {
-    // FIXME: KT-70541
-    // We can not properly detect nested classes as unsopported
-    /*
-   open class INSIDE_PROTO
-    */
+interface ContainerProtocol {
+    open class NestedClass
+
+    interface NestedProtocol {
+        open class NestedClass2
+    }
 }
 
-// FIXME: See the commend above on OUTSIDE_PROTO.INSIDE_PROTO
-/*
-    class INHERITANCE_COUPLE : OUTSIDE_PROTO.INSIDE_PROTO(), OUTSIDE_PROTO
-    class INHERITANCE_SINGLE_PROTO : OUTSIDE_PROTO.INSIDE_PROTO()
-*/
+// FIXME: See the commend above on ContainerProtocol.NestedClass
 
-object OBJECT_WITH_INTERFACE_INHERITANCE: OUTSIDE_PROTO
+class INHERITANCE_COUPLE : ContainerProtocol.NestedClass(), ContainerProtocol
+class INHERITANCE_SINGLE_PROTO : ContainerProtocol.NestedClass()
 
-enum class ENUM_WITH_INTERFACE_INHERITANCE: OUTSIDE_PROTO
+
+object OBJECT_WITH_INTERFACE_INHERITANCE: ContainerProtocol
+
+enum class ENUM_WITH_INTERFACE_INHERITANCE: ContainerProtocol
 
 // FILE: existentials.kt
 
