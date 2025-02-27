@@ -158,4 +158,12 @@ public interface KaCompilerFacility : KaSessionComponent {
 @KaExperimentalApi
 public class KaCodeCompilationException(cause: Throwable) : RuntimeException(cause)
 
+/**
+ * Provides an extension point for compiler to retrieve additional information from debugger API
+ *
+ * Used for debugger's code fragments compilation.
+ *
+ * @param getInvocationPsiAtStackDepth A function providing PSI of last invocation in the current execution stack,
+ * skipping the number of frames equals to passed argument
+ */
 public class DebuggerExtension(public val getInvocationPsiAtStackDepth: (Int) -> KtCallExpression?)
