@@ -524,6 +524,16 @@ sealed class IdSignature {
                 containingClass.nearestPublicSig()
 
         override fun packageFqName() = containingClass.packageFqName()
+
+        override fun flags(): Long = mask
+
+        override fun equals(other: Any?): Boolean =
+            other is LocalFakeOverrideSignature && containingClass == other.containingClass &&
+                    id == other.id && mask == other.mask
+
+        private val hashCode = (containingClass.hashCode() * 31 + id.hashCode()) * 31 + mask.hashCode()
+
+        override fun hashCode(): Int = hashCode
     }
 
     /**
