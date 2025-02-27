@@ -151,6 +151,11 @@ public abstract interface class org/jetbrains/kotlin/analysis/api/base/KaConstan
 	public abstract fun getValue-Mh2AYeg ()S
 }
 
+public final class org/jetbrains/kotlin/analysis/api/components/DebuggerExtension {
+	public fun <init> (Lkotlin/jvm/functions/Function1;)V
+	public final fun getGetInvocationPsiAtStackDepth ()Lkotlin/jvm/functions/Function1;
+}
+
 public final class org/jetbrains/kotlin/analysis/api/components/DefaultTypeClassIds {
 	public static final field INSTANCE Lorg/jetbrains/kotlin/analysis/api/components/DefaultTypeClassIds;
 	public final fun getANY ()Lorg/jetbrains/kotlin/name/ClassId;
