@@ -499,7 +499,7 @@ sealed class IdSignature {
      * (in the case of inlining) by just replacing the [containingClass] field. It is therefore more similar to JVM signatures.
      *
      */
-    data class LocalFakeOverrideSignature(
+    class LocalFakeOverrideSignature(
         val containingClass: IdSignature,
         val id: Long,
         val mask: Long,
