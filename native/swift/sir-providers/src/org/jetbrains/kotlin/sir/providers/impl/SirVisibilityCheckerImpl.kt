@@ -9,6 +9,7 @@ import org.jetbrains.kotlin.analysis.api.KaExperimentalApi
 import org.jetbrains.kotlin.analysis.api.KaSession
 import org.jetbrains.kotlin.analysis.api.components.DefaultTypeClassIds
 import org.jetbrains.kotlin.analysis.api.symbols.*
+import org.jetbrains.kotlin.analysis.api.types.KaClassType
 import org.jetbrains.kotlin.analysis.api.types.KaType
 import org.jetbrains.kotlin.analysis.api.types.symbol
 import org.jetbrains.kotlin.builtins.StandardNames
@@ -91,6 +92,10 @@ public class SirVisibilityCheckerImpl(
             if (classKind == KaClassKind.INTERFACE && modality == KaSymbolModality.SEALED) {
                 return false
             }
+            if (typeParameters.isNotEmpty()) {
+                unsupportedDeclarationReporter.report(this@isExported, "generics are not supported yet.")
+                return@with false
+            }
             if (classId == DefaultTypeClassIds.ANY) {
                 return@with false
             }
@@ -98,7 +103,6 @@ public class SirVisibilityCheckerImpl(
                 unsupportedDeclarationReporter.report(this@isExported, "inline classes are not supported yet.")
                 return@with false
             }
-
             return true
         }
 
