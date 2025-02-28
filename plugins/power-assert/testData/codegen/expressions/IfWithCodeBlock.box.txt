@@ -1,0 +1,16 @@
+---
+assert(if(a > b) { a == b } else { a.inc() == 3 })
+          | | |  |
+          | | |  false
+          | | 1
+          | true
+          2
+---
+---
+assert(if(a > b) { a == b } else { a.inc() == 3 })
+          | | |                  |
+          | | |                  false
+          | | 2
+          | false
+          1
+---

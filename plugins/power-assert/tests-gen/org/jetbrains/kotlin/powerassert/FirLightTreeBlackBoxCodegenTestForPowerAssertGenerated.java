@@ -283,6 +283,30 @@ public class FirLightTreeBlackBoxCodegenTestForPowerAssertGenerated extends Abst
     public void testIfExpression() {
       runTest("plugins/power-assert/testData/codegen/expressions/IfExpression.kt");
     }
+
+    @Test
+    @TestMetadata("IfWithCodeBlock.kt")
+    public void testIfWithCodeBlock() {
+      runTest("plugins/power-assert/testData/codegen/expressions/IfWithCodeBlock.kt");
+    }
+
+    @Test
+    @TestMetadata("tryCatch.kt")
+    public void testTryCatch() {
+      runTest("plugins/power-assert/testData/codegen/expressions/tryCatch.kt");
+    }
+
+    @Test
+    @TestMetadata("whenWithSubject.kt")
+    public void testWhenWithSubject() {
+      runTest("plugins/power-assert/testData/codegen/expressions/whenWithSubject.kt");
+    }
+
+    @Test
+    @TestMetadata("whenWithoutSubject.kt")
+    public void testWhenWithoutSubject() {
+      runTest("plugins/power-assert/testData/codegen/expressions/whenWithoutSubject.kt");
+    }
   }
 
   @Nested
@@ -328,6 +352,34 @@ public class FirLightTreeBlackBoxCodegenTestForPowerAssertGenerated extends Abst
     @TestMetadata("Whitespace.kt")
     public void testWhitespace() {
       runTest("plugins/power-assert/testData/codegen/format/Whitespace.kt");
+    }
+  }
+
+  @Nested
+  @TestMetadata("plugins/power-assert/testData/codegen/function")
+  @TestDataPath("$PROJECT_ROOT")
+  public class Function {
+    @Test
+    public void testAllFilesPresentInFunction() {
+      KtTestUtil.assertAllTestsPresentByMetadataWithExcluded(this.getClass(), new File("plugins/power-assert/testData/codegen/function"), Pattern.compile("^(.+)\\.kt$"), Pattern.compile("^(.+)\\.fir\\.kts?$"), TargetBackend.JVM_IR, true);
+    }
+
+    @Test
+    @TestMetadata("anonymousFunction.kt")
+    public void testAnonymousFunction() {
+      runTest("plugins/power-assert/testData/codegen/function/anonymousFunction.kt");
+    }
+
+    @Test
+    @TestMetadata("functionInCompanion.kt")
+    public void testFunctionInCompanion() {
+      runTest("plugins/power-assert/testData/codegen/function/functionInCompanion.kt");
+    }
+
+    @Test
+    @TestMetadata("functionReturnsBoolean.kt")
+    public void testFunctionReturnsBoolean() {
+      runTest("plugins/power-assert/testData/codegen/function/functionReturnsBoolean.kt");
     }
   }
 
@@ -635,6 +687,12 @@ public class FirLightTreeBlackBoxCodegenTestForPowerAssertGenerated extends Abst
     }
 
     @Test
+    @TestMetadata("lambdaExpression.kt")
+    public void testLambdaExpression() {
+      runTest("plugins/power-assert/testData/codegen/lambda/lambdaExpression.kt");
+    }
+
+    @Test
     @TestMetadata("ListOperationsAssert.kt")
     public void testListOperationsAssert() {
       runTest("plugins/power-assert/testData/codegen/lambda/ListOperationsAssert.kt");
@@ -764,6 +822,34 @@ public class FirLightTreeBlackBoxCodegenTestForPowerAssertGenerated extends Abst
     @TestMetadata("VarargParameter.kt")
     public void testVarargParameter() {
       runTest("plugins/power-assert/testData/codegen/parameters/VarargParameter.kt");
+    }
+  }
+
+  @Nested
+  @TestMetadata("plugins/power-assert/testData/codegen/property")
+  @TestDataPath("$PROJECT_ROOT")
+  public class Property {
+    @Test
+    public void testAllFilesPresentInProperty() {
+      KtTestUtil.assertAllTestsPresentByMetadataWithExcluded(this.getClass(), new File("plugins/power-assert/testData/codegen/property"), Pattern.compile("^(.+)\\.kt$"), Pattern.compile("^(.+)\\.fir\\.kts?$"), TargetBackend.JVM_IR, true);
+    }
+
+    @Test
+    @TestMetadata("booleanProperty.kt")
+    public void testBooleanProperty() {
+      runTest("plugins/power-assert/testData/codegen/property/booleanProperty.kt");
+    }
+
+    @Test
+    @TestMetadata("enumWithBooleanProperty.kt")
+    public void testEnumWithBooleanProperty() {
+      runTest("plugins/power-assert/testData/codegen/property/enumWithBooleanProperty.kt");
+    }
+
+    @Test
+    @TestMetadata("propertyInCompanion.kt")
+    public void testPropertyInCompanion() {
+      runTest("plugins/power-assert/testData/codegen/property/propertyInCompanion.kt");
     }
   }
 }
