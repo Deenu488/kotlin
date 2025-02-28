@@ -188,13 +188,23 @@ public class KtTestUtil {
     }
 
     public static File findMockJdkRtJar() {
-        return new File(getHomeDirectory(), "compiler/testData/mockJDK/jre/lib/rt.jar");
+        String property = System.getProperty("org.jetbrains.kotlin.test.mockJdkRuntime");
+        if (property!= null) {
+            return new File(property);
+        } else {
+            return new File(getHomeDirectory(), "compiler/testData/mockJDK/jre/lib/rt.jar");
+        }
     }
 
     // Differs from common mock JDK only by one additional 'nonExistingMethod' in Collection and constructor from Double in Throwable
     // It's needed to test the way we load additional built-ins members that neither in black nor white lists
     public static File findMockJdkRtModified() {
-        return new File(getHomeDirectory(), "compiler/testData/mockJDKModified/rt.jar");
+        String property = System.getProperty("org.jetbrains.kotlin.test.mockJDKModifiedRuntime");
+        if (property!= null) {
+            return new File(property);
+        } else {
+            return new File(getHomeDirectory(), "compiler/testData/mockJDKModified/rt.jar");
+        }
     }
 
     public static File findAndroidApiJar() {
@@ -227,7 +237,12 @@ public class KtTestUtil {
     }
 
     public static File getAnnotationsJar() {
-        return new File(getHomeDirectory(), "compiler/testData/mockJDK/jre/lib/annotations.jar");
+        String property = System.getProperty("org.jetbrains.kotlin.test.mockJdkAnnotationsJar");
+        if (property!= null) {
+            return new File(property);
+        } else {
+            return new File(getHomeDirectory(), "compiler/testData/mockJDK/jre/lib/annotations.jar");
+        }
     }
 
     public static void mkdirs(@NotNull File file) {

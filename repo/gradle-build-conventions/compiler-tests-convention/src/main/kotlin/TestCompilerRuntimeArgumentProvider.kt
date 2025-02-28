@@ -3,6 +3,7 @@
  * Use of this source code is governed by the Apache 2.0 license that can be found in the license/LICENSE.txt file.
  */
 
+import CompilerTestsExtension.TestData
 import TestCompilePaths.KOTLIN_ANNOTATIONS_PATH
 import TestCompilePaths.KOTLIN_COMMON_STDLIB_PATH
 import TestCompilePaths.KOTLIN_FULL_STDLIB_PATH
@@ -15,8 +16,10 @@ import TestCompilePaths.KOTLIN_SCRIPTING_PLUGIN_CLASSPATH
 import TestCompilePaths.KOTLIN_SCRIPT_RUNTIME_PATH
 import TestCompilePaths.KOTLIN_TEST_JAR_PATH
 import org.gradle.api.file.ConfigurableFileCollection
+import org.gradle.api.provider.ListProperty
 import org.gradle.api.tasks.Classpath
 import org.gradle.api.tasks.InputFiles
+import org.gradle.api.tasks.Nested
 import org.gradle.process.CommandLineArgumentProvider
 
 abstract class TestCompilerRuntimeArgumentProvider : CommandLineArgumentProvider {
@@ -60,6 +63,9 @@ abstract class TestCompilerRuntimeArgumentProvider : CommandLineArgumentProvider
     @get:Classpath
     abstract val testJsRuntimeForTests: ConfigurableFileCollection
 
+    @get:Nested
+    abstract val testDataDirs: ListProperty<TestData>
+
     private fun ifNotEmpty(property: String, fileCollection: ConfigurableFileCollection): String? =
         if (fileCollection.isEmpty) null else argument(property, fileCollection)
 
@@ -79,6 +85,6 @@ abstract class TestCompilerRuntimeArgumentProvider : CommandLineArgumentProvider
             ifNotEmpty(KOTLIN_JS_STDLIB_KLIB_PATH, stdlibJsRuntimeForTests),
             ifNotEmpty(KOTLIN_JS_REDUCED_STDLIB_PATH, stdlibJsRuntimeForTests),
             ifNotEmpty(KOTLIN_JS_KOTLIN_TEST_KLIB_PATH, testJsRuntimeForTests),
-        )
+        ) + testDataDirs.get().map { "-D" + it.key + "=" + it.directory.asFile.absolutePath }
     }
 }

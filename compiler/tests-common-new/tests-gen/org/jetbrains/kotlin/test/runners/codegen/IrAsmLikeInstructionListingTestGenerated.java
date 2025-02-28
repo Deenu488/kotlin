@@ -37,55 +37,55 @@ public class IrAsmLikeInstructionListingTestGenerated extends AbstractIrAsmLikeI
     @Test
     @TestMetadata("deepInline.kt")
     public void testDeepInline() {
-      runTest("compiler/testData/codegen/asmLike/receiverMangling/deepInline.kt");
+      runTest(":compiler:testData/codegen", "asmLike/receiverMangling/deepInline.kt");
     }
 
     @Test
     @TestMetadata("deepInlineWithLabels.kt")
     public void testDeepInlineWithLabels() {
-      runTest("compiler/testData/codegen/asmLike/receiverMangling/deepInlineWithLabels.kt");
+      runTest(":compiler:testData/codegen", "asmLike/receiverMangling/deepInlineWithLabels.kt");
     }
 
     @Test
     @TestMetadata("deepNoinline.kt")
     public void testDeepNoinline() {
-      runTest("compiler/testData/codegen/asmLike/receiverMangling/deepNoinline.kt");
+      runTest(":compiler:testData/codegen", "asmLike/receiverMangling/deepNoinline.kt");
     }
 
     @Test
     @TestMetadata("deepNoinlineWithLabels.kt")
     public void testDeepNoinlineWithLabels() {
-      runTest("compiler/testData/codegen/asmLike/receiverMangling/deepNoinlineWithLabels.kt");
+      runTest(":compiler:testData/codegen", "asmLike/receiverMangling/deepNoinlineWithLabels.kt");
     }
 
     @Test
     @TestMetadata("inlineClassCapture.kt")
     public void testInlineClassCapture() {
-      runTest("compiler/testData/codegen/asmLike/receiverMangling/inlineClassCapture.kt");
+      runTest(":compiler:testData/codegen", "asmLike/receiverMangling/inlineClassCapture.kt");
     }
 
     @Test
     @TestMetadata("inlineReceivers.kt")
     public void testInlineReceivers() {
-      runTest("compiler/testData/codegen/asmLike/receiverMangling/inlineReceivers.kt");
+      runTest(":compiler:testData/codegen", "asmLike/receiverMangling/inlineReceivers.kt");
     }
 
     @Test
     @TestMetadata("localFunctions.kt")
     public void testLocalFunctions() {
-      runTest("compiler/testData/codegen/asmLike/receiverMangling/localFunctions.kt");
+      runTest(":compiler:testData/codegen", "asmLike/receiverMangling/localFunctions.kt");
     }
 
     @Test
     @TestMetadata("mangledNames.kt")
     public void testMangledNames() {
-      runTest("compiler/testData/codegen/asmLike/receiverMangling/mangledNames.kt");
+      runTest(":compiler:testData/codegen", "asmLike/receiverMangling/mangledNames.kt");
     }
 
     @Test
     @TestMetadata("nonInlineReceivers.kt")
     public void testNonInlineReceivers() {
-      runTest("compiler/testData/codegen/asmLike/receiverMangling/nonInlineReceivers.kt");
+      runTest(":compiler:testData/codegen", "asmLike/receiverMangling/nonInlineReceivers.kt");
     }
   }
 
@@ -101,139 +101,139 @@ public class IrAsmLikeInstructionListingTestGenerated extends AbstractIrAsmLikeI
     @Test
     @TestMetadata("classTypeParameter.kt")
     public void testClassTypeParameter() {
-      runTest("compiler/testData/codegen/asmLike/typeAnnotations/classTypeParameter.kt");
+      runTest(":compiler:testData/codegen", "asmLike/typeAnnotations/classTypeParameter.kt");
     }
 
     @Test
     @TestMetadata("complex.kt")
     public void testComplex() {
-      runTest("compiler/testData/codegen/asmLike/typeAnnotations/complex.kt");
+      runTest(":compiler:testData/codegen", "asmLike/typeAnnotations/complex.kt");
     }
 
     @Test
     @TestMetadata("constructor.kt")
     public void testConstructor() {
-      runTest("compiler/testData/codegen/asmLike/typeAnnotations/constructor.kt");
+      runTest(":compiler:testData/codegen", "asmLike/typeAnnotations/constructor.kt");
     }
 
     @Test
     @TestMetadata("defaultArgs.kt")
     public void testDefaultArgs() {
-      runTest("compiler/testData/codegen/asmLike/typeAnnotations/defaultArgs.kt");
+      runTest(":compiler:testData/codegen", "asmLike/typeAnnotations/defaultArgs.kt");
     }
 
     @Test
     @TestMetadata("dontEmit.kt")
     public void testDontEmit() {
-      runTest("compiler/testData/codegen/asmLike/typeAnnotations/dontEmit.kt");
+      runTest(":compiler:testData/codegen", "asmLike/typeAnnotations/dontEmit.kt");
     }
 
     @Test
     @TestMetadata("dontEmitInternal.kt")
     public void testDontEmitInternal() {
-      runTest("compiler/testData/codegen/asmLike/typeAnnotations/dontEmitInternal.kt");
+      runTest(":compiler:testData/codegen", "asmLike/typeAnnotations/dontEmitInternal.kt");
     }
 
     @Test
     @TestMetadata("enumClassConstructor.kt")
     public void testEnumClassConstructor() {
-      runTest("compiler/testData/codegen/asmLike/typeAnnotations/enumClassConstructor.kt");
+      runTest(":compiler:testData/codegen", "asmLike/typeAnnotations/enumClassConstructor.kt");
     }
 
     @Test
     @TestMetadata("extension.kt")
     public void testExtension() {
-      runTest("compiler/testData/codegen/asmLike/typeAnnotations/extension.kt");
+      runTest(":compiler:testData/codegen", "asmLike/typeAnnotations/extension.kt");
     }
 
     @Test
     @TestMetadata("functionTypeParameter.kt")
     public void testFunctionTypeParameter() {
-      runTest("compiler/testData/codegen/asmLike/typeAnnotations/functionTypeParameter.kt");
+      runTest(":compiler:testData/codegen", "asmLike/typeAnnotations/functionTypeParameter.kt");
     }
 
     @Test
     @TestMetadata("implicit.kt")
     public void testImplicit() {
-      runTest("compiler/testData/codegen/asmLike/typeAnnotations/implicit.kt");
+      runTest(":compiler:testData/codegen", "asmLike/typeAnnotations/implicit.kt");
     }
 
     @Test
     @TestMetadata("innerClassConstructor.kt")
     public void testInnerClassConstructor() {
-      runTest("compiler/testData/codegen/asmLike/typeAnnotations/innerClassConstructor.kt");
+      runTest(":compiler:testData/codegen", "asmLike/typeAnnotations/innerClassConstructor.kt");
     }
 
     @Test
     @TestMetadata("jvmOverload.kt")
     public void testJvmOverload() {
-      runTest("compiler/testData/codegen/asmLike/typeAnnotations/jvmOverload.kt");
+      runTest(":compiler:testData/codegen", "asmLike/typeAnnotations/jvmOverload.kt");
     }
 
     @Test
     @TestMetadata("jvmStatic.kt")
     public void testJvmStatic() {
-      runTest("compiler/testData/codegen/asmLike/typeAnnotations/jvmStatic.kt");
+      runTest(":compiler:testData/codegen", "asmLike/typeAnnotations/jvmStatic.kt");
     }
 
     @Test
     @TestMetadata("notYetSupported.kt")
     public void testNotYetSupported() {
-      runTest("compiler/testData/codegen/asmLike/typeAnnotations/notYetSupported.kt");
+      runTest(":compiler:testData/codegen", "asmLike/typeAnnotations/notYetSupported.kt");
     }
 
     @Test
     @TestMetadata("property.kt")
     public void testProperty() {
-      runTest("compiler/testData/codegen/asmLike/typeAnnotations/property.kt");
+      runTest(":compiler:testData/codegen", "asmLike/typeAnnotations/property.kt");
     }
 
     @Test
     @TestMetadata("propertyTypeParameter.kt")
     public void testPropertyTypeParameter() {
-      runTest("compiler/testData/codegen/asmLike/typeAnnotations/propertyTypeParameter.kt");
+      runTest(":compiler:testData/codegen", "asmLike/typeAnnotations/propertyTypeParameter.kt");
     }
 
     @Test
     @TestMetadata("simple.kt")
     public void testSimple() {
-      runTest("compiler/testData/codegen/asmLike/typeAnnotations/simple.kt");
+      runTest(":compiler:testData/codegen", "asmLike/typeAnnotations/simple.kt");
     }
 
     @Test
     @TestMetadata("simple2Params.kt")
     public void testSimple2Params() {
-      runTest("compiler/testData/codegen/asmLike/typeAnnotations/simple2Params.kt");
+      runTest(":compiler:testData/codegen", "asmLike/typeAnnotations/simple2Params.kt");
     }
 
     @Test
     @TestMetadata("simple2TypeArguments.kt")
     public void testSimple2TypeArguments() {
-      runTest("compiler/testData/codegen/asmLike/typeAnnotations/simple2TypeArguments.kt");
+      runTest(":compiler:testData/codegen", "asmLike/typeAnnotations/simple2TypeArguments.kt");
     }
 
     @Test
     @TestMetadata("staticNested.kt")
     public void testStaticNested() {
-      runTest("compiler/testData/codegen/asmLike/typeAnnotations/staticNested.kt");
+      runTest(":compiler:testData/codegen", "asmLike/typeAnnotations/staticNested.kt");
     }
 
     @Test
     @TestMetadata("supertype.kt")
     public void testSupertype() {
-      runTest("compiler/testData/codegen/asmLike/typeAnnotations/supertype.kt");
+      runTest(":compiler:testData/codegen", "asmLike/typeAnnotations/supertype.kt");
     }
 
     @Test
     @TestMetadata("syntheticAccessors.kt")
     public void testSyntheticAccessors() {
-      runTest("compiler/testData/codegen/asmLike/typeAnnotations/syntheticAccessors.kt");
+      runTest(":compiler:testData/codegen", "asmLike/typeAnnotations/syntheticAccessors.kt");
     }
 
     @Test
     @TestMetadata("typeParameter.kt")
     public void testTypeParameter() {
-      runTest("compiler/testData/codegen/asmLike/typeAnnotations/typeParameter.kt");
+      runTest(":compiler:testData/codegen", "asmLike/typeAnnotations/typeParameter.kt");
     }
 
     @Nested
@@ -248,37 +248,37 @@ public class IrAsmLikeInstructionListingTestGenerated extends AbstractIrAsmLikeI
       @Test
       @TestMetadata("parameter.kt")
       public void testParameter() {
-        runTest("compiler/testData/codegen/asmLike/typeAnnotations/generics/parameter.kt");
+        runTest(":compiler:testData/codegen", "asmLike/typeAnnotations/generics/parameter.kt");
       }
 
       @Test
       @TestMetadata("returnType.kt")
       public void testReturnType() {
-        runTest("compiler/testData/codegen/asmLike/typeAnnotations/generics/returnType.kt");
+        runTest(":compiler:testData/codegen", "asmLike/typeAnnotations/generics/returnType.kt");
       }
 
       @Test
       @TestMetadata("supertype.kt")
       public void testSupertype() {
-        runTest("compiler/testData/codegen/asmLike/typeAnnotations/generics/supertype.kt");
+        runTest(":compiler:testData/codegen", "asmLike/typeAnnotations/generics/supertype.kt");
       }
 
       @Test
       @TestMetadata("typeParameterBound.kt")
       public void testTypeParameterBound() {
-        runTest("compiler/testData/codegen/asmLike/typeAnnotations/generics/typeParameterBound.kt");
+        runTest(":compiler:testData/codegen", "asmLike/typeAnnotations/generics/typeParameterBound.kt");
       }
 
       @Test
       @TestMetadata("val.kt")
       public void testVal() {
-        runTest("compiler/testData/codegen/asmLike/typeAnnotations/generics/val.kt");
+        runTest(":compiler:testData/codegen", "asmLike/typeAnnotations/generics/val.kt");
       }
 
       @Test
       @TestMetadata("var.kt")
       public void testVar() {
-        runTest("compiler/testData/codegen/asmLike/typeAnnotations/generics/var.kt");
+        runTest(":compiler:testData/codegen", "asmLike/typeAnnotations/generics/var.kt");
       }
     }
   }

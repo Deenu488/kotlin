@@ -23,25 +23,25 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
   @Test
   @TestMetadata("accessorForProtectedPropertyWithPrivateSetter.kt")
   public void testAccessorForProtectedPropertyWithPrivateSetter() {
-    runTest("compiler/testData/codegen/bytecodeListing/accessorForProtectedPropertyWithPrivateSetter.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/accessorForProtectedPropertyWithPrivateSetter.kt");
   }
 
   @Test
   @TestMetadata("accessorForProtectedPropertyWithPrivateSetterInObjectLiteral.kt")
   public void testAccessorForProtectedPropertyWithPrivateSetterInObjectLiteral() {
-    runTest("compiler/testData/codegen/bytecodeListing/accessorForProtectedPropertyWithPrivateSetterInObjectLiteral.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/accessorForProtectedPropertyWithPrivateSetterInObjectLiteral.kt");
   }
 
   @Test
   @TestMetadata("accessorForTopLevelMembers.kt")
   public void testAccessorForTopLevelMembers() {
-    runTest("compiler/testData/codegen/bytecodeListing/accessorForTopLevelMembers.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/accessorForTopLevelMembers.kt");
   }
 
   @Test
   @TestMetadata("accessorsForProtectedStaticJavaFieldInOtherPackage.kt")
   public void testAccessorsForProtectedStaticJavaFieldInOtherPackage() {
-    runTest("compiler/testData/codegen/bytecodeListing/accessorsForProtectedStaticJavaFieldInOtherPackage.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/accessorsForProtectedStaticJavaFieldInOtherPackage.kt");
   }
 
   @Test
@@ -52,259 +52,259 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
   @Test
   @TestMetadata("anonymousObjectInGenericFun.kt")
   public void testAnonymousObjectInGenericFun() {
-    runTest("compiler/testData/codegen/bytecodeListing/anonymousObjectInGenericFun.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/anonymousObjectInGenericFun.kt");
   }
 
   @Test
   @TestMetadata("callableNameIntrinsic.kt")
   public void testCallableNameIntrinsic() {
-    runTest("compiler/testData/codegen/bytecodeListing/callableNameIntrinsic.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/callableNameIntrinsic.kt");
   }
 
   @Test
   @TestMetadata("callableReferenceArrayConstructorArguments.kt")
   public void testCallableReferenceArrayConstructorArguments() {
-    runTest("compiler/testData/codegen/bytecodeListing/callableReferenceArrayConstructorArguments.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/callableReferenceArrayConstructorArguments.kt");
   }
 
   @Test
   @TestMetadata("cloneable.kt")
   public void testCloneable() {
-    runTest("compiler/testData/codegen/bytecodeListing/cloneable.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/cloneable.kt");
   }
 
   @Test
   @TestMetadata("companionObjectVisibility_after.kt")
   public void testCompanionObjectVisibility_after() {
-    runTest("compiler/testData/codegen/bytecodeListing/companionObjectVisibility_after.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/companionObjectVisibility_after.kt");
   }
 
   @Test
   @TestMetadata("defaultImpls.kt")
   public void testDefaultImpls() {
-    runTest("compiler/testData/codegen/bytecodeListing/defaultImpls.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/defaultImpls.kt");
   }
 
   @Test
   @TestMetadata("delegationToJavaInterfaceWithWildcardType.kt")
   public void testDelegationToJavaInterfaceWithWildcardType() {
-    runTest("compiler/testData/codegen/bytecodeListing/delegationToJavaInterfaceWithWildcardType.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/delegationToJavaInterfaceWithWildcardType.kt");
   }
 
   @Test
   @TestMetadata("deprecatedConstantPropertyInterfaceCompanion.kt")
   public void testDeprecatedConstantPropertyInterfaceCompanion() {
-    runTest("compiler/testData/codegen/bytecodeListing/deprecatedConstantPropertyInterfaceCompanion.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/deprecatedConstantPropertyInterfaceCompanion.kt");
   }
 
   @Test
   @TestMetadata("deserializeLambdaMethod.kt")
   public void testDeserializeLambdaMethod() {
-    runTest("compiler/testData/codegen/bytecodeListing/deserializeLambdaMethod.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/deserializeLambdaMethod.kt");
   }
 
   @Test
   @TestMetadata("enum.kt")
   public void testEnum() {
-    runTest("compiler/testData/codegen/bytecodeListing/enum.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/enum.kt");
   }
 
   @Test
   @TestMetadata("enumEntries.kt")
   public void testEnumEntries() {
-    runTest("compiler/testData/codegen/bytecodeListing/enumEntries.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/enumEntries.kt");
   }
 
   @Test
   @TestMetadata("extension.kt")
   public void testExtension() {
-    runTest("compiler/testData/codegen/bytecodeListing/extension.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/extension.kt");
   }
 
   @Test
   @TestMetadata("fileClassWithPrivateDeclarationsOnly_after.kt")
   public void testFileClassWithPrivateDeclarationsOnly_after() {
-    runTest("compiler/testData/codegen/bytecodeListing/fileClassWithPrivateDeclarationsOnly_after.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/fileClassWithPrivateDeclarationsOnly_after.kt");
   }
 
   @Test
   @TestMetadata("fileClassWithPrivateDeclarationsOnly_before.kt")
   public void testFileClassWithPrivateDeclarationsOnly_before() {
-    runTest("compiler/testData/codegen/bytecodeListing/fileClassWithPrivateDeclarationsOnly_before.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/fileClassWithPrivateDeclarationsOnly_before.kt");
   }
 
   @Test
   @TestMetadata("immutableCollection.kt")
   public void testImmutableCollection() {
-    runTest("compiler/testData/codegen/bytecodeListing/immutableCollection.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/immutableCollection.kt");
   }
 
   @Test
   @TestMetadata("javaDeprecated.kt")
   public void testJavaDeprecated() {
-    runTest("compiler/testData/codegen/bytecodeListing/javaDeprecated.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/javaDeprecated.kt");
   }
 
   @Test
   @TestMetadata("jvmOverloadsAndParametersAnnotations.kt")
   public void testJvmOverloadsAndParametersAnnotations() {
-    runTest("compiler/testData/codegen/bytecodeListing/jvmOverloadsAndParametersAnnotations.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/jvmOverloadsAndParametersAnnotations.kt");
   }
 
   @Test
   @TestMetadata("jvmOverloadsExternal.kt")
   public void testJvmOverloadsExternal() {
-    runTest("compiler/testData/codegen/bytecodeListing/jvmOverloadsExternal.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/jvmOverloadsExternal.kt");
   }
 
   @Test
   @TestMetadata("jvmRecordStructure.kt")
   public void testJvmRecordStructure() {
-    runTest("compiler/testData/codegen/bytecodeListing/jvmRecordStructure.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/jvmRecordStructure.kt");
   }
 
   @Test
   @TestMetadata("kt42137.kt")
   public void testKt42137() {
-    runTest("compiler/testData/codegen/bytecodeListing/kt42137.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/kt42137.kt");
   }
 
   @Test
   @TestMetadata("kt42879.kt")
   public void testKt42879() {
-    runTest("compiler/testData/codegen/bytecodeListing/kt42879.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/kt42879.kt");
   }
 
   @Test
   @TestMetadata("kt43217.kt")
   public void testKt43217() {
-    runTest("compiler/testData/codegen/bytecodeListing/kt43217.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/kt43217.kt");
   }
 
   @Test
   @TestMetadata("kt43440.kt")
   public void testKt43440() {
-    runTest("compiler/testData/codegen/bytecodeListing/kt43440.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/kt43440.kt");
   }
 
   @Test
   @TestMetadata("kt45853.kt")
   public void testKt45853() {
-    runTest("compiler/testData/codegen/bytecodeListing/kt45853.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/kt45853.kt");
   }
 
   @Test
   @TestMetadata("kt45853a.kt")
   public void testKt45853a() {
-    runTest("compiler/testData/codegen/bytecodeListing/kt45853a.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/kt45853a.kt");
   }
 
   @Test
   @TestMetadata("kt45934.kt")
   public void testKt45934() {
-    runTest("compiler/testData/codegen/bytecodeListing/kt45934.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/kt45934.kt");
   }
 
   @Test
   @TestMetadata("kt47328.kt")
   public void testKt47328() {
-    runTest("compiler/testData/codegen/bytecodeListing/kt47328.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/kt47328.kt");
   }
 
   @Test
   @TestMetadata("kt55769.kt")
   public void testKt55769() {
-    runTest("compiler/testData/codegen/bytecodeListing/kt55769.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/kt55769.kt");
   }
 
   @Test
   @TestMetadata("noCollectionStubMethodsInInterface.kt")
   public void testNoCollectionStubMethodsInInterface() {
-    runTest("compiler/testData/codegen/bytecodeListing/noCollectionStubMethodsInInterface.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/noCollectionStubMethodsInInterface.kt");
   }
 
   @Test
   @TestMetadata("noDelegationsToPrivateInterfaceMembers.kt")
   public void testNoDelegationsToPrivateInterfaceMembers() {
-    runTest("compiler/testData/codegen/bytecodeListing/noDelegationsToPrivateInterfaceMembers.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/noDelegationsToPrivateInterfaceMembers.kt");
   }
 
   @Test
   @TestMetadata("noReceiverInCallableReferenceClasses.kt")
   public void testNoReceiverInCallableReferenceClasses() {
-    runTest("compiler/testData/codegen/bytecodeListing/noReceiverInCallableReferenceClasses.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/noReceiverInCallableReferenceClasses.kt");
   }
 
   @Test
   @TestMetadata("noRemoveAtInReadOnly.kt")
   public void testNoRemoveAtInReadOnly() {
-    runTest("compiler/testData/codegen/bytecodeListing/noRemoveAtInReadOnly.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/noRemoveAtInReadOnly.kt");
   }
 
   @Test
   @TestMetadata("nullabilityAnnotationInInnerClasses.kt")
   public void testNullabilityAnnotationInInnerClasses() {
-    runTest("compiler/testData/codegen/bytecodeListing/nullabilityAnnotationInInnerClasses.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/nullabilityAnnotationInInnerClasses.kt");
   }
 
   @Test
   @TestMetadata("overrideWithPrimitiveUpperBound.kt")
   public void testOverrideWithPrimitiveUpperBound() {
-    runTest("compiler/testData/codegen/bytecodeListing/overrideWithPrimitiveUpperBound.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/overrideWithPrimitiveUpperBound.kt");
   }
 
   @Test
   @TestMetadata("overrideWithPrimitiveUpperBound2.kt")
   public void testOverrideWithPrimitiveUpperBound2() {
-    runTest("compiler/testData/codegen/bytecodeListing/overrideWithPrimitiveUpperBound2.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/overrideWithPrimitiveUpperBound2.kt");
   }
 
   @Test
   @TestMetadata("privateCompanionFields.kt")
   public void testPrivateCompanionFields() {
-    runTest("compiler/testData/codegen/bytecodeListing/privateCompanionFields.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/privateCompanionFields.kt");
   }
 
   @Test
   @TestMetadata("privateDefaultImpls.kt")
   public void testPrivateDefaultImpls() {
-    runTest("compiler/testData/codegen/bytecodeListing/privateDefaultImpls.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/privateDefaultImpls.kt");
   }
 
   @Test
   @TestMetadata("privateDefaultSetter.kt")
   public void testPrivateDefaultSetter() {
-    runTest("compiler/testData/codegen/bytecodeListing/privateDefaultSetter.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/privateDefaultSetter.kt");
   }
 
   @Test
   @TestMetadata("privateNestedClassInInterface.kt")
   public void testPrivateNestedClassInInterface() {
-    runTest("compiler/testData/codegen/bytecodeListing/privateNestedClassInInterface.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/privateNestedClassInInterface.kt");
   }
 
   @Test
   @TestMetadata("rawTypeInSignature.kt")
   public void testRawTypeInSignature() {
-    runTest("compiler/testData/codegen/bytecodeListing/rawTypeInSignature.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/rawTypeInSignature.kt");
   }
 
   @Test
   @TestMetadata("strictfpFlag.kt")
   public void testStrictfpFlag() {
-    runTest("compiler/testData/codegen/bytecodeListing/strictfpFlag.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/strictfpFlag.kt");
   }
 
   @Test
   @TestMetadata("synchronizedFlag.kt")
   public void testSynchronizedFlag() {
-    runTest("compiler/testData/codegen/bytecodeListing/synchronizedFlag.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/synchronizedFlag.kt");
   }
 
   @Test
   @TestMetadata("varargsBridge.kt")
   public void testVarargsBridge() {
-    runTest("compiler/testData/codegen/bytecodeListing/varargsBridge.kt");
+    runTest(":compiler:testData/codegen", "bytecodeListing/varargsBridge.kt");
   }
 
   @Nested
@@ -319,139 +319,139 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
     @Test
     @TestMetadata("annotationAllTarget.kt")
     public void testAnnotationAllTarget() {
-      runTest("compiler/testData/codegen/bytecodeListing/annotations/annotationAllTarget.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/annotations/annotationAllTarget.kt");
     }
 
     @Test
     @TestMetadata("annotationCtorCallGenerateSynthetic.kt")
     public void testAnnotationCtorCallGenerateSynthetic() {
-      runTest("compiler/testData/codegen/bytecodeListing/annotations/annotationCtorCallGenerateSynthetic.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/annotations/annotationCtorCallGenerateSynthetic.kt");
     }
 
     @Test
     @TestMetadata("annotationCtorCallNoSynthetic.kt")
     public void testAnnotationCtorCallNoSynthetic() {
-      runTest("compiler/testData/codegen/bytecodeListing/annotations/annotationCtorCallNoSynthetic.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/annotations/annotationCtorCallNoSynthetic.kt");
     }
 
     @Test
     @TestMetadata("annotationDefaultTargetFirstOnly.kt")
     public void testAnnotationDefaultTargetFirstOnly() {
-      runTest("compiler/testData/codegen/bytecodeListing/annotations/annotationDefaultTargetFirstOnly.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/annotations/annotationDefaultTargetFirstOnly.kt");
     }
 
     @Test
     @TestMetadata("annotationDefaultTargetParamProperty.kt")
     public void testAnnotationDefaultTargetParamProperty() {
-      runTest("compiler/testData/codegen/bytecodeListing/annotations/annotationDefaultTargetParamProperty.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/annotations/annotationDefaultTargetParamProperty.kt");
     }
 
     @Test
     @TestMetadata("annotationMixedTargeting.kt")
     public void testAnnotationMixedTargeting() {
-      runTest("compiler/testData/codegen/bytecodeListing/annotations/annotationMixedTargeting.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/annotations/annotationMixedTargeting.kt");
     }
 
     @Test
     @TestMetadata("annotationsOnDelegatedMembers.kt")
     public void testAnnotationsOnDelegatedMembers() {
-      runTest("compiler/testData/codegen/bytecodeListing/annotations/annotationsOnDelegatedMembers.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/annotations/annotationsOnDelegatedMembers.kt");
     }
 
     @Test
     @TestMetadata("defaultTargets.kt")
     public void testDefaultTargets() {
-      runTest("compiler/testData/codegen/bytecodeListing/annotations/defaultTargets.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/annotations/defaultTargets.kt");
     }
 
     @Test
     @TestMetadata("deprecatedJvmOverloads.kt")
     public void testDeprecatedJvmOverloads() {
-      runTest("compiler/testData/codegen/bytecodeListing/annotations/deprecatedJvmOverloads.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/annotations/deprecatedJvmOverloads.kt");
     }
 
     @Test
     @TestMetadata("internalPropertyOrTypealias.kt")
     public void testInternalPropertyOrTypealias() {
-      runTest("compiler/testData/codegen/bytecodeListing/annotations/internalPropertyOrTypealias.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/annotations/internalPropertyOrTypealias.kt");
     }
 
     @Test
     @TestMetadata("JvmSynthetic.kt")
     public void testJvmSynthetic() {
-      runTest("compiler/testData/codegen/bytecodeListing/annotations/JvmSynthetic.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/annotations/JvmSynthetic.kt");
     }
 
     @Test
     @TestMetadata("kt27895.kt")
     public void testKt27895() {
-      runTest("compiler/testData/codegen/bytecodeListing/annotations/kt27895.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/annotations/kt27895.kt");
     }
 
     @Test
     @TestMetadata("kt43399.kt")
     public void testKt43399() {
-      runTest("compiler/testData/codegen/bytecodeListing/annotations/kt43399.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/annotations/kt43399.kt");
     }
 
     @Test
     @TestMetadata("kt43459.kt")
     public void testKt43459() {
-      runTest("compiler/testData/codegen/bytecodeListing/annotations/kt43459.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/annotations/kt43459.kt");
     }
 
     @Test
     @TestMetadata("kt62788.kt")
     public void testKt62788() {
-      runTest("compiler/testData/codegen/bytecodeListing/annotations/kt62788.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/annotations/kt62788.kt");
     }
 
     @Test
     @TestMetadata("kt9320.kt")
     public void testKt9320() {
-      runTest("compiler/testData/codegen/bytecodeListing/annotations/kt9320.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/annotations/kt9320.kt");
     }
 
     @Test
     @TestMetadata("literals.kt")
     public void testLiterals() {
-      runTest("compiler/testData/codegen/bytecodeListing/annotations/literals.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/annotations/literals.kt");
     }
 
     @Test
     @TestMetadata("localClassWithCapturedParams.kt")
     public void testLocalClassWithCapturedParams() {
-      runTest("compiler/testData/codegen/bytecodeListing/annotations/localClassWithCapturedParams.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/annotations/localClassWithCapturedParams.kt");
     }
 
     @Test
     @TestMetadata("noAdditionalAnnotationsInAccessors.kt")
     public void testNoAdditionalAnnotationsInAccessors() {
-      runTest("compiler/testData/codegen/bytecodeListing/annotations/noAdditionalAnnotationsInAccessors.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/annotations/noAdditionalAnnotationsInAccessors.kt");
     }
 
     @Test
     @TestMetadata("noAnnotationsInSyntheticAccessors.kt")
     public void testNoAnnotationsInSyntheticAccessors() {
-      runTest("compiler/testData/codegen/bytecodeListing/annotations/noAnnotationsInSyntheticAccessors.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/annotations/noAnnotationsInSyntheticAccessors.kt");
     }
 
     @Test
     @TestMetadata("onProperties.kt")
     public void testOnProperties() {
-      runTest("compiler/testData/codegen/bytecodeListing/annotations/onProperties.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/annotations/onProperties.kt");
     }
 
     @Test
     @TestMetadata("onReceiver.kt")
     public void testOnReceiver() {
-      runTest("compiler/testData/codegen/bytecodeListing/annotations/onReceiver.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/annotations/onReceiver.kt");
     }
 
     @Test
     @TestMetadata("unsignedTypes.kt")
     public void testUnsignedTypes() {
-      runTest("compiler/testData/codegen/bytecodeListing/annotations/unsignedTypes.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/annotations/unsignedTypes.kt");
     }
 
     @Nested
@@ -466,49 +466,49 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
       @Test
       @TestMetadata("javaAnnotation.kt")
       public void testJavaAnnotation() {
-        runTest("compiler/testData/codegen/bytecodeListing/annotations/repeatable/javaAnnotation.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/annotations/repeatable/javaAnnotation.kt");
       }
 
       @Test
       @TestMetadata("kotlinAnnotation.kt")
       public void testKotlinAnnotation() {
-        runTest("compiler/testData/codegen/bytecodeListing/annotations/repeatable/kotlinAnnotation.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/annotations/repeatable/kotlinAnnotation.kt");
       }
 
       @Test
       @TestMetadata("kotlinAnnotationWithBothRepeatables.kt")
       public void testKotlinAnnotationWithBothRepeatables() {
-        runTest("compiler/testData/codegen/bytecodeListing/annotations/repeatable/kotlinAnnotationWithBothRepeatables.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/annotations/repeatable/kotlinAnnotationWithBothRepeatables.kt");
       }
 
       @Test
       @TestMetadata("kotlinSpecificTargets.kt")
       public void testKotlinSpecificTargets() {
-        runTest("compiler/testData/codegen/bytecodeListing/annotations/repeatable/kotlinSpecificTargets.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/annotations/repeatable/kotlinSpecificTargets.kt");
       }
 
       @Test
       @TestMetadata("multipleRepeatableOrder.kt")
       public void testMultipleRepeatableOrder() {
-        runTest("compiler/testData/codegen/bytecodeListing/annotations/repeatable/multipleRepeatableOrder.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/annotations/repeatable/multipleRepeatableOrder.kt");
       }
 
       @Test
       @TestMetadata("nonRepeatedAnnotationWithItsContainer.kt")
       public void testNonRepeatedAnnotationWithItsContainer() {
-        runTest("compiler/testData/codegen/bytecodeListing/annotations/repeatable/nonRepeatedAnnotationWithItsContainer.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/annotations/repeatable/nonRepeatedAnnotationWithItsContainer.kt");
       }
 
       @Test
       @TestMetadata("propertyGetterUseSiteTarget.kt")
       public void testPropertyGetterUseSiteTarget() {
-        runTest("compiler/testData/codegen/bytecodeListing/annotations/repeatable/propertyGetterUseSiteTarget.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/annotations/repeatable/propertyGetterUseSiteTarget.kt");
       }
 
       @Test
       @TestMetadata("retentionAndTarget.kt")
       public void testRetentionAndTarget() {
-        runTest("compiler/testData/codegen/bytecodeListing/annotations/repeatable/retentionAndTarget.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/annotations/repeatable/retentionAndTarget.kt");
       }
     }
   }
@@ -520,7 +520,7 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
     @Test
     @TestMetadata("adaptedReference.kt")
     public void testAdaptedReference() {
-      runTest("compiler/testData/codegen/bytecodeListing/callableReference/adaptedReference.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/callableReference/adaptedReference.kt");
     }
 
     @Test
@@ -536,7 +536,7 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
     @Test
     @TestMetadata("abstractMapRedefiningGetAny.kt")
     public void testAbstractMapRedefiningGetAny() {
-      runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/abstractMapRedefiningGetAny.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/abstractMapRedefiningGetAny.kt");
     }
 
     @Test
@@ -547,205 +547,205 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
     @Test
     @TestMetadata("collectionByDelegation.kt")
     public void testCollectionByDelegation() {
-      runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/collectionByDelegation.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/collectionByDelegation.kt");
     }
 
     @Test
     @TestMetadata("collectionByDelegation2.kt")
     public void testCollectionByDelegation2() {
-      runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/collectionByDelegation2.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/collectionByDelegation2.kt");
     }
 
     @Test
     @TestMetadata("collectionByDelegation2WithFullJdk.kt")
     public void testCollectionByDelegation2WithFullJdk() {
-      runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/collectionByDelegation2WithFullJdk.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/collectionByDelegation2WithFullJdk.kt");
     }
 
     @Test
     @TestMetadata("collectionByDelegation3.kt")
     public void testCollectionByDelegation3() {
-      runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/collectionByDelegation3.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/collectionByDelegation3.kt");
     }
 
     @Test
     @TestMetadata("collectionByDelegation3WithFullJdk.kt")
     public void testCollectionByDelegation3WithFullJdk() {
-      runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/collectionByDelegation3WithFullJdk.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/collectionByDelegation3WithFullJdk.kt");
     }
 
     @Test
     @TestMetadata("collectionByDelegationWithFullJdk.kt")
     public void testCollectionByDelegationWithFullJdk() {
-      runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/collectionByDelegationWithFullJdk.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/collectionByDelegationWithFullJdk.kt");
     }
 
     @Test
     @TestMetadata("collectionWithInternalRemove.kt")
     public void testCollectionWithInternalRemove() {
-      runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/collectionWithInternalRemove.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/collectionWithInternalRemove.kt");
     }
 
     @Test
     @TestMetadata("collectionsWithFullJdk.kt")
     public void testCollectionsWithFullJdk() {
-      runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/collectionsWithFullJdk.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/collectionsWithFullJdk.kt");
     }
 
     @Test
     @TestMetadata("customListIterator.kt")
     public void testCustomListIterator() {
-      runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/customListIterator.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/customListIterator.kt");
     }
 
     @Test
     @TestMetadata("customMutableListIterator.kt")
     public void testCustomMutableListIterator() {
-      runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/customMutableListIterator.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/customMutableListIterator.kt");
     }
 
     @Test
     @TestMetadata("emptyList.kt")
     public void testEmptyList() {
-      runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/emptyList.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/emptyList.kt");
     }
 
     @Test
     @TestMetadata("extendingAbstractCollection.kt")
     public void testExtendingAbstractCollection() {
-      runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/extendingAbstractCollection.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/extendingAbstractCollection.kt");
     }
 
     @Test
     @TestMetadata("inheritingFromAbstractCollections.kt")
     public void testInheritingFromAbstractCollections() {
-      runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/inheritingFromAbstractCollections.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/inheritingFromAbstractCollections.kt");
     }
 
     @Test
     @TestMetadata("inheritingFromAbstractMap.kt")
     public void testInheritingFromAbstractMap() {
-      runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/inheritingFromAbstractMap.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/inheritingFromAbstractMap.kt");
     }
 
     @Test
     @TestMetadata("inheritingFromAbstractMutableList.kt")
     public void testInheritingFromAbstractMutableList() {
-      runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/inheritingFromAbstractMutableList.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/inheritingFromAbstractMutableList.kt");
     }
 
     @Test
     @TestMetadata("intArrayList.kt")
     public void testIntArrayList() {
-      runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/intArrayList.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/intArrayList.kt");
     }
 
     @Test
     @TestMetadata("kt44233.kt")
     public void testKt44233() {
-      runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/kt44233.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/kt44233.kt");
     }
 
     @Test
     @TestMetadata("ListAndSet.kt")
     public void testListAndSet() {
-      runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/ListAndSet.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/ListAndSet.kt");
     }
 
     @Test
     @TestMetadata("mapOfPrimitivesFullJdk.kt")
     public void testMapOfPrimitivesFullJdk() {
-      runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/mapOfPrimitivesFullJdk.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/mapOfPrimitivesFullJdk.kt");
     }
 
     @Test
     @TestMetadata("noStubsForCollection.kt")
     public void testNoStubsForCollection() {
-      runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/noStubsForCollection.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/noStubsForCollection.kt");
     }
 
     @Test
     @TestMetadata("noStubsForMapImplementations.kt")
     public void testNoStubsForMapImplementations() {
-      runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/noStubsForMapImplementations.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/noStubsForMapImplementations.kt");
     }
 
     @Test
     @TestMetadata("noStubsForMutableSetIterators.kt")
     public void testNoStubsForMutableSetIterators() {
-      runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/noStubsForMutableSetIterators.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/noStubsForMutableSetIterators.kt");
     }
 
     @Test
     @TestMetadata("noStubsForSetIterators.kt")
     public void testNoStubsForSetIterators() {
-      runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/noStubsForSetIterators.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/noStubsForSetIterators.kt");
     }
 
     @Test
     @TestMetadata("noStubsInIterable.kt")
     public void testNoStubsInIterable() {
-      runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/noStubsInIterable.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/noStubsInIterable.kt");
     }
 
     @Test
     @TestMetadata("noStubsInJavaSuperClass.kt")
     public void testNoStubsInJavaSuperClass() {
-      runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/noStubsInJavaSuperClass.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/noStubsInJavaSuperClass.kt");
     }
 
     @Test
     @TestMetadata("noStubsInMutableIterable.kt")
     public void testNoStubsInMutableIterable() {
-      runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/noStubsInMutableIterable.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/noStubsInMutableIterable.kt");
     }
 
     @Test
     @TestMetadata("observableMutableMap.kt")
     public void testObservableMutableMap() {
-      runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/observableMutableMap.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/observableMutableMap.kt");
     }
 
     @Test
     @TestMetadata("stubForAbstractFun.kt")
     public void testStubForAbstractFun() {
-      runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/stubForAbstractFun.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/stubForAbstractFun.kt");
     }
 
     @Test
     @TestMetadata("stubForAbstractFunInAbstractClass.kt")
     public void testStubForAbstractFunInAbstractClass() {
-      runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/stubForAbstractFunInAbstractClass.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/stubForAbstractFunInAbstractClass.kt");
     }
 
     @Test
     @TestMetadata("stubForAbstractFunInAbstractClassWithCovariantOverride.kt")
     public void testStubForAbstractFunInAbstractClassWithCovariantOverride() {
-      runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/stubForAbstractFunInAbstractClassWithCovariantOverride.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/stubForAbstractFunInAbstractClassWithCovariantOverride.kt");
     }
 
     @Test
     @TestMetadata("stubForAbstractFunWithCovariantOverride.kt")
     public void testStubForAbstractFunWithCovariantOverride() {
-      runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/stubForAbstractFunWithCovariantOverride.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/stubForAbstractFunWithCovariantOverride.kt");
     }
 
     @Test
     @TestMetadata("stubLikeMethodSignatures.kt")
     public void testStubLikeMethodSignatures() {
-      runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/stubLikeMethodSignatures.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/stubLikeMethodSignatures.kt");
     }
 
     @Test
     @TestMetadata("stubsFromSuperclass.kt")
     public void testStubsFromSuperclass() {
-      runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/stubsFromSuperclass.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/stubsFromSuperclass.kt");
     }
 
     @Test
     @TestMetadata("stubsFromSuperclassNoBridges.kt")
     public void testStubsFromSuperclassNoBridges() {
-      runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/stubsFromSuperclassNoBridges.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/stubsFromSuperclassNoBridges.kt");
     }
 
     @Nested
@@ -760,163 +760,163 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
       @Test
       @TestMetadata("byteShortMap.kt")
       public void testByteShortMap() {
-        runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/abstractStubSignatures/byteShortMap.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/abstractStubSignatures/byteShortMap.kt");
       }
 
       @Test
       @TestMetadata("byteShortMutableMap.kt")
       public void testByteShortMutableMap() {
-        runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/abstractStubSignatures/byteShortMutableMap.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/abstractStubSignatures/byteShortMutableMap.kt");
       }
 
       @Test
       @TestMetadata("collection.kt")
       public void testCollection() {
-        runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/abstractStubSignatures/collection.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/abstractStubSignatures/collection.kt");
       }
 
       @Test
       @TestMetadata("genericCollection.kt")
       public void testGenericCollection() {
-        runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/abstractStubSignatures/genericCollection.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/abstractStubSignatures/genericCollection.kt");
       }
 
       @Test
       @TestMetadata("genericMap.kt")
       public void testGenericMap() {
-        runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/abstractStubSignatures/genericMap.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/abstractStubSignatures/genericMap.kt");
       }
 
       @Test
       @TestMetadata("genericMutableCollection.kt")
       public void testGenericMutableCollection() {
-        runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/abstractStubSignatures/genericMutableCollection.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/abstractStubSignatures/genericMutableCollection.kt");
       }
 
       @Test
       @TestMetadata("genericMutableList.kt")
       public void testGenericMutableList() {
-        runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/abstractStubSignatures/genericMutableList.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/abstractStubSignatures/genericMutableList.kt");
       }
 
       @Test
       @TestMetadata("genericMutableMap.kt")
       public void testGenericMutableMap() {
-        runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/abstractStubSignatures/genericMutableMap.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/abstractStubSignatures/genericMutableMap.kt");
       }
 
       @Test
       @TestMetadata("genericStringMap.kt")
       public void testGenericStringMap() {
-        runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/abstractStubSignatures/genericStringMap.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/abstractStubSignatures/genericStringMap.kt");
       }
 
       @Test
       @TestMetadata("genericStringMutableMap.kt")
       public void testGenericStringMutableMap() {
-        runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/abstractStubSignatures/genericStringMutableMap.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/abstractStubSignatures/genericStringMutableMap.kt");
       }
 
       @Test
       @TestMetadata("iterable.kt")
       public void testIterable() {
-        runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/abstractStubSignatures/iterable.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/abstractStubSignatures/iterable.kt");
       }
 
       @Test
       @TestMetadata("iterator.kt")
       public void testIterator() {
-        runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/abstractStubSignatures/iterator.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/abstractStubSignatures/iterator.kt");
       }
 
       @Test
       @TestMetadata("list.kt")
       public void testList() {
-        runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/abstractStubSignatures/list.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/abstractStubSignatures/list.kt");
       }
 
       @Test
       @TestMetadata("listIterator.kt")
       public void testListIterator() {
-        runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/abstractStubSignatures/listIterator.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/abstractStubSignatures/listIterator.kt");
       }
 
       @Test
       @TestMetadata("mapEntry.kt")
       public void testMapEntry() {
-        runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/abstractStubSignatures/mapEntry.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/abstractStubSignatures/mapEntry.kt");
       }
 
       @Test
       @TestMetadata("mutableCollection.kt")
       public void testMutableCollection() {
-        runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/abstractStubSignatures/mutableCollection.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/abstractStubSignatures/mutableCollection.kt");
       }
 
       @Test
       @TestMetadata("mutableIterable.kt")
       public void testMutableIterable() {
-        runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/abstractStubSignatures/mutableIterable.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/abstractStubSignatures/mutableIterable.kt");
       }
 
       @Test
       @TestMetadata("mutableIterator.kt")
       public void testMutableIterator() {
-        runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/abstractStubSignatures/mutableIterator.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/abstractStubSignatures/mutableIterator.kt");
       }
 
       @Test
       @TestMetadata("mutableList.kt")
       public void testMutableList() {
-        runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/abstractStubSignatures/mutableList.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/abstractStubSignatures/mutableList.kt");
       }
 
       @Test
       @TestMetadata("mutableListIterator.kt")
       public void testMutableListIterator() {
-        runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/abstractStubSignatures/mutableListIterator.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/abstractStubSignatures/mutableListIterator.kt");
       }
 
       @Test
       @TestMetadata("mutableMapEntry.kt")
       public void testMutableMapEntry() {
-        runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/abstractStubSignatures/mutableMapEntry.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/abstractStubSignatures/mutableMapEntry.kt");
       }
 
       @Test
       @TestMetadata("numberStringMap.kt")
       public void testNumberStringMap() {
-        runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/abstractStubSignatures/numberStringMap.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/abstractStubSignatures/numberStringMap.kt");
       }
 
       @Test
       @TestMetadata("numberStringMutableMap.kt")
       public void testNumberStringMutableMap() {
-        runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/abstractStubSignatures/numberStringMutableMap.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/abstractStubSignatures/numberStringMutableMap.kt");
       }
 
       @Test
       @TestMetadata("set.kt")
       public void testSet() {
-        runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/abstractStubSignatures/set.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/abstractStubSignatures/set.kt");
       }
 
       @Test
       @TestMetadata("specializedGenericMap.kt")
       public void testSpecializedGenericMap() {
-        runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/abstractStubSignatures/specializedGenericMap.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/abstractStubSignatures/specializedGenericMap.kt");
       }
 
       @Test
       @TestMetadata("stringGenericMap.kt")
       public void testStringGenericMap() {
-        runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/abstractStubSignatures/stringGenericMap.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/abstractStubSignatures/stringGenericMap.kt");
       }
 
       @Test
       @TestMetadata("stringGenericMutableMap.kt")
       public void testStringGenericMutableMap() {
-        runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/abstractStubSignatures/stringGenericMutableMap.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/abstractStubSignatures/stringGenericMutableMap.kt");
       }
     }
 
@@ -932,19 +932,19 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
       @Test
       @TestMetadata("customNonGenericToArray.kt")
       public void testCustomNonGenericToArray() {
-        runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/toArray/customNonGenericToArray.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/toArray/customNonGenericToArray.kt");
       }
 
       @Test
       @TestMetadata("internalGenericToArray.kt")
       public void testInternalGenericToArray() {
-        runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/toArray/internalGenericToArray.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/toArray/internalGenericToArray.kt");
       }
 
       @Test
       @TestMetadata("noToArrayInJava.kt")
       public void testNoToArrayInJava() {
-        runTest("compiler/testData/codegen/bytecodeListing/collectionStubs/toArray/noToArrayInJava.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/collectionStubs/toArray/noToArrayInJava.kt");
       }
     }
   }
@@ -961,19 +961,19 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
     @Test
     @TestMetadata("class.kt")
     public void testClass() {
-      runTest("compiler/testData/codegen/bytecodeListing/contextReceivers/class.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/contextReceivers/class.kt");
     }
 
     @Test
     @TestMetadata("function.kt")
     public void testFunction() {
-      runTest("compiler/testData/codegen/bytecodeListing/contextReceivers/function.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/contextReceivers/function.kt");
     }
 
     @Test
     @TestMetadata("property.kt")
     public void testProperty() {
-      runTest("compiler/testData/codegen/bytecodeListing/contextReceivers/property.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/contextReceivers/property.kt");
     }
 
     @Nested
@@ -988,31 +988,31 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
       @Test
       @TestMetadata("canvas.kt")
       public void testCanvas() {
-        runTest("compiler/testData/codegen/bytecodeListing/contextReceivers/fromKEEP/canvas.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/contextReceivers/fromKEEP/canvas.kt");
       }
 
       @Test
       @TestMetadata("compareTo.kt")
       public void testCompareTo() {
-        runTest("compiler/testData/codegen/bytecodeListing/contextReceivers/fromKEEP/compareTo.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/contextReceivers/fromKEEP/compareTo.kt");
       }
 
       @Test
       @TestMetadata("dp.kt")
       public void testDp() {
-        runTest("compiler/testData/codegen/bytecodeListing/contextReceivers/fromKEEP/dp.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/contextReceivers/fromKEEP/dp.kt");
       }
 
       @Test
       @TestMetadata("functionalType.kt")
       public void testFunctionalType() {
-        runTest("compiler/testData/codegen/bytecodeListing/contextReceivers/fromKEEP/functionalType.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/contextReceivers/fromKEEP/functionalType.kt");
       }
 
       @Test
       @TestMetadata("monoidSum.kt")
       public void testMonoidSum() {
-        runTest("compiler/testData/codegen/bytecodeListing/contextReceivers/fromKEEP/monoidSum.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/contextReceivers/fromKEEP/monoidSum.kt");
       }
     }
   }
@@ -1029,55 +1029,55 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
     @Test
     @TestMetadata("coroutineContextIntrinsic.kt")
     public void testCoroutineContextIntrinsic() {
-      runTest("compiler/testData/codegen/bytecodeListing/coroutines/coroutineContextIntrinsic.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/coroutines/coroutineContextIntrinsic.kt");
     }
 
     @Test
     @TestMetadata("coroutineFields.kt")
     public void testCoroutineFields() {
-      runTest("compiler/testData/codegen/bytecodeListing/coroutines/coroutineFields.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/coroutines/coroutineFields.kt");
     }
 
     @Test
     @TestMetadata("oomInReturnUnit.kt")
     public void testOomInReturnUnit() {
-      runTest("compiler/testData/codegen/bytecodeListing/coroutines/oomInReturnUnit.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/coroutines/oomInReturnUnit.kt");
     }
 
     @Test
     @TestMetadata("privateAccessor.kt")
     public void testPrivateAccessor() {
-      runTest("compiler/testData/codegen/bytecodeListing/coroutines/privateAccessor.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/coroutines/privateAccessor.kt");
     }
 
     @Test
     @TestMetadata("privateSuspendFun.kt")
     public void testPrivateSuspendFun() {
-      runTest("compiler/testData/codegen/bytecodeListing/coroutines/privateSuspendFun.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/coroutines/privateSuspendFun.kt");
     }
 
     @Test
     @TestMetadata("suspendConversion.kt")
     public void testSuspendConversion() {
-      runTest("compiler/testData/codegen/bytecodeListing/coroutines/suspendConversion.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/coroutines/suspendConversion.kt");
     }
 
     @Test
     @TestMetadata("suspendImpl.kt")
     public void testSuspendImpl() {
-      runTest("compiler/testData/codegen/bytecodeListing/coroutines/suspendImpl.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/coroutines/suspendImpl.kt");
     }
 
     @Test
     @TestMetadata("suspendReifiedFun.kt")
     public void testSuspendReifiedFun() {
-      runTest("compiler/testData/codegen/bytecodeListing/coroutines/suspendReifiedFun.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/coroutines/suspendReifiedFun.kt");
     }
 
     @Test
     @TestMetadata("tcoContinuation.kt")
     public void testTcoContinuation() {
-      runTest("compiler/testData/codegen/bytecodeListing/coroutines/tcoContinuation.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/coroutines/tcoContinuation.kt");
     }
 
     @Nested
@@ -1092,43 +1092,43 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
       @Test
       @TestMetadata("booleanParameter.kt")
       public void testBooleanParameter() {
-        runTest("compiler/testData/codegen/bytecodeListing/coroutines/spilling/booleanParameter.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/coroutines/spilling/booleanParameter.kt");
       }
 
       @Test
       @TestMetadata("component1.kt")
       public void testComponent1() {
-        runTest("compiler/testData/codegen/bytecodeListing/coroutines/spilling/component1.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/coroutines/spilling/component1.kt");
       }
 
       @Test
       @TestMetadata("destructured.kt")
       public void testDestructured() {
-        runTest("compiler/testData/codegen/bytecodeListing/coroutines/spilling/destructured.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/coroutines/spilling/destructured.kt");
       }
 
       @Test
       @TestMetadata("field.kt")
       public void testField() {
-        runTest("compiler/testData/codegen/bytecodeListing/coroutines/spilling/field.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/coroutines/spilling/field.kt");
       }
 
       @Test
       @TestMetadata("lambda.kt")
       public void testLambda() {
-        runTest("compiler/testData/codegen/bytecodeListing/coroutines/spilling/lambda.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/coroutines/spilling/lambda.kt");
       }
 
       @Test
       @TestMetadata("select.kt")
       public void testSelect() {
-        runTest("compiler/testData/codegen/bytecodeListing/coroutines/spilling/select.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/coroutines/spilling/select.kt");
       }
 
       @Test
       @TestMetadata("unreachable.kt")
       public void testUnreachable() {
-        runTest("compiler/testData/codegen/bytecodeListing/coroutines/spilling/unreachable.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/coroutines/spilling/unreachable.kt");
       }
     }
   }
@@ -1145,19 +1145,19 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
     @Test
     @TestMetadata("functionInMultifileClass.kt")
     public void testFunctionInMultifileClass() {
-      runTest("compiler/testData/codegen/bytecodeListing/defaultArguments/functionInMultifileClass.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/defaultArguments/functionInMultifileClass.kt");
     }
 
     @Test
     @TestMetadata("functionInMultifileClassWithInheritedParts.kt")
     public void testFunctionInMultifileClassWithInheritedParts() {
-      runTest("compiler/testData/codegen/bytecodeListing/defaultArguments/functionInMultifileClassWithInheritedParts.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/defaultArguments/functionInMultifileClassWithInheritedParts.kt");
     }
 
     @Test
     @TestMetadata("internalNameMangling.kt")
     public void testInternalNameMangling() {
-      runTest("compiler/testData/codegen/bytecodeListing/defaultArguments/internalNameMangling.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/defaultArguments/internalNameMangling.kt");
     }
   }
 
@@ -1173,19 +1173,19 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
     @Test
     @TestMetadata("delegateMethodIsNonOverridable.kt")
     public void testDelegateMethodIsNonOverridable() {
-      runTest("compiler/testData/codegen/bytecodeListing/delegatedProperty/delegateMethodIsNonOverridable.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/delegatedProperty/delegateMethodIsNonOverridable.kt");
     }
 
     @Test
     @TestMetadata("delegatedPropertiesInCompanionObject.kt")
     public void testDelegatedPropertiesInCompanionObject() {
-      runTest("compiler/testData/codegen/bytecodeListing/delegatedProperty/delegatedPropertiesInCompanionObject.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/delegatedProperty/delegatedPropertiesInCompanionObject.kt");
     }
 
     @Test
     @TestMetadata("localDelegatedProperty.kt")
     public void testLocalDelegatedProperty() {
-      runTest("compiler/testData/codegen/bytecodeListing/delegatedProperty/localDelegatedProperty.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/delegatedProperty/localDelegatedProperty.kt");
     }
   }
 
@@ -1201,55 +1201,55 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
     @Test
     @TestMetadata("deprecatedClass.kt")
     public void testDeprecatedClass() {
-      runTest("compiler/testData/codegen/bytecodeListing/deprecated/deprecatedClass.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/deprecated/deprecatedClass.kt");
     }
 
     @Test
     @TestMetadata("deprecatedEnumEntryFields.kt")
     public void testDeprecatedEnumEntryFields() {
-      runTest("compiler/testData/codegen/bytecodeListing/deprecated/deprecatedEnumEntryFields.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/deprecated/deprecatedEnumEntryFields.kt");
     }
 
     @Test
     @TestMetadata("deprecatedInMultifileClass.kt")
     public void testDeprecatedInMultifileClass() {
-      runTest("compiler/testData/codegen/bytecodeListing/deprecated/deprecatedInMultifileClass.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/deprecated/deprecatedInMultifileClass.kt");
     }
 
     @Test
     @TestMetadata("deprecatedLateinitVar.kt")
     public void testDeprecatedLateinitVar() {
-      runTest("compiler/testData/codegen/bytecodeListing/deprecated/deprecatedLateinitVar.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/deprecated/deprecatedLateinitVar.kt");
     }
 
     @Test
     @TestMetadata("deprecatedProperty.kt")
     public void testDeprecatedProperty() {
-      runTest("compiler/testData/codegen/bytecodeListing/deprecated/deprecatedProperty.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/deprecated/deprecatedProperty.kt");
     }
 
     @Test
     @TestMetadata("hidden.kt")
     public void testHidden() {
-      runTest("compiler/testData/codegen/bytecodeListing/deprecated/hidden.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/deprecated/hidden.kt");
     }
 
     @Test
     @TestMetadata("inheritingDeprecation.kt")
     public void testInheritingDeprecation() {
-      runTest("compiler/testData/codegen/bytecodeListing/deprecated/inheritingDeprecation.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/deprecated/inheritingDeprecation.kt");
     }
 
     @Test
     @TestMetadata("inlineClassTypesInSignature.kt")
     public void testInlineClassTypesInSignature() {
-      runTest("compiler/testData/codegen/bytecodeListing/deprecated/inlineClassTypesInSignature.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/deprecated/inlineClassTypesInSignature.kt");
     }
 
     @Test
     @TestMetadata("jvmStaticDeprecatedProperty.kt")
     public void testJvmStaticDeprecatedProperty() {
-      runTest("compiler/testData/codegen/bytecodeListing/deprecated/jvmStaticDeprecatedProperty.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/deprecated/jvmStaticDeprecatedProperty.kt");
     }
   }
 
@@ -1265,79 +1265,79 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
     @Test
     @TestMetadata("genericReified.kt")
     public void testGenericReified() {
-      runTest("compiler/testData/codegen/bytecodeListing/inline/genericReified.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/inline/genericReified.kt");
     }
 
     @Test
     @TestMetadata("inlineOnly.kt")
     public void testInlineOnly() {
-      runTest("compiler/testData/codegen/bytecodeListing/inline/inlineOnly.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/inline/inlineOnly.kt");
     }
 
     @Test
     @TestMetadata("InlineOnlyMultifile.kt")
     public void testInlineOnlyMultifile() {
-      runTest("compiler/testData/codegen/bytecodeListing/inline/InlineOnlyMultifile.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/inline/InlineOnlyMultifile.kt");
     }
 
     @Test
     @TestMetadata("inlineOnlyProperty.kt")
     public void testInlineOnlyProperty() {
-      runTest("compiler/testData/codegen/bytecodeListing/inline/inlineOnlyProperty.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/inline/inlineOnlyProperty.kt");
     }
 
     @Test
     @TestMetadata("InlineOnlyPropertyMultifile.kt")
     public void testInlineOnlyPropertyMultifile() {
-      runTest("compiler/testData/codegen/bytecodeListing/inline/InlineOnlyPropertyMultifile.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/inline/InlineOnlyPropertyMultifile.kt");
     }
 
     @Test
     @TestMetadata("inlineReified.kt")
     public void testInlineReified() {
-      runTest("compiler/testData/codegen/bytecodeListing/inline/inlineReified.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/inline/inlineReified.kt");
     }
 
     @Test
     @TestMetadata("InlineReifiedMultifile.kt")
     public void testInlineReifiedMultifile() {
-      runTest("compiler/testData/codegen/bytecodeListing/inline/InlineReifiedMultifile.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/inline/InlineReifiedMultifile.kt");
     }
 
     @Test
     @TestMetadata("inlineReifiedProperty.kt")
     public void testInlineReifiedProperty() {
-      runTest("compiler/testData/codegen/bytecodeListing/inline/inlineReifiedProperty.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/inline/inlineReifiedProperty.kt");
     }
 
     @Test
     @TestMetadata("InlineReifiedPropertyMultifile.kt")
     public void testInlineReifiedPropertyMultifile() {
-      runTest("compiler/testData/codegen/bytecodeListing/inline/InlineReifiedPropertyMultifile.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/inline/InlineReifiedPropertyMultifile.kt");
     }
 
     @Test
     @TestMetadata("inlineReifiedPropertyVisibility.kt")
     public void testInlineReifiedPropertyVisibility() {
-      runTest("compiler/testData/codegen/bytecodeListing/inline/inlineReifiedPropertyVisibility.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/inline/inlineReifiedPropertyVisibility.kt");
     }
 
     @Test
     @TestMetadata("inlineReifiedVisibility.kt")
     public void testInlineReifiedVisibility() {
-      runTest("compiler/testData/codegen/bytecodeListing/inline/inlineReifiedVisibility.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/inline/inlineReifiedVisibility.kt");
     }
 
     @Test
     @TestMetadata("simpleNamed.kt")
     public void testSimpleNamed() {
-      runTest("compiler/testData/codegen/bytecodeListing/inline/simpleNamed.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/inline/simpleNamed.kt");
     }
 
     @Test
     @TestMetadata("suspendInlineReified.kt")
     public void testSuspendInlineReified() {
-      runTest("compiler/testData/codegen/bytecodeListing/inline/suspendInlineReified.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/inline/suspendInlineReified.kt");
     }
 
     @Nested
@@ -1352,37 +1352,37 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
       @Test
       @TestMetadata("crossinlineLambdaChain.kt")
       public void testCrossinlineLambdaChain() {
-        runTest("compiler/testData/codegen/bytecodeListing/inline/enclosingInfo/crossinlineLambdaChain.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inline/enclosingInfo/crossinlineLambdaChain.kt");
       }
 
       @Test
       @TestMetadata("kt10259.kt")
       public void testKt10259() {
-        runTest("compiler/testData/codegen/bytecodeListing/inline/enclosingInfo/kt10259.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inline/enclosingInfo/kt10259.kt");
       }
 
       @Test
       @TestMetadata("lambdaInInitBlockNoPrimaryConstructor.kt")
       public void testLambdaInInitBlockNoPrimaryConstructor() {
-        runTest("compiler/testData/codegen/bytecodeListing/inline/enclosingInfo/lambdaInInitBlockNoPrimaryConstructor.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inline/enclosingInfo/lambdaInInitBlockNoPrimaryConstructor.kt");
       }
 
       @Test
       @TestMetadata("lambdaInInnerClassConstructor.kt")
       public void testLambdaInInnerClassConstructor() {
-        runTest("compiler/testData/codegen/bytecodeListing/inline/enclosingInfo/lambdaInInnerClassConstructor.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inline/enclosingInfo/lambdaInInnerClassConstructor.kt");
       }
 
       @Test
       @TestMetadata("transformedConstructor.kt")
       public void testTransformedConstructor() {
-        runTest("compiler/testData/codegen/bytecodeListing/inline/enclosingInfo/transformedConstructor.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inline/enclosingInfo/transformedConstructor.kt");
       }
 
       @Test
       @TestMetadata("transformedConstructorWithNestedInline.kt")
       public void testTransformedConstructorWithNestedInline() {
-        runTest("compiler/testData/codegen/bytecodeListing/inline/enclosingInfo/transformedConstructorWithNestedInline.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inline/enclosingInfo/transformedConstructorWithNestedInline.kt");
       }
     }
   }
@@ -1399,163 +1399,163 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
     @Test
     @TestMetadata("annotatedPropertyWithInlineClassTypeInSignature.kt")
     public void testAnnotatedPropertyWithInlineClassTypeInSignature() {
-      runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/annotatedPropertyWithInlineClassTypeInSignature.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/annotatedPropertyWithInlineClassTypeInSignature.kt");
     }
 
     @Test
     @TestMetadata("annotationGetters.kt")
     public void testAnnotationGetters() {
-      runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/annotationGetters.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/annotationGetters.kt");
     }
 
     @Test
     @TestMetadata("annotationsOnHiddenConstructor.kt")
     public void testAnnotationsOnHiddenConstructor() {
-      runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/annotationsOnHiddenConstructor.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/annotationsOnHiddenConstructor.kt");
     }
 
     @Test
     @TestMetadata("companionObjectInsideInlineClass.kt")
     public void testCompanionObjectInsideInlineClass() {
-      runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/companionObjectInsideInlineClass.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/companionObjectInsideInlineClass.kt");
     }
 
     @Test
     @TestMetadata("computablePropertiesInsideInlineClass.kt")
     public void testComputablePropertiesInsideInlineClass() {
-      runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/computablePropertiesInsideInlineClass.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/computablePropertiesInsideInlineClass.kt");
     }
 
     @Test
     @TestMetadata("constructor.kt")
     public void testConstructor() {
-      runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/constructor.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/constructor.kt");
     }
 
     @Test
     @TestMetadata("constructorsWithDefaultParameterValues.kt")
     public void testConstructorsWithDefaultParameterValues() {
-      runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/constructorsWithDefaultParameterValues.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/constructorsWithDefaultParameterValues.kt");
     }
 
     @Test
     @TestMetadata("genericChild.kt")
     public void testGenericChild() {
-      runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/genericChild.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/genericChild.kt");
     }
 
     @Test
     @TestMetadata("hiddenConstructor.kt")
     public void testHiddenConstructor() {
-      runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/hiddenConstructor.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/hiddenConstructor.kt");
     }
 
     @Test
     @TestMetadata("inlineCharSequence.kt")
     public void testInlineCharSequence() {
-      runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/inlineCharSequence.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/inlineCharSequence.kt");
     }
 
     @Test
     @TestMetadata("inlineClassMembersVisibility.kt")
     public void testInlineClassMembersVisibility() {
-      runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/inlineClassMembersVisibility.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/inlineClassMembersVisibility.kt");
     }
 
     @Test
     @TestMetadata("inlineClassTypeParametersInConstructor.kt")
     public void testInlineClassTypeParametersInConstructor() {
-      runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/inlineClassTypeParametersInConstructor.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/inlineClassTypeParametersInConstructor.kt");
     }
 
     @Test
     @TestMetadata("inlineClassWithInlineClassUnderlyingType.kt")
     public void testInlineClassWithInlineClassUnderlyingType() {
-      runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/inlineClassWithInlineClassUnderlyingType.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/inlineClassWithInlineClassUnderlyingType.kt");
     }
 
     @Test
     @TestMetadata("inlineClassWithManyKindsOfMembers.kt")
     public void testInlineClassWithManyKindsOfMembers() {
-      runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/inlineClassWithManyKindsOfMembers.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/inlineClassWithManyKindsOfMembers.kt");
     }
 
     @Test
     @TestMetadata("jvmName.kt")
     public void testJvmName() {
-      runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/jvmName.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/jvmName.kt");
     }
 
     @Test
     @TestMetadata("jvmOverloadsOnTopLevelFunctionReturningInlineClassValue.kt")
     public void testJvmOverloadsOnTopLevelFunctionReturningInlineClassValue() {
-      runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/jvmOverloadsOnTopLevelFunctionReturningInlineClassValue.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/jvmOverloadsOnTopLevelFunctionReturningInlineClassValue.kt");
     }
 
     @Test
     @TestMetadata("memberExtensionProperty.kt")
     public void testMemberExtensionProperty() {
-      runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/memberExtensionProperty.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/memberExtensionProperty.kt");
     }
 
     @Test
     @TestMetadata("noArgConstructorForInlineClassParameter.kt")
     public void testNoArgConstructorForInlineClassParameter() {
-      runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/noArgConstructorForInlineClassParameter.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/noArgConstructorForInlineClassParameter.kt");
     }
 
     @Test
     @TestMetadata("noBridgesForErasedInlineClass.kt")
     public void testNoBridgesForErasedInlineClass() {
-      runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/noBridgesForErasedInlineClass.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/noBridgesForErasedInlineClass.kt");
     }
 
     @Test
     @TestMetadata("nullabilityAnnotationsOnInlineClassMembers.kt")
     public void testNullabilityAnnotationsOnInlineClassMembers() {
-      runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/nullabilityAnnotationsOnInlineClassMembers.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/nullabilityAnnotationsOnInlineClassMembers.kt");
     }
 
     @Test
     @TestMetadata("nullabilityInExpansion.kt")
     public void testNullabilityInExpansion() {
-      runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/nullabilityInExpansion.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/nullabilityInExpansion.kt");
     }
 
     @Test
     @TestMetadata("nullableAndNotNullPrimitive.kt")
     public void testNullableAndNotNullPrimitive() {
-      runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/nullableAndNotNullPrimitive.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/nullableAndNotNullPrimitive.kt");
     }
 
     @Test
     @TestMetadata("overridingGenericMethodWithInlineClassParameterType.kt")
     public void testOverridingGenericMethodWithInlineClassParameterType() {
-      runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/overridingGenericMethodWithInlineClassParameterType.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/overridingGenericMethodWithInlineClassParameterType.kt");
     }
 
     @Test
     @TestMetadata("overridingGenericMethodWithInlineClassReturnType.kt")
     public void testOverridingGenericMethodWithInlineClassReturnType() {
-      runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/overridingGenericMethodWithInlineClassReturnType.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/overridingGenericMethodWithInlineClassReturnType.kt");
     }
 
     @Test
     @TestMetadata("primaryValsWithDifferentVisibilities.kt")
     public void testPrimaryValsWithDifferentVisibilities() {
-      runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/primaryValsWithDifferentVisibilities.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/primaryValsWithDifferentVisibilities.kt");
     }
 
     @Test
     @TestMetadata("publishedApiAnnotationOnInlineClassConstructor.kt")
     public void testPublishedApiAnnotationOnInlineClassConstructor() {
-      runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/publishedApiAnnotationOnInlineClassConstructor.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/publishedApiAnnotationOnInlineClassConstructor.kt");
     }
 
     @Test
     @TestMetadata("shapeOfInlineClassWithPrimitive.kt")
     public void testShapeOfInlineClassWithPrimitive() {
-      runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/shapeOfInlineClassWithPrimitive.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/shapeOfInlineClassWithPrimitive.kt");
     }
 
     @Nested
@@ -1570,25 +1570,25 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
       @Test
       @TestMetadata("genericSubstitutionJvmDefaultDisable.kt")
       public void testGenericSubstitutionJvmDefaultDisable() {
-        runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/defaultInterfaceMembers/genericSubstitutionJvmDefaultDisable.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/defaultInterfaceMembers/genericSubstitutionJvmDefaultDisable.kt");
       }
 
       @Test
       @TestMetadata("genericSubstitutionJvmDefaultEnable.kt")
       public void testGenericSubstitutionJvmDefaultEnable() {
-        runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/defaultInterfaceMembers/genericSubstitutionJvmDefaultEnable.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/defaultInterfaceMembers/genericSubstitutionJvmDefaultEnable.kt");
       }
 
       @Test
       @TestMetadata("javaDefaultInterfaceMember.kt")
       public void testJavaDefaultInterfaceMember() {
-        runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/defaultInterfaceMembers/javaDefaultInterfaceMember.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/defaultInterfaceMembers/javaDefaultInterfaceMember.kt");
       }
 
       @Test
       @TestMetadata("jvmDefaultNoCompatibility.kt")
       public void testJvmDefaultNoCompatibility() {
-        runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/defaultInterfaceMembers/jvmDefaultNoCompatibility.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/defaultInterfaceMembers/jvmDefaultNoCompatibility.kt");
       }
     }
 
@@ -1604,91 +1604,91 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
       @Test
       @TestMetadata("collection.kt")
       public void testCollection() {
-        runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/inlineCollection/collection.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/inlineCollection/collection.kt");
       }
 
       @Test
       @TestMetadata("iterable.kt")
       public void testIterable() {
-        runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/inlineCollection/iterable.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/inlineCollection/iterable.kt");
       }
 
       @Test
       @TestMetadata("iterator.kt")
       public void testIterator() {
-        runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/inlineCollection/iterator.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/inlineCollection/iterator.kt");
       }
 
       @Test
       @TestMetadata("list.kt")
       public void testList() {
-        runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/inlineCollection/list.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/inlineCollection/list.kt");
       }
 
       @Test
       @TestMetadata("map.kt")
       public void testMap() {
-        runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/inlineCollection/map.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/inlineCollection/map.kt");
       }
 
       @Test
       @TestMetadata("mapEntry.kt")
       public void testMapEntry() {
-        runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/inlineCollection/mapEntry.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/inlineCollection/mapEntry.kt");
       }
 
       @Test
       @TestMetadata("mutableCollection.kt")
       public void testMutableCollection() {
-        runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/inlineCollection/mutableCollection.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/inlineCollection/mutableCollection.kt");
       }
 
       @Test
       @TestMetadata("mutableIterable.kt")
       public void testMutableIterable() {
-        runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/inlineCollection/mutableIterable.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/inlineCollection/mutableIterable.kt");
       }
 
       @Test
       @TestMetadata("mutableIterator.kt")
       public void testMutableIterator() {
-        runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/inlineCollection/mutableIterator.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/inlineCollection/mutableIterator.kt");
       }
 
       @Test
       @TestMetadata("mutableList.kt")
       public void testMutableList() {
-        runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/inlineCollection/mutableList.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/inlineCollection/mutableList.kt");
       }
 
       @Test
       @TestMetadata("mutableMap.kt")
       public void testMutableMap() {
-        runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/inlineCollection/mutableMap.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/inlineCollection/mutableMap.kt");
       }
 
       @Test
       @TestMetadata("mutableMapEntry.kt")
       public void testMutableMapEntry() {
-        runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/inlineCollection/mutableMapEntry.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/inlineCollection/mutableMapEntry.kt");
       }
 
       @Test
       @TestMetadata("mutableSet.kt")
       public void testMutableSet() {
-        runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/inlineCollection/mutableSet.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/inlineCollection/mutableSet.kt");
       }
 
       @Test
       @TestMetadata("set.kt")
       public void testSet() {
-        runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/inlineCollection/set.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/inlineCollection/set.kt");
       }
 
       @Test
       @TestMetadata("UIntArrayWithFullJdk.kt")
       public void testUIntArrayWithFullJdk() {
-        runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/inlineCollection/UIntArrayWithFullJdk.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/inlineCollection/UIntArrayWithFullJdk.kt");
       }
     }
 
@@ -1704,91 +1704,91 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
       @Test
       @TestMetadata("collection.kt")
       public void testCollection() {
-        runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/inlineCollectionOfInlineClass/collection.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/inlineCollectionOfInlineClass/collection.kt");
       }
 
       @Test
       @TestMetadata("iterable.kt")
       public void testIterable() {
-        runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/inlineCollectionOfInlineClass/iterable.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/inlineCollectionOfInlineClass/iterable.kt");
       }
 
       @Test
       @TestMetadata("iterator.kt")
       public void testIterator() {
-        runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/inlineCollectionOfInlineClass/iterator.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/inlineCollectionOfInlineClass/iterator.kt");
       }
 
       @Test
       @TestMetadata("list.kt")
       public void testList() {
-        runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/inlineCollectionOfInlineClass/list.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/inlineCollectionOfInlineClass/list.kt");
       }
 
       @Test
       @TestMetadata("map.kt")
       public void testMap() {
-        runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/inlineCollectionOfInlineClass/map.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/inlineCollectionOfInlineClass/map.kt");
       }
 
       @Test
       @TestMetadata("mapEntry.kt")
       public void testMapEntry() {
-        runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/inlineCollectionOfInlineClass/mapEntry.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/inlineCollectionOfInlineClass/mapEntry.kt");
       }
 
       @Test
       @TestMetadata("mutableCollection.kt")
       public void testMutableCollection() {
-        runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/inlineCollectionOfInlineClass/mutableCollection.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/inlineCollectionOfInlineClass/mutableCollection.kt");
       }
 
       @Test
       @TestMetadata("mutableIterable.kt")
       public void testMutableIterable() {
-        runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/inlineCollectionOfInlineClass/mutableIterable.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/inlineCollectionOfInlineClass/mutableIterable.kt");
       }
 
       @Test
       @TestMetadata("mutableIterator.kt")
       public void testMutableIterator() {
-        runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/inlineCollectionOfInlineClass/mutableIterator.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/inlineCollectionOfInlineClass/mutableIterator.kt");
       }
 
       @Test
       @TestMetadata("mutableList.kt")
       public void testMutableList() {
-        runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/inlineCollectionOfInlineClass/mutableList.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/inlineCollectionOfInlineClass/mutableList.kt");
       }
 
       @Test
       @TestMetadata("mutableMap.kt")
       public void testMutableMap() {
-        runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/inlineCollectionOfInlineClass/mutableMap.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/inlineCollectionOfInlineClass/mutableMap.kt");
       }
 
       @Test
       @TestMetadata("mutableMapEntry.kt")
       public void testMutableMapEntry() {
-        runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/inlineCollectionOfInlineClass/mutableMapEntry.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/inlineCollectionOfInlineClass/mutableMapEntry.kt");
       }
 
       @Test
       @TestMetadata("mutableSet.kt")
       public void testMutableSet() {
-        runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/inlineCollectionOfInlineClass/mutableSet.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/inlineCollectionOfInlineClass/mutableSet.kt");
       }
 
       @Test
       @TestMetadata("mutableSet2.kt")
       public void testMutableSet2() {
-        runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/inlineCollectionOfInlineClass/mutableSet2.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/inlineCollectionOfInlineClass/mutableSet2.kt");
       }
 
       @Test
       @TestMetadata("set.kt")
       public void testSet() {
-        runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/inlineCollectionOfInlineClass/set.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/inlineCollectionOfInlineClass/set.kt");
       }
     }
 
@@ -1804,37 +1804,37 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
       @Test
       @TestMetadata("class.kt")
       public void testClass() {
-        runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/returnResult/class.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/returnResult/class.kt");
       }
 
       @Test
       @TestMetadata("classAnyOverride.kt")
       public void testClassAnyOverride() {
-        runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/returnResult/classAnyOverride.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/returnResult/classAnyOverride.kt");
       }
 
       @Test
       @TestMetadata("classGenericOverride.kt")
       public void testClassGenericOverride() {
-        runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/returnResult/classGenericOverride.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/returnResult/classGenericOverride.kt");
       }
 
       @Test
       @TestMetadata("classResultOverride.kt")
       public void testClassResultOverride() {
-        runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/returnResult/classResultOverride.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/returnResult/classResultOverride.kt");
       }
 
       @Test
       @TestMetadata("interface.kt")
       public void testInterface() {
-        runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/returnResult/interface.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/returnResult/interface.kt");
       }
 
       @Test
       @TestMetadata("topLevel.kt")
       public void testTopLevel() {
-        runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/returnResult/topLevel.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/returnResult/topLevel.kt");
       }
     }
 
@@ -1850,7 +1850,7 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
       @Test
       @TestMetadata("new.kt")
       public void testNew() {
-        runTest("compiler/testData/codegen/bytecodeListing/inlineClasses/stdlibManglingIn1430/new.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/inlineClasses/stdlibManglingIn1430/new.kt");
       }
     }
   }
@@ -1885,13 +1885,13 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
         @Test
         @TestMetadata("annotations.kt")
         public void testAnnotations() {
-          runTest("compiler/testData/codegen/bytecodeListing/jvm8/defaults/defaultCompatibilityBridges/annotations.kt");
+          runTest(":compiler:testData/codegen", "bytecodeListing/jvm8/defaults/defaultCompatibilityBridges/annotations.kt");
         }
 
         @Test
         @TestMetadata("noBridgeIfSuperMethodIsAbstract.kt")
         public void testNoBridgeIfSuperMethodIsAbstract() {
-          runTest("compiler/testData/codegen/bytecodeListing/jvm8/defaults/defaultCompatibilityBridges/noBridgeIfSuperMethodIsAbstract.kt");
+          runTest(":compiler:testData/codegen", "bytecodeListing/jvm8/defaults/defaultCompatibilityBridges/noBridgeIfSuperMethodIsAbstract.kt");
         }
       }
 
@@ -1907,13 +1907,13 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
         @Test
         @TestMetadata("bridgeInInterface.kt")
         public void testBridgeInInterface() {
-          runTest("compiler/testData/codegen/bytecodeListing/jvm8/defaults/disable/bridgeInInterface.kt");
+          runTest(":compiler:testData/codegen", "bytecodeListing/jvm8/defaults/disable/bridgeInInterface.kt");
         }
 
         @Test
         @TestMetadata("bridgeInInterfaceWithProperties.kt")
         public void testBridgeInInterfaceWithProperties() {
-          runTest("compiler/testData/codegen/bytecodeListing/jvm8/defaults/disable/bridgeInInterfaceWithProperties.kt");
+          runTest(":compiler:testData/codegen", "bytecodeListing/jvm8/defaults/disable/bridgeInInterfaceWithProperties.kt");
         }
       }
 
@@ -1929,55 +1929,55 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
         @Test
         @TestMetadata("bridgeInInterface.kt")
         public void testBridgeInInterface() {
-          runTest("compiler/testData/codegen/bytecodeListing/jvm8/defaults/enable/bridgeInInterface.kt");
+          runTest(":compiler:testData/codegen", "bytecodeListing/jvm8/defaults/enable/bridgeInInterface.kt");
         }
 
         @Test
         @TestMetadata("bridgeInInterfaceWithProperties.kt")
         public void testBridgeInInterfaceWithProperties() {
-          runTest("compiler/testData/codegen/bytecodeListing/jvm8/defaults/enable/bridgeInInterfaceWithProperties.kt");
+          runTest(":compiler:testData/codegen", "bytecodeListing/jvm8/defaults/enable/bridgeInInterfaceWithProperties.kt");
         }
 
         @Test
         @TestMetadata("bridgeWithJava.kt")
         public void testBridgeWithJava() {
-          runTest("compiler/testData/codegen/bytecodeListing/jvm8/defaults/enable/bridgeWithJava.kt");
+          runTest(":compiler:testData/codegen", "bytecodeListing/jvm8/defaults/enable/bridgeWithJava.kt");
         }
 
         @Test
         @TestMetadata("bridgesInClassWithDisableAgainstEnable.kt")
         public void testBridgesInClassWithDisableAgainstEnable() {
-          runTest("compiler/testData/codegen/bytecodeListing/jvm8/defaults/enable/bridgesInClassWithDisableAgainstEnable.kt");
+          runTest(":compiler:testData/codegen", "bytecodeListing/jvm8/defaults/enable/bridgesInClassWithDisableAgainstEnable.kt");
         }
 
         @Test
         @TestMetadata("deprecation.kt")
         public void testDeprecation() {
-          runTest("compiler/testData/codegen/bytecodeListing/jvm8/defaults/enable/deprecation.kt");
+          runTest(":compiler:testData/codegen", "bytecodeListing/jvm8/defaults/enable/deprecation.kt");
         }
 
         @Test
         @TestMetadata("deprecationWithDefault.kt")
         public void testDeprecationWithDefault() {
-          runTest("compiler/testData/codegen/bytecodeListing/jvm8/defaults/enable/deprecationWithDefault.kt");
+          runTest(":compiler:testData/codegen", "bytecodeListing/jvm8/defaults/enable/deprecationWithDefault.kt");
         }
 
         @Test
         @TestMetadata("interfaceProperty.kt")
         public void testInterfaceProperty() {
-          runTest("compiler/testData/codegen/bytecodeListing/jvm8/defaults/enable/interfaceProperty.kt");
+          runTest(":compiler:testData/codegen", "bytecodeListing/jvm8/defaults/enable/interfaceProperty.kt");
         }
 
         @Test
         @TestMetadata("jvmDefaultWithoutCompatibility.kt")
         public void testJvmDefaultWithoutCompatibility() {
-          runTest("compiler/testData/codegen/bytecodeListing/jvm8/defaults/enable/jvmDefaultWithoutCompatibility.kt");
+          runTest(":compiler:testData/codegen", "bytecodeListing/jvm8/defaults/enable/jvmDefaultWithoutCompatibility.kt");
         }
 
         @Test
         @TestMetadata("noDefaultImplsOnEmptySubInterface.kt")
         public void testNoDefaultImplsOnEmptySubInterface() {
-          runTest("compiler/testData/codegen/bytecodeListing/jvm8/defaults/enable/noDefaultImplsOnEmptySubInterface.kt");
+          runTest(":compiler:testData/codegen", "bytecodeListing/jvm8/defaults/enable/noDefaultImplsOnEmptySubInterface.kt");
         }
 
         @Nested
@@ -1992,13 +1992,13 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
           @Test
           @TestMetadata("primitiveAndAny.kt")
           public void testPrimitiveAndAny() {
-            runTest("compiler/testData/codegen/bytecodeListing/jvm8/defaults/enable/specialization/primitiveAndAny.kt");
+            runTest(":compiler:testData/codegen", "bytecodeListing/jvm8/defaults/enable/specialization/primitiveAndAny.kt");
           }
 
           @Test
           @TestMetadata("primitiveAndNullable.kt")
           public void testPrimitiveAndNullable() {
-            runTest("compiler/testData/codegen/bytecodeListing/jvm8/defaults/enable/specialization/primitiveAndNullable.kt");
+            runTest(":compiler:testData/codegen", "bytecodeListing/jvm8/defaults/enable/specialization/primitiveAndNullable.kt");
           }
         }
       }
@@ -2015,31 +2015,31 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
         @Test
         @TestMetadata("bridgeInInterface.kt")
         public void testBridgeInInterface() {
-          runTest("compiler/testData/codegen/bytecodeListing/jvm8/defaults/noCompatibility/bridgeInInterface.kt");
+          runTest(":compiler:testData/codegen", "bytecodeListing/jvm8/defaults/noCompatibility/bridgeInInterface.kt");
         }
 
         @Test
         @TestMetadata("bridgeInInterfaceWithProperties.kt")
         public void testBridgeInInterfaceWithProperties() {
-          runTest("compiler/testData/codegen/bytecodeListing/jvm8/defaults/noCompatibility/bridgeInInterfaceWithProperties.kt");
+          runTest(":compiler:testData/codegen", "bytecodeListing/jvm8/defaults/noCompatibility/bridgeInInterfaceWithProperties.kt");
         }
 
         @Test
         @TestMetadata("bridgeWithJava.kt")
         public void testBridgeWithJava() {
-          runTest("compiler/testData/codegen/bytecodeListing/jvm8/defaults/noCompatibility/bridgeWithJava.kt");
+          runTest(":compiler:testData/codegen", "bytecodeListing/jvm8/defaults/noCompatibility/bridgeWithJava.kt");
         }
 
         @Test
         @TestMetadata("interfaceProperty.kt")
         public void testInterfaceProperty() {
-          runTest("compiler/testData/codegen/bytecodeListing/jvm8/defaults/noCompatibility/interfaceProperty.kt");
+          runTest(":compiler:testData/codegen", "bytecodeListing/jvm8/defaults/noCompatibility/interfaceProperty.kt");
         }
 
         @Test
         @TestMetadata("privateAccessorNaming.kt")
         public void testPrivateAccessorNaming() {
-          runTest("compiler/testData/codegen/bytecodeListing/jvm8/defaults/noCompatibility/privateAccessorNaming.kt");
+          runTest(":compiler:testData/codegen", "bytecodeListing/jvm8/defaults/noCompatibility/privateAccessorNaming.kt");
         }
       }
     }
@@ -2057,25 +2057,25 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
     @Test
     @TestMetadata("jvmStaticExternal.kt")
     public void testJvmStaticExternal() {
-      runTest("compiler/testData/codegen/bytecodeListing/jvmStatic/jvmStaticExternal.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/jvmStatic/jvmStaticExternal.kt");
     }
 
     @Test
     @TestMetadata("jvmStaticPrivate.kt")
     public void testJvmStaticPrivate() {
-      runTest("compiler/testData/codegen/bytecodeListing/jvmStatic/jvmStaticPrivate.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/jvmStatic/jvmStaticPrivate.kt");
     }
 
     @Test
     @TestMetadata("jvmStaticWithDefaultParameters.kt")
     public void testJvmStaticWithDefaultParameters() {
-      runTest("compiler/testData/codegen/bytecodeListing/jvmStatic/jvmStaticWithDefaultParameters.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/jvmStatic/jvmStaticWithDefaultParameters.kt");
     }
 
     @Test
     @TestMetadata("kt31389.kt")
     public void testKt31389() {
-      runTest("compiler/testData/codegen/bytecodeListing/jvmStatic/kt31389.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/jvmStatic/kt31389.kt");
     }
   }
 
@@ -2091,31 +2091,31 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
     @Test
     @TestMetadata("genericClass.kt")
     public void testGenericClass() {
-      runTest("compiler/testData/codegen/bytecodeListing/localFunctions/genericClass.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/localFunctions/genericClass.kt");
     }
 
     @Test
     @TestMetadata("genericInnerClass.kt")
     public void testGenericInnerClass() {
-      runTest("compiler/testData/codegen/bytecodeListing/localFunctions/genericInnerClass.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/localFunctions/genericInnerClass.kt");
     }
 
     @Test
     @TestMetadata("genericLocalClass.kt")
     public void testGenericLocalClass() {
-      runTest("compiler/testData/codegen/bytecodeListing/localFunctions/genericLocalClass.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/localFunctions/genericLocalClass.kt");
     }
 
     @Test
     @TestMetadata("inInitBlock.kt")
     public void testInInitBlock() {
-      runTest("compiler/testData/codegen/bytecodeListing/localFunctions/inInitBlock.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/localFunctions/inInitBlock.kt");
     }
 
     @Test
     @TestMetadata("simple.kt")
     public void testSimple() {
-      runTest("compiler/testData/codegen/bytecodeListing/localFunctions/simple.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/localFunctions/simple.kt");
     }
   }
 
@@ -2131,25 +2131,25 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
     @Test
     @TestMetadata("multifileSuspend.kt")
     public void testMultifileSuspend() {
-      runTest("compiler/testData/codegen/bytecodeListing/main/multifileSuspend.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/main/multifileSuspend.kt");
     }
 
     @Test
     @TestMetadata("parameterlessMain.kt")
     public void testParameterlessMain() {
-      runTest("compiler/testData/codegen/bytecodeListing/main/parameterlessMain.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/main/parameterlessMain.kt");
     }
 
     @Test
     @TestMetadata("parameterlessMain_before.kt")
     public void testParameterlessMain_before() {
-      runTest("compiler/testData/codegen/bytecodeListing/main/parameterlessMain_before.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/main/parameterlessMain_before.kt");
     }
 
     @Test
     @TestMetadata("suspendMain.kt")
     public void testSuspendMain() {
-      runTest("compiler/testData/codegen/bytecodeListing/main/suspendMain.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/main/suspendMain.kt");
     }
   }
 
@@ -2165,31 +2165,31 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
     @Test
     @TestMetadata("emptyMultifileFacade.kt")
     public void testEmptyMultifileFacade() {
-      runTest("compiler/testData/codegen/bytecodeListing/multifileClasses/emptyMultifileFacade.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/multifileClasses/emptyMultifileFacade.kt");
     }
 
     @Test
     @TestMetadata("jvmSynthetic.kt")
     public void testJvmSynthetic() {
-      runTest("compiler/testData/codegen/bytecodeListing/multifileClasses/jvmSynthetic.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/multifileClasses/jvmSynthetic.kt");
     }
 
     @Test
     @TestMetadata("kt43519.kt")
     public void testKt43519() {
-      runTest("compiler/testData/codegen/bytecodeListing/multifileClasses/kt43519.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/multifileClasses/kt43519.kt");
     }
 
     @Test
     @TestMetadata("multiClassPartSourceMultipleParts.kt")
     public void testMultiClassPartSourceMultipleParts() {
-      runTest("compiler/testData/codegen/bytecodeListing/multifileClasses/multiClassPartSourceMultipleParts.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/multifileClasses/multiClassPartSourceMultipleParts.kt");
     }
 
     @Test
     @TestMetadata("multiClassPartSourceSinglePart.kt")
     public void testMultiClassPartSourceSinglePart() {
-      runTest("compiler/testData/codegen/bytecodeListing/multifileClasses/multiClassPartSourceSinglePart.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/multifileClasses/multiClassPartSourceSinglePart.kt");
     }
   }
 
@@ -2205,7 +2205,7 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
     @Test
     @TestMetadata("optionalExpectation.kt")
     public void testOptionalExpectation() {
-      runTest("compiler/testData/codegen/bytecodeListing/multiplatform/optionalExpectation.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/multiplatform/optionalExpectation.kt");
     }
   }
 
@@ -2221,37 +2221,37 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
     @Test
     @TestMetadata("lateInitNotNull.kt")
     public void testLateInitNotNull() {
-      runTest("compiler/testData/codegen/bytecodeListing/nullabilityAnnotations/lateInitNotNull.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/nullabilityAnnotations/lateInitNotNull.kt");
     }
 
     @Test
     @TestMetadata("nullabilityAnnotationsForReturnType.kt")
     public void testNullabilityAnnotationsForReturnType() {
-      runTest("compiler/testData/codegen/bytecodeListing/nullabilityAnnotations/nullabilityAnnotationsForReturnType.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/nullabilityAnnotations/nullabilityAnnotationsForReturnType.kt");
     }
 
     @Test
     @TestMetadata("nullabilityAnnotationsOnDelegatedMembers.kt")
     public void testNullabilityAnnotationsOnDelegatedMembers() {
-      runTest("compiler/testData/codegen/bytecodeListing/nullabilityAnnotations/nullabilityAnnotationsOnDelegatedMembers.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/nullabilityAnnotations/nullabilityAnnotationsOnDelegatedMembers.kt");
     }
 
     @Test
     @TestMetadata("platformTypes.kt")
     public void testPlatformTypes() {
-      runTest("compiler/testData/codegen/bytecodeListing/nullabilityAnnotations/platformTypes.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/nullabilityAnnotations/platformTypes.kt");
     }
 
     @Test
     @TestMetadata("samAdapterForJavaInterfaceWithNullability.kt")
     public void testSamAdapterForJavaInterfaceWithNullability() {
-      runTest("compiler/testData/codegen/bytecodeListing/nullabilityAnnotations/samAdapterForJavaInterfaceWithNullability.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/nullabilityAnnotations/samAdapterForJavaInterfaceWithNullability.kt");
     }
 
     @Test
     @TestMetadata("suspendFunction.kt")
     public void testSuspendFunction() {
-      runTest("compiler/testData/codegen/bytecodeListing/nullabilityAnnotations/suspendFunction.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/nullabilityAnnotations/suspendFunction.kt");
     }
   }
 
@@ -2276,7 +2276,7 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
       @Test
       @TestMetadata("explicitBackingFieldsInJava.kt")
       public void testExplicitBackingFieldsInJava() {
-        runTest("compiler/testData/codegen/bytecodeListing/properties/backingField/explicitBackingFieldsInJava.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/properties/backingField/explicitBackingFieldsInJava.kt");
       }
     }
   }
@@ -2293,139 +2293,139 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
     @Test
     @TestMetadata("callableRefGenericFunInterface.kt")
     public void testCallableRefGenericFunInterface() {
-      runTest("compiler/testData/codegen/bytecodeListing/sam/callableRefGenericFunInterface.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/sam/callableRefGenericFunInterface.kt");
     }
 
     @Test
     @TestMetadata("callableRefGenericSamInterface.kt")
     public void testCallableRefGenericSamInterface() {
-      runTest("compiler/testData/codegen/bytecodeListing/sam/callableRefGenericSamInterface.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/sam/callableRefGenericSamInterface.kt");
     }
 
     @Test
     @TestMetadata("callableRefSpecializedFunInterface.kt")
     public void testCallableRefSpecializedFunInterface() {
-      runTest("compiler/testData/codegen/bytecodeListing/sam/callableRefSpecializedFunInterface.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/sam/callableRefSpecializedFunInterface.kt");
     }
 
     @Test
     @TestMetadata("callableRefSpecializedSamInterface.kt")
     public void testCallableRefSpecializedSamInterface() {
-      runTest("compiler/testData/codegen/bytecodeListing/sam/callableRefSpecializedSamInterface.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/sam/callableRefSpecializedSamInterface.kt");
     }
 
     @Test
     @TestMetadata("genericFunInterface.kt")
     public void testGenericFunInterface() {
-      runTest("compiler/testData/codegen/bytecodeListing/sam/genericFunInterface.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/sam/genericFunInterface.kt");
     }
 
     @Test
     @TestMetadata("genericSamInterface.kt")
     public void testGenericSamInterface() {
-      runTest("compiler/testData/codegen/bytecodeListing/sam/genericSamInterface.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/sam/genericSamInterface.kt");
     }
 
     @Test
     @TestMetadata("indySamConversionViaProxyFun.kt")
     public void testIndySamConversionViaProxyFun() {
-      runTest("compiler/testData/codegen/bytecodeListing/sam/indySamConversionViaProxyFun.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/sam/indySamConversionViaProxyFun.kt");
     }
 
     @Test
     @TestMetadata("kt16650.kt")
     public void testKt16650() {
-      runTest("compiler/testData/codegen/bytecodeListing/sam/kt16650.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/sam/kt16650.kt");
     }
 
     @Test
     @TestMetadata("lambdaGenericFunInterface.kt")
     public void testLambdaGenericFunInterface() {
-      runTest("compiler/testData/codegen/bytecodeListing/sam/lambdaGenericFunInterface.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/sam/lambdaGenericFunInterface.kt");
     }
 
     @Test
     @TestMetadata("lambdaGenericSamInterface.kt")
     public void testLambdaGenericSamInterface() {
-      runTest("compiler/testData/codegen/bytecodeListing/sam/lambdaGenericSamInterface.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/sam/lambdaGenericSamInterface.kt");
     }
 
     @Test
     @TestMetadata("lambdaSpecializedFunInterface.kt")
     public void testLambdaSpecializedFunInterface() {
-      runTest("compiler/testData/codegen/bytecodeListing/sam/lambdaSpecializedFunInterface.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/sam/lambdaSpecializedFunInterface.kt");
     }
 
     @Test
     @TestMetadata("lambdaSpecializedSamInterface.kt")
     public void testLambdaSpecializedSamInterface() {
-      runTest("compiler/testData/codegen/bytecodeListing/sam/lambdaSpecializedSamInterface.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/sam/lambdaSpecializedSamInterface.kt");
     }
 
     @Test
     @TestMetadata("nonApproxToValidSupertype.kt")
     public void testNonApproxToValidSupertype() {
-      runTest("compiler/testData/codegen/bytecodeListing/sam/nonApproxToValidSupertype.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/sam/nonApproxToValidSupertype.kt");
     }
 
     @Test
     @TestMetadata("nonApproxToValidSupertype2.kt")
     public void testNonApproxToValidSupertype2() {
-      runTest("compiler/testData/codegen/bytecodeListing/sam/nonApproxToValidSupertype2.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/sam/nonApproxToValidSupertype2.kt");
     }
 
     @Test
     @TestMetadata("privateInlineSamAdapter.kt")
     public void testPrivateInlineSamAdapter() {
-      runTest("compiler/testData/codegen/bytecodeListing/sam/privateInlineSamAdapter.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/sam/privateInlineSamAdapter.kt");
     }
 
     @Test
     @TestMetadata("reusedSamWrapperClasses.kt")
     public void testReusedSamWrapperClasses() {
-      runTest("compiler/testData/codegen/bytecodeListing/sam/reusedSamWrapperClasses.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/sam/reusedSamWrapperClasses.kt");
     }
 
     @Test
     @TestMetadata("samAdapterAndInlinedOne.kt")
     public void testSamAdapterAndInlinedOne() {
-      runTest("compiler/testData/codegen/bytecodeListing/sam/samAdapterAndInlinedOne.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/sam/samAdapterAndInlinedOne.kt");
     }
 
     @Test
     @TestMetadata("samAdapterInInlineLambda.kt")
     public void testSamAdapterInInlineLambda() {
-      runTest("compiler/testData/codegen/bytecodeListing/sam/samAdapterInInlineLambda.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/sam/samAdapterInInlineLambda.kt");
     }
 
     @Test
     @TestMetadata("samWithContravariantProjection.kt")
     public void testSamWithContravariantProjection() {
-      runTest("compiler/testData/codegen/bytecodeListing/sam/samWithContravariantProjection.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/sam/samWithContravariantProjection.kt");
     }
 
     @Test
     @TestMetadata("severalProxyFunsInInit.kt")
     public void testSeveralProxyFunsInInit() {
-      runTest("compiler/testData/codegen/bytecodeListing/sam/severalProxyFunsInInit.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/sam/severalProxyFunsInInit.kt");
     }
 
     @Test
     @TestMetadata("specializedFunInterface.kt")
     public void testSpecializedFunInterface() {
-      runTest("compiler/testData/codegen/bytecodeListing/sam/specializedFunInterface.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/sam/specializedFunInterface.kt");
     }
 
     @Test
     @TestMetadata("specializedSamInterface.kt")
     public void testSpecializedSamInterface() {
-      runTest("compiler/testData/codegen/bytecodeListing/sam/specializedSamInterface.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/sam/specializedSamInterface.kt");
     }
 
     @Test
     @TestMetadata("wrapperInlinedFromAnotherClass.kt")
     public void testWrapperInlinedFromAnotherClass() {
-      runTest("compiler/testData/codegen/bytecodeListing/sam/wrapperInlinedFromAnotherClass.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/sam/wrapperInlinedFromAnotherClass.kt");
     }
   }
 
@@ -2441,19 +2441,19 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
     @Test
     @TestMetadata("annotationsOnSealedConstructor.kt")
     public void testAnnotationsOnSealedConstructor() {
-      runTest("compiler/testData/codegen/bytecodeListing/sealed/annotationsOnSealedConstructor.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/sealed/annotationsOnSealedConstructor.kt");
     }
 
     @Test
     @TestMetadata("permittedSubclasses_1_7.kt")
     public void testPermittedSubclasses_1_7() {
-      runTest("compiler/testData/codegen/bytecodeListing/sealed/permittedSubclasses_1_7.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/sealed/permittedSubclasses_1_7.kt");
     }
 
     @Test
     @TestMetadata("sealedClassConstructor_1_5.kt")
     public void testSealedClassConstructor_1_5() {
-      runTest("compiler/testData/codegen/bytecodeListing/sealed/sealedClassConstructor_1_5.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/sealed/sealedClassConstructor_1_5.kt");
     }
   }
 
@@ -2464,49 +2464,49 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
     @Test
     @TestMetadata("abstractCollections.kt")
     public void testAbstractCollections() {
-      runTest("compiler/testData/codegen/bytecodeListing/specialBridges/abstractCollections.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/specialBridges/abstractCollections.kt");
     }
 
     @Test
     @TestMetadata("abstractIterables.kt")
     public void testAbstractIterables() {
-      runTest("compiler/testData/codegen/bytecodeListing/specialBridges/abstractIterables.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/specialBridges/abstractIterables.kt");
     }
 
     @Test
     @TestMetadata("abstractLists.kt")
     public void testAbstractLists() {
-      runTest("compiler/testData/codegen/bytecodeListing/specialBridges/abstractLists.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/specialBridges/abstractLists.kt");
     }
 
     @Test
     @TestMetadata("abstractListsWithJavaBase.kt")
     public void testAbstractListsWithJavaBase() {
-      runTest("compiler/testData/codegen/bytecodeListing/specialBridges/abstractListsWithJavaBase.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/specialBridges/abstractListsWithJavaBase.kt");
     }
 
     @Test
     @TestMetadata("abstractMutableCollectionOfPrimitive.kt")
     public void testAbstractMutableCollectionOfPrimitive() {
-      runTest("compiler/testData/codegen/bytecodeListing/specialBridges/abstractMutableCollectionOfPrimitive.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/specialBridges/abstractMutableCollectionOfPrimitive.kt");
     }
 
     @Test
     @TestMetadata("abstractMutableListOfPrimitive.kt")
     public void testAbstractMutableListOfPrimitive() {
-      runTest("compiler/testData/codegen/bytecodeListing/specialBridges/abstractMutableListOfPrimitive.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/specialBridges/abstractMutableListOfPrimitive.kt");
     }
 
     @Test
     @TestMetadata("abstractMutableLists.kt")
     public void testAbstractMutableLists() {
-      runTest("compiler/testData/codegen/bytecodeListing/specialBridges/abstractMutableLists.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/specialBridges/abstractMutableLists.kt");
     }
 
     @Test
     @TestMetadata("abstractSets.kt")
     public void testAbstractSets() {
-      runTest("compiler/testData/codegen/bytecodeListing/specialBridges/abstractSets.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/specialBridges/abstractSets.kt");
     }
 
     @Test
@@ -2517,85 +2517,85 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
     @Test
     @TestMetadata("bridgeForIntersectionBetweenRenamedMethodAndProperty.kt")
     public void testBridgeForIntersectionBetweenRenamedMethodAndProperty() {
-      runTest("compiler/testData/codegen/bytecodeListing/specialBridges/bridgeForIntersectionBetweenRenamedMethodAndProperty.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/specialBridges/bridgeForIntersectionBetweenRenamedMethodAndProperty.kt");
     }
 
     @Test
     @TestMetadata("charSequence.kt")
     public void testCharSequence() {
-      runTest("compiler/testData/codegen/bytecodeListing/specialBridges/charSequence.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/specialBridges/charSequence.kt");
     }
 
     @Test
     @TestMetadata("contains.kt")
     public void testContains() {
-      runTest("compiler/testData/codegen/bytecodeListing/specialBridges/contains.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/specialBridges/contains.kt");
     }
 
     @Test
     @TestMetadata("kt41123.kt")
     public void testKt41123() {
-      runTest("compiler/testData/codegen/bytecodeListing/specialBridges/kt41123.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/specialBridges/kt41123.kt");
     }
 
     @Test
     @TestMetadata("kt48945.kt")
     public void testKt48945() {
-      runTest("compiler/testData/codegen/bytecodeListing/specialBridges/kt48945.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/specialBridges/kt48945.kt");
     }
 
     @Test
     @TestMetadata("mutableCollectionOfPrimitive.kt")
     public void testMutableCollectionOfPrimitive() {
-      runTest("compiler/testData/codegen/bytecodeListing/specialBridges/mutableCollectionOfPrimitive.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/specialBridges/mutableCollectionOfPrimitive.kt");
     }
 
     @Test
     @TestMetadata("mutableListOfPrimitive.kt")
     public void testMutableListOfPrimitive() {
-      runTest("compiler/testData/codegen/bytecodeListing/specialBridges/mutableListOfPrimitive.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/specialBridges/mutableListOfPrimitive.kt");
     }
 
     @Test
     @TestMetadata("noDefaultImplsOnEmptySubInterface.kt")
     public void testNoDefaultImplsOnEmptySubInterface() {
-      runTest("compiler/testData/codegen/bytecodeListing/specialBridges/noDefaultImplsOnEmptySubInterface.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/specialBridges/noDefaultImplsOnEmptySubInterface.kt");
     }
 
     @Test
     @TestMetadata("noSpecialBridgeIfPresentInSuperClass.kt")
     public void testNoSpecialBridgeIfPresentInSuperClass() {
-      runTest("compiler/testData/codegen/bytecodeListing/specialBridges/noSpecialBridgeIfPresentInSuperClass.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/specialBridges/noSpecialBridgeIfPresentInSuperClass.kt");
     }
 
     @Test
     @TestMetadata("number.kt")
     public void testNumber() {
-      runTest("compiler/testData/codegen/bytecodeListing/specialBridges/number.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/specialBridges/number.kt");
     }
 
     @Test
     @TestMetadata("redundantStubForSize.kt")
     public void testRedundantStubForSize() {
-      runTest("compiler/testData/codegen/bytecodeListing/specialBridges/redundantStubForSize.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/specialBridges/redundantStubForSize.kt");
     }
 
     @Test
     @TestMetadata("removeAtTwoSpecialBridges.kt")
     public void testRemoveAtTwoSpecialBridges() {
-      runTest("compiler/testData/codegen/bytecodeListing/specialBridges/removeAtTwoSpecialBridges.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/specialBridges/removeAtTwoSpecialBridges.kt");
     }
 
     @Test
     @TestMetadata("specialBridgeForGet.kt")
     public void testSpecialBridgeForGet() {
-      runTest("compiler/testData/codegen/bytecodeListing/specialBridges/specialBridgeForGet.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/specialBridges/specialBridgeForGet.kt");
     }
 
     @Test
     @TestMetadata("unsignedArray.kt")
     public void testUnsignedArray() {
-      runTest("compiler/testData/codegen/bytecodeListing/specialBridges/unsignedArray.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/specialBridges/unsignedArray.kt");
     }
 
     @Nested
@@ -2610,61 +2610,61 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
       @Test
       @TestMetadata("genericClass.kt")
       public void testGenericClass() {
-        runTest("compiler/testData/codegen/bytecodeListing/specialBridges/signatures/genericClass.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/specialBridges/signatures/genericClass.kt");
       }
 
       @Test
       @TestMetadata("implementsJavaMap.kt")
       public void testImplementsJavaMap() {
-        runTest("compiler/testData/codegen/bytecodeListing/specialBridges/signatures/implementsJavaMap.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/specialBridges/signatures/implementsJavaMap.kt");
       }
 
       @Test
       @TestMetadata("implementsJavaMapWithCustomEntries.kt")
       public void testImplementsJavaMapWithCustomEntries() {
-        runTest("compiler/testData/codegen/bytecodeListing/specialBridges/signatures/implementsJavaMapWithCustomEntries.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/specialBridges/signatures/implementsJavaMapWithCustomEntries.kt");
       }
 
       @Test
       @TestMetadata("implementsMap.kt")
       public void testImplementsMap() {
-        runTest("compiler/testData/codegen/bytecodeListing/specialBridges/signatures/implementsMap.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/specialBridges/signatures/implementsMap.kt");
       }
 
       @Test
       @TestMetadata("implementsSortedMap.kt")
       public void testImplementsSortedMap() {
-        runTest("compiler/testData/codegen/bytecodeListing/specialBridges/signatures/implementsSortedMap.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/specialBridges/signatures/implementsSortedMap.kt");
       }
 
       @Test
       @TestMetadata("kt43610.kt")
       public void testKt43610() {
-        runTest("compiler/testData/codegen/bytecodeListing/specialBridges/signatures/kt43610.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/specialBridges/signatures/kt43610.kt");
       }
 
       @Test
       @TestMetadata("nonGenericClass.kt")
       public void testNonGenericClass() {
-        runTest("compiler/testData/codegen/bytecodeListing/specialBridges/signatures/nonGenericClass.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/specialBridges/signatures/nonGenericClass.kt");
       }
 
       @Test
       @TestMetadata("partiallySpecializedClass.kt")
       public void testPartiallySpecializedClass() {
-        runTest("compiler/testData/codegen/bytecodeListing/specialBridges/signatures/partiallySpecializedClass.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/specialBridges/signatures/partiallySpecializedClass.kt");
       }
 
       @Test
       @TestMetadata("withPlatformDependentDeclarations.kt")
       public void testWithPlatformDependentDeclarations() {
-        runTest("compiler/testData/codegen/bytecodeListing/specialBridges/signatures/withPlatformDependentDeclarations.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/specialBridges/signatures/withPlatformDependentDeclarations.kt");
       }
 
       @Test
       @TestMetadata("withoutPlatformDependentDeclarations.kt")
       public void testWithoutPlatformDependentDeclarations() {
-        runTest("compiler/testData/codegen/bytecodeListing/specialBridges/signatures/withoutPlatformDependentDeclarations.kt");
+        runTest(":compiler:testData/codegen", "bytecodeListing/specialBridges/signatures/withoutPlatformDependentDeclarations.kt");
       }
     }
   }
@@ -2681,13 +2681,13 @@ public class IrBytecodeListingTestGenerated extends AbstractIrBytecodeListingTes
     @Test
     @TestMetadata("annotations.kt")
     public void testAnnotations() {
-      runTest("compiler/testData/codegen/bytecodeListing/valueClasses/annotations.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/valueClasses/annotations.kt");
     }
 
     @Test
     @TestMetadata("nullabilityAnnotationsOnInlineClassMembers.kt")
     public void testNullabilityAnnotationsOnInlineClassMembers() {
-      runTest("compiler/testData/codegen/bytecodeListing/valueClasses/nullabilityAnnotationsOnInlineClassMembers.kt");
+      runTest(":compiler:testData/codegen", "bytecodeListing/valueClasses/nullabilityAnnotationsOnInlineClassMembers.kt");
     }
   }
 }

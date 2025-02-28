@@ -36,7 +36,7 @@ public class DiagnosticsWithMultiplatformCompositeAnalysisTestGenerated extends 
     @Test
     @TestMetadata("nonConstExpectConstActual.kt")
     public void testNonConstExpectConstActual() {
-      runTest("compiler/testData/diagnostics/testsWithMultiplatformCompositeAnalysis/constVals/nonConstExpectConstActual.kt");
+      runTest(":compiler:testData/diagnostics","testsWithMultiplatformCompositeAnalysis/constVals/nonConstExpectConstActual.kt");
     }
   }
 
@@ -52,13 +52,13 @@ public class DiagnosticsWithMultiplatformCompositeAnalysisTestGenerated extends 
     @Test
     @TestMetadata("constructor.kt")
     public void testConstructor() {
-      runTest("compiler/testData/diagnostics/testsWithMultiplatformCompositeAnalysis/defaultArguments/constructor.kt");
+      runTest(":compiler:testData/diagnostics", "testsWithMultiplatformCompositeAnalysis/defaultArguments/constructor.kt");
     }
 
     @Test
     @TestMetadata("function.kt")
     public void testFunction() {
-      runTest("compiler/testData/diagnostics/testsWithMultiplatformCompositeAnalysis/defaultArguments/function.kt");
+      runTest(":compiler:testData/diagnostics", "testsWithMultiplatformCompositeAnalysis/defaultArguments/function.kt");
     }
   }
 }

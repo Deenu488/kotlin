@@ -20,7 +20,8 @@ import org.jetbrains.kotlin.test.services.TestServices
 import java.io.File
 
 class AdditionalDiagnosticsSourceFilesProvider(testServices: TestServices, baseDir: String = ".") : AdditionalSourceProvider(testServices) {
-    private val helpersPath = "$baseDir/compiler/testData/diagnostics/helpers"
+    private val helpersPath =
+        System.getProperty(":compiler:testData/diagnostics")?.let { "$it/helpers" } ?: "$baseDir/compiler/testData/diagnostics/helpers"
     private val directiveToFileMap: Map<SimpleDirective, String> = mapOf(
         CHECK_TYPE to "$helpersPath/types/checkType.kt",
         CHECK_TYPE_WITH_EXACT to "$helpersPath/types/checkTypeWithExact.kt",

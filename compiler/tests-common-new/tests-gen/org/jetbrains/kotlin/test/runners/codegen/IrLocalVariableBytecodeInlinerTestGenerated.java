@@ -28,205 +28,205 @@ public class IrLocalVariableBytecodeInlinerTestGenerated extends AbstractIrLocal
   @Test
   @TestMetadata("assignment.kt")
   public void testAssignment() {
-    runTest("compiler/testData/debug/localVariables/assignment.kt");
+    runTest(":compiler:testData/debug", "localVariables/assignment.kt");
   }
 
   @Test
   @TestMetadata("catchClause.kt")
   public void testCatchClause() {
-    runTest("compiler/testData/debug/localVariables/catchClause.kt");
+    runTest(":compiler:testData/debug", "localVariables/catchClause.kt");
   }
 
   @Test
   @TestMetadata("copyFunction.kt")
   public void testCopyFunction() {
-    runTest("compiler/testData/debug/localVariables/copyFunction.kt");
+    runTest(":compiler:testData/debug", "localVariables/copyFunction.kt");
   }
 
   @Test
   @TestMetadata("directInvoke.kt")
   public void testDirectInvoke() {
-    runTest("compiler/testData/debug/localVariables/directInvoke.kt");
+    runTest(":compiler:testData/debug", "localVariables/directInvoke.kt");
   }
 
   @Test
   @TestMetadata("doWhile.kt")
   public void testDoWhile() {
-    runTest("compiler/testData/debug/localVariables/doWhile.kt");
+    runTest(":compiler:testData/debug", "localVariables/doWhile.kt");
   }
 
   @Test
   @TestMetadata("emptyFun.kt")
   public void testEmptyFun() {
-    runTest("compiler/testData/debug/localVariables/emptyFun.kt");
+    runTest(":compiler:testData/debug", "localVariables/emptyFun.kt");
   }
 
   @Test
   @TestMetadata("forLoopMultiline.kt")
   public void testForLoopMultiline() {
-    runTest("compiler/testData/debug/localVariables/forLoopMultiline.kt");
+    runTest(":compiler:testData/debug", "localVariables/forLoopMultiline.kt");
   }
 
   @Test
   @TestMetadata("inlineFunInObject.kt")
   public void testInlineFunInObject() {
-    runTest("compiler/testData/debug/localVariables/inlineFunInObject.kt");
+    runTest(":compiler:testData/debug", "localVariables/inlineFunInObject.kt");
   }
 
   @Test
   @TestMetadata("inlineProperty.kt")
   public void testInlineProperty() {
-    runTest("compiler/testData/debug/localVariables/inlineProperty.kt");
+    runTest(":compiler:testData/debug", "localVariables/inlineProperty.kt");
   }
 
   @Test
   @TestMetadata("jvmOverloads.kt")
   public void testJvmOverloads() {
-    runTest("compiler/testData/debug/localVariables/jvmOverloads.kt");
+    runTest(":compiler:testData/debug", "localVariables/jvmOverloads.kt");
   }
 
   @Test
   @TestMetadata("lambdaInObject.kt")
   public void testLambdaInObject() {
-    runTest("compiler/testData/debug/localVariables/lambdaInObject.kt");
+    runTest(":compiler:testData/debug", "localVariables/lambdaInObject.kt");
   }
 
   @Test
   @TestMetadata("lambdaWithLambdaParameter.kt")
   public void testLambdaWithLambdaParameter() {
-    runTest("compiler/testData/debug/localVariables/lambdaWithLambdaParameter.kt");
+    runTest(":compiler:testData/debug", "localVariables/lambdaWithLambdaParameter.kt");
   }
 
   @Test
   @TestMetadata("localFun.kt")
   public void testLocalFun() {
-    runTest("compiler/testData/debug/localVariables/localFun.kt");
+    runTest(":compiler:testData/debug", "localVariables/localFun.kt");
   }
 
   @Test
   @TestMetadata("localFunUnused.kt")
   public void testLocalFunUnused() {
-    runTest("compiler/testData/debug/localVariables/localFunUnused.kt");
+    runTest(":compiler:testData/debug", "localVariables/localFunUnused.kt");
   }
 
   @Test
   @TestMetadata("manyInlineFunsInObject.kt")
   public void testManyInlineFunsInObject() {
-    runTest("compiler/testData/debug/localVariables/manyInlineFunsInObject.kt");
+    runTest(":compiler:testData/debug", "localVariables/manyInlineFunsInObject.kt");
   }
 
   @Test
   @TestMetadata("tryFinally.kt")
   public void testTryFinally() {
-    runTest("compiler/testData/debug/localVariables/tryFinally.kt");
+    runTest(":compiler:testData/debug", "localVariables/tryFinally.kt");
   }
 
   @Test
   @TestMetadata("tryFinally10.kt")
   public void testTryFinally10() {
-    runTest("compiler/testData/debug/localVariables/tryFinally10.kt");
+    runTest(":compiler:testData/debug", "localVariables/tryFinally10.kt");
   }
 
   @Test
   @TestMetadata("tryFinally11.kt")
   public void testTryFinally11() {
-    runTest("compiler/testData/debug/localVariables/tryFinally11.kt");
+    runTest(":compiler:testData/debug", "localVariables/tryFinally11.kt");
   }
 
   @Test
   @TestMetadata("tryFinally12.kt")
   public void testTryFinally12() {
-    runTest("compiler/testData/debug/localVariables/tryFinally12.kt");
+    runTest(":compiler:testData/debug", "localVariables/tryFinally12.kt");
   }
 
   @Test
   @TestMetadata("tryFinally13.kt")
   public void testTryFinally13() {
-    runTest("compiler/testData/debug/localVariables/tryFinally13.kt");
+    runTest(":compiler:testData/debug", "localVariables/tryFinally13.kt");
   }
 
   @Test
   @TestMetadata("tryFinally14.kt")
   public void testTryFinally14() {
-    runTest("compiler/testData/debug/localVariables/tryFinally14.kt");
+    runTest(":compiler:testData/debug", "localVariables/tryFinally14.kt");
   }
 
   @Test
   @TestMetadata("tryFinally15.kt")
   public void testTryFinally15() {
-    runTest("compiler/testData/debug/localVariables/tryFinally15.kt");
+    runTest(":compiler:testData/debug", "localVariables/tryFinally15.kt");
   }
 
   @Test
   @TestMetadata("tryFinally16.kt")
   public void testTryFinally16() {
-    runTest("compiler/testData/debug/localVariables/tryFinally16.kt");
+    runTest(":compiler:testData/debug", "localVariables/tryFinally16.kt");
   }
 
   @Test
   @TestMetadata("tryFinally17.kt")
   public void testTryFinally17() {
-    runTest("compiler/testData/debug/localVariables/tryFinally17.kt");
+    runTest(":compiler:testData/debug", "localVariables/tryFinally17.kt");
   }
 
   @Test
   @TestMetadata("tryFinally2.kt")
   public void testTryFinally2() {
-    runTest("compiler/testData/debug/localVariables/tryFinally2.kt");
+    runTest(":compiler:testData/debug", "localVariables/tryFinally2.kt");
   }
 
   @Test
   @TestMetadata("tryFinally3.kt")
   public void testTryFinally3() {
-    runTest("compiler/testData/debug/localVariables/tryFinally3.kt");
+    runTest(":compiler:testData/debug", "localVariables/tryFinally3.kt");
   }
 
   @Test
   @TestMetadata("tryFinally4.kt")
   public void testTryFinally4() {
-    runTest("compiler/testData/debug/localVariables/tryFinally4.kt");
+    runTest(":compiler:testData/debug", "localVariables/tryFinally4.kt");
   }
 
   @Test
   @TestMetadata("tryFinally5.kt")
   public void testTryFinally5() {
-    runTest("compiler/testData/debug/localVariables/tryFinally5.kt");
+    runTest(":compiler:testData/debug", "localVariables/tryFinally5.kt");
   }
 
   @Test
   @TestMetadata("tryFinally6_1.kt")
   public void testTryFinally6_1() {
-    runTest("compiler/testData/debug/localVariables/tryFinally6_1.kt");
+    runTest(":compiler:testData/debug", "localVariables/tryFinally6_1.kt");
   }
 
   @Test
   @TestMetadata("tryFinally6_2.kt")
   public void testTryFinally6_2() {
-    runTest("compiler/testData/debug/localVariables/tryFinally6_2.kt");
+    runTest(":compiler:testData/debug", "localVariables/tryFinally6_2.kt");
   }
 
   @Test
   @TestMetadata("tryFinally7.kt")
   public void testTryFinally7() {
-    runTest("compiler/testData/debug/localVariables/tryFinally7.kt");
+    runTest(":compiler:testData/debug", "localVariables/tryFinally7.kt");
   }
 
   @Test
   @TestMetadata("tryFinally8.kt")
   public void testTryFinally8() {
-    runTest("compiler/testData/debug/localVariables/tryFinally8.kt");
+    runTest(":compiler:testData/debug", "localVariables/tryFinally8.kt");
   }
 
   @Test
   @TestMetadata("tryFinally9.kt")
   public void testTryFinally9() {
-    runTest("compiler/testData/debug/localVariables/tryFinally9.kt");
+    runTest(":compiler:testData/debug", "localVariables/tryFinally9.kt");
   }
 
   @Test
   @TestMetadata("underscoreNames.kt")
   public void testUnderscoreNames() {
-    runTest("compiler/testData/debug/localVariables/underscoreNames.kt");
+    runTest(":compiler:testData/debug", "localVariables/underscoreNames.kt");
   }
 
   @Nested
@@ -241,13 +241,13 @@ public class IrLocalVariableBytecodeInlinerTestGenerated extends AbstractIrLocal
     @Test
     @TestMetadata("multipleConstructors.kt")
     public void testMultipleConstructors() {
-      runTest("compiler/testData/debug/localVariables/constructors/multipleConstructors.kt");
+      runTest(":compiler:testData/debug", "localVariables/constructors/multipleConstructors.kt");
     }
 
     @Test
     @TestMetadata("property.kt")
     public void testProperty() {
-      runTest("compiler/testData/debug/localVariables/constructors/property.kt");
+      runTest(":compiler:testData/debug", "localVariables/constructors/property.kt");
     }
   }
 
@@ -263,79 +263,79 @@ public class IrLocalVariableBytecodeInlinerTestGenerated extends AbstractIrLocal
     @Test
     @TestMetadata("assignment.kt")
     public void testAssignment() {
-      runTest("compiler/testData/debug/localVariables/destructuring/assignment.kt");
+      runTest(":compiler:testData/debug", "localVariables/destructuring/assignment.kt");
     }
 
     @Test
     @TestMetadata("assignmentCustomComponentNs.kt")
     public void testAssignmentCustomComponentNs() {
-      runTest("compiler/testData/debug/localVariables/destructuring/assignmentCustomComponentNs.kt");
+      runTest(":compiler:testData/debug", "localVariables/destructuring/assignmentCustomComponentNs.kt");
     }
 
     @Test
     @TestMetadata("assignmentCustomComponentNsMultiline.kt")
     public void testAssignmentCustomComponentNsMultiline() {
-      runTest("compiler/testData/debug/localVariables/destructuring/assignmentCustomComponentNsMultiline.kt");
+      runTest(":compiler:testData/debug", "localVariables/destructuring/assignmentCustomComponentNsMultiline.kt");
     }
 
     @Test
     @TestMetadata("assignmentMultiline.kt")
     public void testAssignmentMultiline() {
-      runTest("compiler/testData/debug/localVariables/destructuring/assignmentMultiline.kt");
+      runTest(":compiler:testData/debug", "localVariables/destructuring/assignmentMultiline.kt");
     }
 
     @Test
     @TestMetadata("assignmentUnderscoreNames.kt")
     public void testAssignmentUnderscoreNames() {
-      runTest("compiler/testData/debug/localVariables/destructuring/assignmentUnderscoreNames.kt");
+      runTest(":compiler:testData/debug", "localVariables/destructuring/assignmentUnderscoreNames.kt");
     }
 
     @Test
     @TestMetadata("assignmentUnderscoreNamesMultiline.kt")
     public void testAssignmentUnderscoreNamesMultiline() {
-      runTest("compiler/testData/debug/localVariables/destructuring/assignmentUnderscoreNamesMultiline.kt");
+      runTest(":compiler:testData/debug", "localVariables/destructuring/assignmentUnderscoreNamesMultiline.kt");
     }
 
     @Test
     @TestMetadata("forLoop.kt")
     public void testForLoop() {
-      runTest("compiler/testData/debug/localVariables/destructuring/forLoop.kt");
+      runTest(":compiler:testData/debug", "localVariables/destructuring/forLoop.kt");
     }
 
     @Test
     @TestMetadata("forLoopMultiline.kt")
     public void testForLoopMultiline() {
-      runTest("compiler/testData/debug/localVariables/destructuring/forLoopMultiline.kt");
+      runTest(":compiler:testData/debug", "localVariables/destructuring/forLoopMultiline.kt");
     }
 
     @Test
     @TestMetadata("lambda.kt")
     public void testLambda() {
-      runTest("compiler/testData/debug/localVariables/destructuring/lambda.kt");
+      runTest(":compiler:testData/debug", "localVariables/destructuring/lambda.kt");
     }
 
     @Test
     @TestMetadata("lambdaCustomComponentNs.kt")
     public void testLambdaCustomComponentNs() {
-      runTest("compiler/testData/debug/localVariables/destructuring/lambdaCustomComponentNs.kt");
+      runTest(":compiler:testData/debug", "localVariables/destructuring/lambdaCustomComponentNs.kt");
     }
 
     @Test
     @TestMetadata("lambdaCustomComponentNsMultiline.kt")
     public void testLambdaCustomComponentNsMultiline() {
-      runTest("compiler/testData/debug/localVariables/destructuring/lambdaCustomComponentNsMultiline.kt");
+      runTest(":compiler:testData/debug", "localVariables/destructuring/lambdaCustomComponentNsMultiline.kt");
     }
 
     @Test
     @TestMetadata("lambdaMultiline.kt")
     public void testLambdaMultiline() {
-      runTest("compiler/testData/debug/localVariables/destructuring/lambdaMultiline.kt");
+      runTest(":compiler:testData/debug", "localVariables/destructuring/lambdaMultiline.kt");
     }
 
     @Test
     @TestMetadata("lambdaMultipleDestructs.kt")
     public void testLambdaMultipleDestructs() {
-      runTest("compiler/testData/debug/localVariables/destructuring/lambdaMultipleDestructs.kt");
+      runTest(":compiler:testData/debug", "localVariables/destructuring/lambdaMultipleDestructs.kt");
     }
   }
 
@@ -360,61 +360,61 @@ public class IrLocalVariableBytecodeInlinerTestGenerated extends AbstractIrLocal
       @Test
       @TestMetadata("inlineScopes1.kt")
       public void testInlineScopes1() {
-        runTest("compiler/testData/debug/localVariables/inlineScopes/newFormatToOld/inlineScopes1.kt");
+        runTest(":compiler:testData/debug", "localVariables/inlineScopes/newFormatToOld/inlineScopes1.kt");
       }
 
       @Test
       @TestMetadata("inlineScopes10.kt")
       public void testInlineScopes10() {
-        runTest("compiler/testData/debug/localVariables/inlineScopes/newFormatToOld/inlineScopes10.kt");
+        runTest(":compiler:testData/debug", "localVariables/inlineScopes/newFormatToOld/inlineScopes10.kt");
       }
 
       @Test
       @TestMetadata("inlineScopes2.kt")
       public void testInlineScopes2() {
-        runTest("compiler/testData/debug/localVariables/inlineScopes/newFormatToOld/inlineScopes2.kt");
+        runTest(":compiler:testData/debug", "localVariables/inlineScopes/newFormatToOld/inlineScopes2.kt");
       }
 
       @Test
       @TestMetadata("inlineScopes3.kt")
       public void testInlineScopes3() {
-        runTest("compiler/testData/debug/localVariables/inlineScopes/newFormatToOld/inlineScopes3.kt");
+        runTest(":compiler:testData/debug", "localVariables/inlineScopes/newFormatToOld/inlineScopes3.kt");
       }
 
       @Test
       @TestMetadata("inlineScopes4.kt")
       public void testInlineScopes4() {
-        runTest("compiler/testData/debug/localVariables/inlineScopes/newFormatToOld/inlineScopes4.kt");
+        runTest(":compiler:testData/debug", "localVariables/inlineScopes/newFormatToOld/inlineScopes4.kt");
       }
 
       @Test
       @TestMetadata("inlineScopes5.kt")
       public void testInlineScopes5() {
-        runTest("compiler/testData/debug/localVariables/inlineScopes/newFormatToOld/inlineScopes5.kt");
+        runTest(":compiler:testData/debug", "localVariables/inlineScopes/newFormatToOld/inlineScopes5.kt");
       }
 
       @Test
       @TestMetadata("inlineScopes6.kt")
       public void testInlineScopes6() {
-        runTest("compiler/testData/debug/localVariables/inlineScopes/newFormatToOld/inlineScopes6.kt");
+        runTest(":compiler:testData/debug", "localVariables/inlineScopes/newFormatToOld/inlineScopes6.kt");
       }
 
       @Test
       @TestMetadata("inlineScopes7.kt")
       public void testInlineScopes7() {
-        runTest("compiler/testData/debug/localVariables/inlineScopes/newFormatToOld/inlineScopes7.kt");
+        runTest(":compiler:testData/debug", "localVariables/inlineScopes/newFormatToOld/inlineScopes7.kt");
       }
 
       @Test
       @TestMetadata("inlineScopes8.kt")
       public void testInlineScopes8() {
-        runTest("compiler/testData/debug/localVariables/inlineScopes/newFormatToOld/inlineScopes8.kt");
+        runTest(":compiler:testData/debug", "localVariables/inlineScopes/newFormatToOld/inlineScopes8.kt");
       }
 
       @Test
       @TestMetadata("inlineScopes9.kt")
       public void testInlineScopes9() {
-        runTest("compiler/testData/debug/localVariables/inlineScopes/newFormatToOld/inlineScopes9.kt");
+        runTest(":compiler:testData/debug", "localVariables/inlineScopes/newFormatToOld/inlineScopes9.kt");
       }
     }
 
@@ -430,61 +430,61 @@ public class IrLocalVariableBytecodeInlinerTestGenerated extends AbstractIrLocal
       @Test
       @TestMetadata("inlineScopes1.kt")
       public void testInlineScopes1() {
-        runTest("compiler/testData/debug/localVariables/inlineScopes/oldFormatToNew/inlineScopes1.kt");
+        runTest(":compiler:testData/debug", "localVariables/inlineScopes/oldFormatToNew/inlineScopes1.kt");
       }
 
       @Test
       @TestMetadata("inlineScopes10.kt")
       public void testInlineScopes10() {
-        runTest("compiler/testData/debug/localVariables/inlineScopes/oldFormatToNew/inlineScopes10.kt");
+        runTest(":compiler:testData/debug", "localVariables/inlineScopes/oldFormatToNew/inlineScopes10.kt");
       }
 
       @Test
       @TestMetadata("inlineScopes2.kt")
       public void testInlineScopes2() {
-        runTest("compiler/testData/debug/localVariables/inlineScopes/oldFormatToNew/inlineScopes2.kt");
+        runTest(":compiler:testData/debug", "localVariables/inlineScopes/oldFormatToNew/inlineScopes2.kt");
       }
 
       @Test
       @TestMetadata("inlineScopes3.kt")
       public void testInlineScopes3() {
-        runTest("compiler/testData/debug/localVariables/inlineScopes/oldFormatToNew/inlineScopes3.kt");
+        runTest(":compiler:testData/debug", "localVariables/inlineScopes/oldFormatToNew/inlineScopes3.kt");
       }
 
       @Test
       @TestMetadata("inlineScopes4.kt")
       public void testInlineScopes4() {
-        runTest("compiler/testData/debug/localVariables/inlineScopes/oldFormatToNew/inlineScopes4.kt");
+        runTest(":compiler:testData/debug", "localVariables/inlineScopes/oldFormatToNew/inlineScopes4.kt");
       }
 
       @Test
       @TestMetadata("inlineScopes5.kt")
       public void testInlineScopes5() {
-        runTest("compiler/testData/debug/localVariables/inlineScopes/oldFormatToNew/inlineScopes5.kt");
+        runTest(":compiler:testData/debug", "localVariables/inlineScopes/oldFormatToNew/inlineScopes5.kt");
       }
 
       @Test
       @TestMetadata("inlineScopes6.kt")
       public void testInlineScopes6() {
-        runTest("compiler/testData/debug/localVariables/inlineScopes/oldFormatToNew/inlineScopes6.kt");
+        runTest(":compiler:testData/debug", "localVariables/inlineScopes/oldFormatToNew/inlineScopes6.kt");
       }
 
       @Test
       @TestMetadata("inlineScopes7.kt")
       public void testInlineScopes7() {
-        runTest("compiler/testData/debug/localVariables/inlineScopes/oldFormatToNew/inlineScopes7.kt");
+        runTest(":compiler:testData/debug", "localVariables/inlineScopes/oldFormatToNew/inlineScopes7.kt");
       }
 
       @Test
       @TestMetadata("inlineScopes8.kt")
       public void testInlineScopes8() {
-        runTest("compiler/testData/debug/localVariables/inlineScopes/oldFormatToNew/inlineScopes8.kt");
+        runTest(":compiler:testData/debug", "localVariables/inlineScopes/oldFormatToNew/inlineScopes8.kt");
       }
 
       @Test
       @TestMetadata("inlineScopes9.kt")
       public void testInlineScopes9() {
-        runTest("compiler/testData/debug/localVariables/inlineScopes/oldFormatToNew/inlineScopes9.kt");
+        runTest(":compiler:testData/debug", "localVariables/inlineScopes/oldFormatToNew/inlineScopes9.kt");
       }
     }
   }
@@ -501,49 +501,49 @@ public class IrLocalVariableBytecodeInlinerTestGenerated extends AbstractIrLocal
     @Test
     @TestMetadata("capturedThisField.kt")
     public void testCapturedThisField() {
-      runTest("compiler/testData/debug/localVariables/receiverMangling/capturedThisField.kt");
+      runTest(":compiler:testData/debug", "localVariables/receiverMangling/capturedThisField.kt");
     }
 
     @Test
     @TestMetadata("labeledThisParameterLabel.kt")
     public void testLabeledThisParameterLabel() {
-      runTest("compiler/testData/debug/localVariables/receiverMangling/labeledThisParameterLabel.kt");
+      runTest(":compiler:testData/debug", "localVariables/receiverMangling/labeledThisParameterLabel.kt");
     }
 
     @Test
     @TestMetadata("lambdaWithExtensionReceiver.kt")
     public void testLambdaWithExtensionReceiver() {
-      runTest("compiler/testData/debug/localVariables/receiverMangling/lambdaWithExtensionReceiver.kt");
+      runTest(":compiler:testData/debug", "localVariables/receiverMangling/lambdaWithExtensionReceiver.kt");
     }
 
     @Test
     @TestMetadata("receiverParameter.kt")
     public void testReceiverParameter() {
-      runTest("compiler/testData/debug/localVariables/receiverMangling/receiverParameter.kt");
+      runTest(":compiler:testData/debug", "localVariables/receiverMangling/receiverParameter.kt");
     }
 
     @Test
     @TestMetadata("simple.kt")
     public void testSimple() {
-      runTest("compiler/testData/debug/localVariables/receiverMangling/simple.kt");
+      runTest(":compiler:testData/debug", "localVariables/receiverMangling/simple.kt");
     }
 
     @Test
     @TestMetadata("simpleCapturedReceiver.kt")
     public void testSimpleCapturedReceiver() {
-      runTest("compiler/testData/debug/localVariables/receiverMangling/simpleCapturedReceiver.kt");
+      runTest(":compiler:testData/debug", "localVariables/receiverMangling/simpleCapturedReceiver.kt");
     }
 
     @Test
     @TestMetadata("simpleCapturedReceiverWithLabel.kt")
     public void testSimpleCapturedReceiverWithLabel() {
-      runTest("compiler/testData/debug/localVariables/receiverMangling/simpleCapturedReceiverWithLabel.kt");
+      runTest(":compiler:testData/debug", "localVariables/receiverMangling/simpleCapturedReceiverWithLabel.kt");
     }
 
     @Test
     @TestMetadata("simpleCapturedReceiverWithParenthesis.kt")
     public void testSimpleCapturedReceiverWithParenthesis() {
-      runTest("compiler/testData/debug/localVariables/receiverMangling/simpleCapturedReceiverWithParenthesis.kt");
+      runTest(":compiler:testData/debug", "localVariables/receiverMangling/simpleCapturedReceiverWithParenthesis.kt");
     }
   }
 
@@ -559,49 +559,49 @@ public class IrLocalVariableBytecodeInlinerTestGenerated extends AbstractIrLocal
     @Test
     @TestMetadata("inlineLocalsStateMachineTransform.kt")
     public void testInlineLocalsStateMachineTransform() {
-      runTest("compiler/testData/debug/localVariables/suspend/inlineLocalsStateMachineTransform.kt");
+      runTest(":compiler:testData/debug", "localVariables/suspend/inlineLocalsStateMachineTransform.kt");
     }
 
     @Test
     @TestMetadata("localsStateMachineTransform.kt")
     public void testLocalsStateMachineTransform() {
-      runTest("compiler/testData/debug/localVariables/suspend/localsStateMachineTransform.kt");
+      runTest(":compiler:testData/debug", "localVariables/suspend/localsStateMachineTransform.kt");
     }
 
     @Test
     @TestMetadata("mergeLvt.kt")
     public void testMergeLvt() {
-      runTest("compiler/testData/debug/localVariables/suspend/mergeLvt.kt");
+      runTest(":compiler:testData/debug", "localVariables/suspend/mergeLvt.kt");
     }
 
     @Test
     @TestMetadata("nestedInsideSuspendUnintercepted.kt")
     public void testNestedInsideSuspendUnintercepted() {
-      runTest("compiler/testData/debug/localVariables/suspend/nestedInsideSuspendUnintercepted.kt");
+      runTest(":compiler:testData/debug", "localVariables/suspend/nestedInsideSuspendUnintercepted.kt");
     }
 
     @Test
     @TestMetadata("nestedSuspendUnintercepted.kt")
     public void testNestedSuspendUnintercepted() {
-      runTest("compiler/testData/debug/localVariables/suspend/nestedSuspendUnintercepted.kt");
+      runTest(":compiler:testData/debug", "localVariables/suspend/nestedSuspendUnintercepted.kt");
     }
 
     @Test
     @TestMetadata("nestedSuspendUninterceptedWithDeepLambdaCall.kt")
     public void testNestedSuspendUninterceptedWithDeepLambdaCall() {
-      runTest("compiler/testData/debug/localVariables/suspend/nestedSuspendUninterceptedWithDeepLambdaCall.kt");
+      runTest(":compiler:testData/debug", "localVariables/suspend/nestedSuspendUninterceptedWithDeepLambdaCall.kt");
     }
 
     @Test
     @TestMetadata("simple.kt")
     public void testSimple() {
-      runTest("compiler/testData/debug/localVariables/suspend/simple.kt");
+      runTest(":compiler:testData/debug", "localVariables/suspend/simple.kt");
     }
 
     @Test
     @TestMetadata("underscoreNames.kt")
     public void testUnderscoreNames() {
-      runTest("compiler/testData/debug/localVariables/suspend/underscoreNames.kt");
+      runTest(":compiler:testData/debug", "localVariables/suspend/underscoreNames.kt");
     }
 
     @Nested
@@ -616,37 +616,37 @@ public class IrLocalVariableBytecodeInlinerTestGenerated extends AbstractIrLocal
       @Test
       @TestMetadata("nonStaticSimple.kt")
       public void testNonStaticSimple() {
-        runTest("compiler/testData/debug/localVariables/suspend/completion/nonStaticSimple.kt");
+        runTest(":compiler:testData/debug", "localVariables/suspend/completion/nonStaticSimple.kt");
       }
 
       @Test
       @TestMetadata("nonStaticStateMachine.kt")
       public void testNonStaticStateMachine() {
-        runTest("compiler/testData/debug/localVariables/suspend/completion/nonStaticStateMachine.kt");
+        runTest(":compiler:testData/debug", "localVariables/suspend/completion/nonStaticStateMachine.kt");
       }
 
       @Test
       @TestMetadata("staticSimple.kt")
       public void testStaticSimple() {
-        runTest("compiler/testData/debug/localVariables/suspend/completion/staticSimple.kt");
+        runTest(":compiler:testData/debug", "localVariables/suspend/completion/staticSimple.kt");
       }
 
       @Test
       @TestMetadata("staticSimpleReceiver.kt")
       public void testStaticSimpleReceiver() {
-        runTest("compiler/testData/debug/localVariables/suspend/completion/staticSimpleReceiver.kt");
+        runTest(":compiler:testData/debug", "localVariables/suspend/completion/staticSimpleReceiver.kt");
       }
 
       @Test
       @TestMetadata("staticStateMachine.kt")
       public void testStaticStateMachine() {
-        runTest("compiler/testData/debug/localVariables/suspend/completion/staticStateMachine.kt");
+        runTest(":compiler:testData/debug", "localVariables/suspend/completion/staticStateMachine.kt");
       }
 
       @Test
       @TestMetadata("staticStateMachineReceiver.kt")
       public void testStaticStateMachineReceiver() {
-        runTest("compiler/testData/debug/localVariables/suspend/completion/staticStateMachineReceiver.kt");
+        runTest(":compiler:testData/debug", "localVariables/suspend/completion/staticStateMachineReceiver.kt");
       }
     }
   }

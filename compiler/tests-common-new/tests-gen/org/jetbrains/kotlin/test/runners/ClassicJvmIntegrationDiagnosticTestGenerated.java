@@ -36,25 +36,25 @@ public class ClassicJvmIntegrationDiagnosticTestGenerated extends AbstractClassi
     @Test
     @TestMetadata("classFromJdkInLibrary.kt")
     public void testClassFromJdkInLibrary() {
-      runTest("compiler/testData/diagnostics/jvmIntegration/classpath/classFromJdkInLibrary.kt");
+      runTest(":compiler:testData/diagnostics", "jvmIntegration/classpath/classFromJdkInLibrary.kt");
     }
 
     @Test
     @TestMetadata("dependencyOnItself.kt")
     public void testDependencyOnItself() {
-      runTest("compiler/testData/diagnostics/jvmIntegration/classpath/dependencyOnItself.kt");
+      runTest(":compiler:testData/diagnostics", "jvmIntegration/classpath/dependencyOnItself.kt");
     }
 
     @Test
     @TestMetadata("prohibitNestedClassesByDollarName.kt")
     public void testProhibitNestedClassesByDollarName() {
-      runTest("compiler/testData/diagnostics/jvmIntegration/classpath/prohibitNestedClassesByDollarName.kt");
+      runTest(":compiler:testData/diagnostics", "jvmIntegration/classpath/prohibitNestedClassesByDollarName.kt");
     }
 
     @Test
     @TestMetadata("sameLibraryTwiceInClasspath.kt")
     public void testSameLibraryTwiceInClasspath() {
-      runTest("compiler/testData/diagnostics/jvmIntegration/classpath/sameLibraryTwiceInClasspath.kt");
+      runTest(":compiler:testData/diagnostics", "jvmIntegration/classpath/sameLibraryTwiceInClasspath.kt");
     }
   }
 
@@ -70,13 +70,13 @@ public class ClassicJvmIntegrationDiagnosticTestGenerated extends AbstractClassi
     @Test
     @TestMetadata("dataClassInternalConstructorUsageWillBecomeInaccessible.kt")
     public void testDataClassInternalConstructorUsageWillBecomeInaccessible() {
-      runTest("compiler/testData/diagnostics/jvmIntegration/dataClassNonPublicConstructor/dataClassInternalConstructorUsageWillBecomeInaccessible.kt");
+      runTest(":compiler:testData/diagnostics", "jvmIntegration/dataClassNonPublicConstructor/dataClassInternalConstructorUsageWillBecomeInaccessible.kt");
     }
 
     @Test
     @TestMetadata("dataClassNonPublicConstructorIrrelevantCopyFunctions.kt")
     public void testDataClassNonPublicConstructorIrrelevantCopyFunctions() {
-      runTest("compiler/testData/diagnostics/jvmIntegration/dataClassNonPublicConstructor/dataClassNonPublicConstructorIrrelevantCopyFunctions.kt");
+      runTest(":compiler:testData/diagnostics", "jvmIntegration/dataClassNonPublicConstructor/dataClassNonPublicConstructorIrrelevantCopyFunctions.kt");
     }
   }
 
@@ -92,7 +92,7 @@ public class ClassicJvmIntegrationDiagnosticTestGenerated extends AbstractClassi
     @Test
     @TestMetadata("wrongInlineTarget.kt")
     public void testWrongInlineTarget() {
-      runTest("compiler/testData/diagnostics/jvmIntegration/inline/wrongInlineTarget.kt");
+      runTest(":compiler:testData/diagnostics", "jvmIntegration/inline/wrongInlineTarget.kt");
     }
   }
 
@@ -108,19 +108,19 @@ public class ClassicJvmIntegrationDiagnosticTestGenerated extends AbstractClassi
     @Test
     @TestMetadata("internalFromForeignModule.kt")
     public void testInternalFromForeignModule() {
-      runTest("compiler/testData/diagnostics/jvmIntegration/internal/internalFromForeignModule.kt");
+      runTest(":compiler:testData/diagnostics", "jvmIntegration/internal/internalFromForeignModule.kt");
     }
 
     @Test
     @TestMetadata("internalFromFriendModule.kt")
     public void testInternalFromFriendModule() {
-      runTest("compiler/testData/diagnostics/jvmIntegration/internal/internalFromFriendModule.kt");
+      runTest(":compiler:testData/diagnostics", "jvmIntegration/internal/internalFromFriendModule.kt");
     }
 
     @Test
     @TestMetadata("internalSetter.kt")
     public void testInternalSetter() {
-      runTest("compiler/testData/diagnostics/jvmIntegration/internal/internalSetter.kt");
+      runTest(":compiler:testData/diagnostics", "jvmIntegration/internal/internalSetter.kt");
     }
   }
 
@@ -136,19 +136,19 @@ public class ClassicJvmIntegrationDiagnosticTestGenerated extends AbstractClassi
     @Test
     @TestMetadata("annotationsFromBinariesWithNonTrivialJvmDefaultConfiguration.kt")
     public void testAnnotationsFromBinariesWithNonTrivialJvmDefaultConfiguration() {
-      runTest("compiler/testData/diagnostics/jvmIntegration/jvmDefault/annotationsFromBinariesWithNonTrivialJvmDefaultConfiguration.kt");
+      runTest(":compiler:testData/diagnostics", "jvmIntegration/jvmDefault/annotationsFromBinariesWithNonTrivialJvmDefaultConfiguration.kt");
     }
 
     @Test
     @TestMetadata("compatibilityAgainstJava.kt")
     public void testCompatibilityAgainstJava() {
-      runTest("compiler/testData/diagnostics/jvmIntegration/jvmDefault/compatibilityAgainstJava.kt");
+      runTest(":compiler:testData/diagnostics", "jvmIntegration/jvmDefault/compatibilityAgainstJava.kt");
     }
 
     @Test
     @TestMetadata("nonDefaultInheritanceSuperCall.kt")
     public void testNonDefaultInheritanceSuperCall() {
-      runTest("compiler/testData/diagnostics/jvmIntegration/jvmDefault/nonDefaultInheritanceSuperCall.kt");
+      runTest(":compiler:testData/diagnostics", "jvmIntegration/jvmDefault/nonDefaultInheritanceSuperCall.kt");
     }
   }
 
@@ -164,67 +164,67 @@ public class ClassicJvmIntegrationDiagnosticTestGenerated extends AbstractClassi
     @Test
     @TestMetadata("dependOnManyModules.kt")
     public void testDependOnManyModules() {
-      runTest("compiler/testData/diagnostics/jvmIntegration/modules/dependOnManyModules.kt");
+      runTest(":compiler:testData/diagnostics", "jvmIntegration/modules/dependOnManyModules.kt");
     }
 
     @Test
     @TestMetadata("internalJdkPackageUsage.kt")
     public void testInternalJdkPackageUsage() {
-      runTest("compiler/testData/diagnostics/jvmIntegration/modules/internalJdkPackageUsage.kt");
+      runTest(":compiler:testData/diagnostics", "jvmIntegration/modules/internalJdkPackageUsage.kt");
     }
 
     @Test
     @TestMetadata("jdkModulesFromNamed.kt")
     public void testJdkModulesFromNamed() {
-      runTest("compiler/testData/diagnostics/jvmIntegration/modules/jdkModulesFromNamed.kt");
+      runTest(":compiler:testData/diagnostics", "jvmIntegration/modules/jdkModulesFromNamed.kt");
     }
 
     @Test
     @TestMetadata("jdkModulesFromUnnamed.kt")
     public void testJdkModulesFromUnnamed() {
-      runTest("compiler/testData/diagnostics/jvmIntegration/modules/jdkModulesFromUnnamed.kt");
+      runTest(":compiler:testData/diagnostics", "jvmIntegration/modules/jdkModulesFromUnnamed.kt");
     }
 
     @Test
     @TestMetadata("nonTransitiveDoesNotAffectExplicitDependency.kt")
     public void testNonTransitiveDoesNotAffectExplicitDependency() {
-      runTest("compiler/testData/diagnostics/jvmIntegration/modules/nonTransitiveDoesNotAffectExplicitDependency.kt");
+      runTest(":compiler:testData/diagnostics", "jvmIntegration/modules/nonTransitiveDoesNotAffectExplicitDependency.kt");
     }
 
     @Test
     @TestMetadata("simple.kt")
     public void testSimple() {
-      runTest("compiler/testData/diagnostics/jvmIntegration/modules/simple.kt");
+      runTest(":compiler:testData/diagnostics", "jvmIntegration/modules/simple.kt");
     }
 
     @Test
     @TestMetadata("simpleUseNonExportedPackage.kt")
     public void testSimpleUseNonExportedPackage() {
-      runTest("compiler/testData/diagnostics/jvmIntegration/modules/simpleUseNonExportedPackage.kt");
+      runTest(":compiler:testData/diagnostics", "jvmIntegration/modules/simpleUseNonExportedPackage.kt");
     }
 
     @Test
     @TestMetadata("sourcelessSmartcastSourcefulOriginalExpression.kt")
     public void testSourcelessSmartcastSourcefulOriginalExpression() {
-      runTest("compiler/testData/diagnostics/jvmIntegration/modules/sourcelessSmartcastSourcefulOriginalExpression.kt");
+      runTest(":compiler:testData/diagnostics", "jvmIntegration/modules/sourcelessSmartcastSourcefulOriginalExpression.kt");
     }
 
     @Test
     @TestMetadata("unnamedDependsOnNamed.kt")
     public void testUnnamedDependsOnNamed() {
-      runTest("compiler/testData/diagnostics/jvmIntegration/modules/unnamedDependsOnNamed.kt");
+      runTest(":compiler:testData/diagnostics", "jvmIntegration/modules/unnamedDependsOnNamed.kt");
     }
 
     @Test
     @TestMetadata("unnamedDependsOnNamed_allModulePath.kt")
     public void testUnnamedDependsOnNamed_allModulePath() {
-      runTest("compiler/testData/diagnostics/jvmIntegration/modules/unnamedDependsOnNamed_allModulePath.kt");
+      runTest(":compiler:testData/diagnostics", "jvmIntegration/modules/unnamedDependsOnNamed_allModulePath.kt");
     }
 
     @Test
     @TestMetadata("unnamedDoesNotReadNotAdded.kt")
     public void testUnnamedDoesNotReadNotAdded() {
-      runTest("compiler/testData/diagnostics/jvmIntegration/modules/unnamedDoesNotReadNotAdded.kt");
+      runTest(":compiler:testData/diagnostics", "jvmIntegration/modules/unnamedDoesNotReadNotAdded.kt");
     }
 
     @Nested
@@ -239,25 +239,25 @@ public class ClassicJvmIntegrationDiagnosticTestGenerated extends AbstractClassi
       @Test
       @TestMetadata("conflictWithJvmTarget.kt")
       public void testConflictWithJvmTarget() {
-        runTest("compiler/testData/diagnostics/jvmIntegration/modules/jdkReleaseFlag/conflictWithJvmTarget.kt");
+        runTest(":compiler:testData/diagnostics", "jvmIntegration/modules/jdkReleaseFlag/conflictWithJvmTarget.kt");
       }
 
       @Test
       @TestMetadata("jdk11.kt")
       public void testJdk11() {
-        runTest("compiler/testData/diagnostics/jvmIntegration/modules/jdkReleaseFlag/jdk11.kt");
+        runTest(":compiler:testData/diagnostics", "jvmIntegration/modules/jdkReleaseFlag/jdk11.kt");
       }
 
       @Test
       @TestMetadata("jdk11Release12.kt")
       public void testJdk11Release12() {
-        runTest("compiler/testData/diagnostics/jvmIntegration/modules/jdkReleaseFlag/jdk11Release12.kt");
+        runTest(":compiler:testData/diagnostics", "jvmIntegration/modules/jdkReleaseFlag/jdk11Release12.kt");
       }
 
       @Test
       @TestMetadata("jdk17.kt")
       public void testJdk17() {
-        runTest("compiler/testData/diagnostics/jvmIntegration/modules/jdkReleaseFlag/jdk17.kt");
+        runTest(":compiler:testData/diagnostics", "jvmIntegration/modules/jdkReleaseFlag/jdk17.kt");
       }
     }
   }
@@ -274,7 +274,7 @@ public class ClassicJvmIntegrationDiagnosticTestGenerated extends AbstractClassi
     @Test
     @TestMetadata("simple.kt")
     public void testSimple() {
-      runTest("compiler/testData/diagnostics/jvmIntegration/rawTypes/simple.kt");
+      runTest(":compiler:testData/diagnostics", "jvmIntegration/rawTypes/simple.kt");
     }
   }
 
@@ -290,13 +290,13 @@ public class ClassicJvmIntegrationDiagnosticTestGenerated extends AbstractClassi
     @Test
     @TestMetadata("sealedClassesAndInterfaces.kt")
     public void testSealedClassesAndInterfaces() {
-      runTest("compiler/testData/diagnostics/jvmIntegration/sealed/sealedClassesAndInterfaces.kt");
+      runTest(":compiler:testData/diagnostics", "jvmIntegration/sealed/sealedClassesAndInterfaces.kt");
     }
 
     @Test
     @TestMetadata("sealedInheritorInDifferentModule.kt")
     public void testSealedInheritorInDifferentModule() {
-      runTest("compiler/testData/diagnostics/jvmIntegration/sealed/sealedInheritorInDifferentModule.kt");
+      runTest(":compiler:testData/diagnostics", "jvmIntegration/sealed/sealedInheritorInDifferentModule.kt");
     }
   }
 }

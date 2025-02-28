@@ -109,6 +109,20 @@ abstract class AbstractKotlinCompilerTest {
         testRunner(filePath, configuration).runTest(filePath)
     }
 
+    open fun runTest(project: String, filePath: String) {
+        val testDataPath = System.getProperty(project)
+        runTest("$testDataPath/$filePath")
+    }
+
+    open fun runTest(
+        project: String,
+        filePath: String,
+        contentModifier: ReplacingSourceTransformer,
+    ) {
+        val testDataPath = System.getProperty(project)
+        runTest("$testDataPath/$filePath", contentModifier)
+    }
+
     open fun runTest(
         @TestDataFile filePath: String,
         contentModifier: ReplacingSourceTransformer,

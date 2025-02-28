@@ -33,15 +33,16 @@ import java.io.File
 import kotlin.io.path.createTempDirectory
 
 enum class JavaForeignAnnotationType(val path: String) {
-    Annotations("third-party/annotations"),
-    Java8Annotations("third-party/java8-annotations"),
-    Java9Annotations("third-party/java9-annotations"),
-    Jsr305("third-party/jsr305");
+    Annotations(System.getProperty("third-party/annotations") ?: "third-party/annotations"),
+    Java8Annotations(System.getProperty("third-party/java8-annotations") ?: "third-party/java8-annotations"),
+    Java9Annotations(System.getProperty("third-party/java9-annotations") ?: "third-party/java9-annotations"),
+    Jsr305(System.getProperty("third-party/jsr305") ?: "third-party/jsr305")
 }
 
 open class JvmForeignAnnotationsConfigurator(testServices: TestServices) : EnvironmentConfigurator(testServices) {
     companion object {
-        const val JSR_305_TEST_ANNOTATIONS_PATH = "compiler/testData/diagnostics/helpers/jsr305_test_annotations"
+        val JSR_305_TEST_ANNOTATIONS_PATH =
+            (System.getProperty(":compiler:testData/diagnostics") ?: "compiler/testData/diagnostics") + "/helpers/jsr305_test_annotations"
     }
 
     override val directiveContainers: List<DirectivesContainer>

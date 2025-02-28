@@ -58,10 +58,11 @@ sourceSets {
 }
 
 compilerTests {
-    testData("../testData/diagnostics")
-    testData("../testData/codegen")
-    testData("../testData/debug")
-    testData("../testData/ir")
+    testData(project(":compiler").isolated, "testData/diagnostics")
+    testData(project(":compiler").isolated, "testData/codegen")
+    testData(project(":compiler").isolated, "testData/debug")
+    testData(project(":compiler").isolated, "testData/ir")
+    testData(project(":compiler").isolated, "testData/klib")
     withStdlibCommon()
     withScriptRuntime()
     withTestJar()
@@ -80,19 +81,49 @@ projectTest(
         JdkMajorVersion.JDK_21_0, // e.g. org.jetbrains.kotlin.test.runners.codegen.FirLightTreeBlackBoxModernJdkCodegenTestGenerated.TestsWithJava21
     )
 ) {
-    workingDir = rootDir
+    //workingDir = rootDir
     useJUnitPlatform()
-    inputs.file(File(rootDir, "compiler/cli/cli-common/resources/META-INF/extensions/compiler.xml")).withPathSensitivity(PathSensitivity.RELATIVE)
     inputs.file(File(rootDir, "compiler/testData/mockJDK/jre/lib/rt.jar")).withNormalizer(ClasspathNormalizer::class)
+    systemProperty(
+        "org.jetbrains.kotlin.test.mockJdkRuntime",
+        File(rootDir, "compiler/testData/mockJDK/jre/lib/rt.jar").absolutePath
+    )
+    inputs.file(File(rootDir, "compiler/testData/mockJDKModified/rt.jar")).withNormalizer(ClasspathNormalizer::class)
+    systemProperty(
+        "org.jetbrains.kotlin.test.mockJDKModifiedRuntime",
+        File(rootDir, "compiler/testData/mockJDKModified/rt.jar").absolutePath
+    )
     inputs.file(File(rootDir, "compiler/testData/mockJDK/jre/lib/annotations.jar")).withNormalizer(ClasspathNormalizer::class)
+    systemProperty(
+        "org.jetbrains.kotlin.test.mockJdkAnnotationsJar",
+        File(rootDir, "compiler/testData/mockJDK/jre/lib/annotations.jar").absolutePath
+    )
     inputs.dir(File(rootDir, "third-party/annotations")).withPathSensitivity(PathSensitivity.RELATIVE)
+    systemProperty(
+        "third-party/annotations",
+        File(rootDir, "third-party/annotations").absolutePath
+    )
     inputs.dir(File(rootDir, "third-party/java8-annotations")).withPathSensitivity(PathSensitivity.RELATIVE)
+    systemProperty(
+        "third-party/java8-annotations",
+        File(rootDir, "third-party/java8-annotations").absolutePath
+    )
     inputs.dir(File(rootDir, "third-party/java9-annotations")).withPathSensitivity(PathSensitivity.RELATIVE)
+    systemProperty(
+        "third-party/java9-annotations",
+        File(rootDir, "third-party/java9-annotations").absolutePath
+    )
     inputs.dir(File(rootDir, "third-party/jsr305")).withPathSensitivity(PathSensitivity.RELATIVE)
-    inputs.dir(File(rootDir, "libraries/stdlib/unsigned/src/kotlin")).withPathSensitivity(PathSensitivity.RELATIVE)
-    inputs.dir(File(rootDir, "libraries/stdlib/jvm/src/kotlin")).withPathSensitivity(PathSensitivity.RELATIVE) //util/UnsignedJVM.kt
-    inputs.dir(File(rootDir, "libraries/stdlib/src/kotlin")).withPathSensitivity(PathSensitivity.RELATIVE) //ranges/Progressions.kt
-    inputs.dir(File(rootDir, "libraries/stdlib/jvm/runtime/kotlin")).withPathSensitivity(PathSensitivity.RELATIVE) //TypeAliases.kt
+    systemProperty(
+        "third-party/jsr305",
+        File(rootDir, "third-party/jsr305").absolutePath
+    )
+    inputs.dir(File(rootDir, "libraries/stdlib/")).withPathSensitivity(PathSensitivity.RELATIVE) //TODO only kt files
+    systemProperty(
+        "stdlib.path",
+        File(rootDir, "libraries/stdlib/").absolutePath
+    )
+    inputs.file(File(rootDir, "compiler/cli/cli-common/resources/META-INF/extensions/compiler.xml")).withPathSensitivity(PathSensitivity.RELATIVE)
 }
 
 testsJar()

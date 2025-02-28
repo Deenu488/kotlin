@@ -37,61 +37,61 @@ public class ClassicDiagnosticsTestWithConverterGenerated extends AbstractClassi
     @Test
     @TestMetadata("enumCapturesProperty.kts")
     public void testEnumCapturesProperty() {
-      runTest("compiler/testData/diagnostics/testsWithConverter/scripts/enumCapturesProperty.kts");
+      runTest(":compiler:testData/diagnostics", "testsWithConverter/scripts/enumCapturesProperty.kts");
     }
 
     @Test
     @TestMetadata("enumEntryCapturesProperty.kts")
     public void testEnumEntryCapturesProperty() {
-      runTest("compiler/testData/diagnostics/testsWithConverter/scripts/enumEntryCapturesProperty.kts");
+      runTest(":compiler:testData/diagnostics", "testsWithConverter/scripts/enumEntryCapturesProperty.kts");
     }
 
     @Test
     @TestMetadata("interfaceCapturesProperty.kts")
     public void testInterfaceCapturesProperty() {
-      runTest("compiler/testData/diagnostics/testsWithConverter/scripts/interfaceCapturesProperty.kts");
+      runTest(":compiler:testData/diagnostics", "testsWithConverter/scripts/interfaceCapturesProperty.kts");
     }
 
     @Test
     @TestMetadata("nestedAndOuterClassesCaptureProperty.kts")
     public void testNestedAndOuterClassesCaptureProperty() {
-      runTest("compiler/testData/diagnostics/testsWithConverter/scripts/nestedAndOuterClassesCaptureProperty.kts");
+      runTest(":compiler:testData/diagnostics", "testsWithConverter/scripts/nestedAndOuterClassesCaptureProperty.kts");
     }
 
     @Test
     @TestMetadata("nestedClassCapturesProperty.kts")
     public void testNestedClassCapturesProperty() {
-      runTest("compiler/testData/diagnostics/testsWithConverter/scripts/nestedClassCapturesProperty.kts");
+      runTest(":compiler:testData/diagnostics", "testsWithConverter/scripts/nestedClassCapturesProperty.kts");
     }
 
     @Test
     @TestMetadata("nestedToObjectClassCapturesProperty.kts")
     public void testNestedToObjectClassCapturesProperty() {
-      runTest("compiler/testData/diagnostics/testsWithConverter/scripts/nestedToObjectClassCapturesProperty.kts");
+      runTest(":compiler:testData/diagnostics", "testsWithConverter/scripts/nestedToObjectClassCapturesProperty.kts");
     }
 
     @Test
     @TestMetadata("objectCapturesProperty.kts")
     public void testObjectCapturesProperty() {
-      runTest("compiler/testData/diagnostics/testsWithConverter/scripts/objectCapturesProperty.kts");
+      runTest(":compiler:testData/diagnostics", "testsWithConverter/scripts/objectCapturesProperty.kts");
     }
 
     @Test
     @TestMetadata("objectCapturesPropertyIndirect.kts")
     public void testObjectCapturesPropertyIndirect() {
-      runTest("compiler/testData/diagnostics/testsWithConverter/scripts/objectCapturesPropertyIndirect.kts");
+      runTest(":compiler:testData/diagnostics", "testsWithConverter/scripts/objectCapturesPropertyIndirect.kts");
     }
 
     @Test
     @TestMetadata("objectCapturesPropertyViaExtension1.kts")
     public void testObjectCapturesPropertyViaExtension1() {
-      runTest("compiler/testData/diagnostics/testsWithConverter/scripts/objectCapturesPropertyViaExtension1.kts");
+      runTest(":compiler:testData/diagnostics", "testsWithConverter/scripts/objectCapturesPropertyViaExtension1.kts");
     }
 
     @Test
     @TestMetadata("objectCapturesPropertyViaExtension2.kts")
     public void testObjectCapturesPropertyViaExtension2() {
-      runTest("compiler/testData/diagnostics/testsWithConverter/scripts/objectCapturesPropertyViaExtension2.kts");
+      runTest(":compiler:testData/diagnostics", "testsWithConverter/scripts/objectCapturesPropertyViaExtension2.kts");
     }
   }
 }

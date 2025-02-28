@@ -1,5 +1,3 @@
-import com.gradle.develocity.agent.gradle.test.TestRetryConfiguration
-
 val extension = extensions.create("compilerTests", CompilerTestsExtension::class)
 
 val provider = objects.newInstance<TestCompilerRuntimeArgumentProvider>().apply {
@@ -13,6 +11,7 @@ val provider = objects.newInstance<TestCompilerRuntimeArgumentProvider>().apply 
     scriptingPluginForTests.from(extension.scriptingPluginForTests)
     stdlibJsRuntimeForTests.from(extension.stdlibJsRuntimeForTests)
     testJsRuntimeForTests.from(extension.testJsRuntimeForTests)
+    testDataDirs.value(extension.testDataDirs)
 }
 
 tasks.withType<Test>().configureEach {

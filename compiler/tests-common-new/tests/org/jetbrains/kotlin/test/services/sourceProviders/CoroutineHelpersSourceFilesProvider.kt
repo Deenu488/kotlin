@@ -19,7 +19,8 @@ import org.jetbrains.kotlin.test.services.TestServices
 import java.io.File
 
 class CoroutineHelpersSourceFilesProvider(testServices: TestServices, testDataPath: String = ".") : AdditionalSourceProvider(testServices) {
-    private val helpersPath = "$testDataPath/compiler/testData/diagnostics/helpers/coroutines"
+    private val helpersPath =
+        (System.getProperty(":compiler:testData/diagnostics") ?: "$testDataPath/compiler/testData/diagnostics") + "/helpers/coroutines"
 
     private val coroutineHelpersPath = "$helpersPath/CoroutineHelpers.kt"
     private val coroutineUtilPath = "$helpersPath/CoroutineUtil.kt"

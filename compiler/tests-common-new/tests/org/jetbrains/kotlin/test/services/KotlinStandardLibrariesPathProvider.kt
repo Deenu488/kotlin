@@ -149,8 +149,10 @@ object StandardLibrariesPathProviderForKotlinProject : KotlinStandardLibrariesPa
 
     override fun jvmAnnotationsForTests(): File = ForTestCompileRuntime.jvmAnnotationsForTests()
     override fun getAnnotationsJar(): File =
-        KtTestUtil.getAnnotationsJar().also {
-            assert(it.exists()) { "AnnotationJar missing: $it does not exist" }
+        extractFromPropertyFirstFile("org.jetbrains.kotlin.test.mockJdkAnnotationsJar") {
+            KtTestUtil.getAnnotationsJar().also {
+                assert(it.exists()) { "AnnotationJar missing: $it does not exist" }
+            }
         }
 
     override fun fullJsStdlib(): File = extractFromPropertyFirst(KOTLIN_JS_STDLIB_KLIB_PATH) { "kotlin-stdlib-js.klib".dist() }
@@ -240,7 +242,7 @@ val TestServices.standardLibrariesPathProvider: KotlinStandardLibrariesPathProvi
 
 fun CompilerConfiguration.configureStandardLibs(
     pathProvider: KotlinStandardLibrariesPathProvider,
-    arguments: K2JVMCompilerArguments
+    arguments: K2JVMCompilerArguments,
 ) {
     configureStandardLibs(
         pathProvider,

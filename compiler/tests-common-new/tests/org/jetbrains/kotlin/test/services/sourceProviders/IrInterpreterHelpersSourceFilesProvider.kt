@@ -19,30 +19,31 @@ import java.io.File
 
 class IrInterpreterHelpersSourceFilesProvider(testServices: TestServices) : AdditionalSourceProvider(testServices) {
     companion object {
-        private const val HELPERS_PATH = "./compiler/testData/ir/interpreter/helpers"
+        private val HELPERS_PATH = (System.getProperty(":compiler:testData/ir") ?: "./compiler/testData/ir") + "/interpreter/helpers"
+        private val STDLIB_PATH = (System.getProperty("stdlib.path") ?: "./libraries/stdlib")
         private val UNSIGNED_PATH = arrayOf(
-            "./libraries/stdlib/unsigned/src/kotlin",
-            "./libraries/stdlib/jvm/src/kotlin/util/UnsignedJVM.kt"
+            "$STDLIB_PATH/unsigned/src/kotlin",
+            "$STDLIB_PATH/JVM/src/kotlin/util/UnsignedJVM.kt"
         )
         private val RUNTIME_PATHS = arrayOf(
-            "./libraries/stdlib/src/kotlin/ranges/Progressions.kt",
-            "./libraries/stdlib/src/kotlin/ranges/ProgressionIterators.kt",
-            "./libraries/stdlib/src/kotlin/internal/progressionUtil.kt",
-            "./libraries/stdlib/jvm/runtime/kotlin/TypeAliases.kt",
-            "./libraries/stdlib/jvm/runtime/kotlin/text/TypeAliases.kt",
-            "./libraries/stdlib/jvm/src/kotlin/collections/TypeAliases.kt",
-            "./libraries/stdlib/src/kotlin/text/regex/MatchResult.kt",
-            "./libraries/stdlib/src/kotlin/collections/Sequence.kt",
+            "$STDLIB_PATH/src/kotlin/ranges/Progressions.kt",
+            "$STDLIB_PATH/src/kotlin/ranges/ProgressionIterators.kt",
+            "$STDLIB_PATH/src/kotlin/internal/progressionUtil.kt",
+            "$STDLIB_PATH/jvm/runtime/kotlin/TypeAliases.kt",
+            "$STDLIB_PATH/jvm/runtime/kotlin/text/TypeAliases.kt",
+            "$STDLIB_PATH/jvm/src/kotlin/collections/TypeAliases.kt",
+            "$STDLIB_PATH/src/kotlin/text/regex/MatchResult.kt",
+            "$STDLIB_PATH/src/kotlin/collections/Sequence.kt",
         )
         private val ANNOTATIONS_PATHS = arrayOf(
-            "./libraries/stdlib/src/kotlin/annotations/WasExperimental.kt",
-            "./libraries/stdlib/src/kotlin/annotations/ExperimentalStdlibApi.kt",
-            "./libraries/stdlib/src/kotlin/annotations/OptIn.kt",
-            "./libraries/stdlib/src/kotlin/internal/Annotations.kt",
-            "./libraries/stdlib/src/kotlin/experimental/inferenceMarker.kt",
-            "./libraries/stdlib/jvm/runtime/kotlin/jvm/annotations/JvmPlatformAnnotations.kt",
+            "$STDLIB_PATH/src/kotlin/annotations/WasExperimental.kt",
+            "$STDLIB_PATH/src/kotlin/annotations/ExperimentalStdlibApi.kt",
+            "$STDLIB_PATH/src/kotlin/annotations/OptIn.kt",
+            "$STDLIB_PATH/src/kotlin/internal/Annotations.kt",
+            "$STDLIB_PATH/src/kotlin/experimental/inferenceMarker.kt",
+            "$STDLIB_PATH/jvm/runtime/kotlin/jvm/annotations/JvmPlatformAnnotations.kt",
         )
-        private const val REFLECT_PATH = "./libraries/stdlib/jvm/src/kotlin/reflect"
+        private val REFLECT_PATH = "$STDLIB_PATH/jvm/src/kotlin/reflect"
         private val EXCLUDES = listOf(
             "src/kotlin/UStrings.kt", "src/kotlin/UMath.kt", "src/kotlin/UNumbers.kt", "src/kotlin/reflect/TypesJVM.kt",
             "libraries/stdlib/unsigned/src/kotlin/UnsignedCommon.kt",
@@ -53,7 +54,7 @@ class IrInterpreterHelpersSourceFilesProvider(testServices: TestServices) : Addi
         listOf(AdditionalFilesDirectives)
 
     private fun getTestFilesForEachDirectory(vararg directories: String): List<TestFile> {
-        val stdlibPath = File("./libraries/stdlib").canonicalPath
+        val stdlibPath = File(STDLIB_PATH).canonicalPath
         return directories.flatMap { directory ->
             File(directory)
                 .also { check(it.exists()) { "$it path is not found" } }

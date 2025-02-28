@@ -8,7 +8,13 @@ import org.gradle.api.artifacts.Configuration
 import org.gradle.api.artifacts.ProjectDependency
 import org.gradle.api.artifacts.dsl.DependencyHandler
 import org.gradle.api.file.*
+import org.gradle.api.project.IsolatedProject
+import org.gradle.api.provider.ListProperty
 import org.gradle.api.provider.Property
+import org.gradle.api.tasks.Input
+import org.gradle.api.tasks.InputDirectory
+import org.gradle.api.tasks.PathSensitive
+import org.gradle.api.tasks.PathSensitivity
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.project
 
@@ -66,6 +72,13 @@ abstract class CompilerTestsExtension(private val project: Project) {
         testData.from(project.layout.projectDirectory.dir(relativePath).asFileTree.matching {
             exclude("**/out/**")
         })
+    }
+
+    data class TestData(@get:Input val key: String, @get:InputDirectory @get:PathSensitive(PathSensitivity.RELATIVE) val directory: Directory)
+
+    internal abstract val testDataDirs: ListProperty<TestData>
+    fun testData(isolatedProject: IsolatedProject, relativePath: String) {
+        testDataDirs.add(TestData(isolatedProject.path + ":" + relativePath, isolatedProject.projectDirectory.dir(relativePath)))
     }
 
     fun withStdlibCommon() {
