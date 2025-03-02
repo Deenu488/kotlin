@@ -187,7 +187,8 @@ class MethodSignatureMapper(private val context: JvmBackendContext, private val 
 
     // See also: KotlinTypeMapper.forceBoxedReturnType
     private fun forceBoxedReturnType(function: IrFunction): Boolean =
-        isBoxMethodForInlineClass(function) ||
+        function.origin == JvmLoweredDeclarationOrigin.FUNCTION_WITH_EXPOSED_INLINE_CLASS ||
+                isBoxMethodForInlineClass(function) ||
                 forceFoxedReturnTypeOnOverride(function) ||
                 forceBoxedReturnTypeOnDefaultImplFun(function) ||
                 function.isFromJava() && function.returnType.isInlineClassType()
@@ -348,7 +349,10 @@ class MethodSignatureMapper(private val context: JvmBackendContext, private val 
             return
         }
 
-        val mode = getTypeMappingModeForParameter(typeSystem, declaration, type)
+        var mode = getTypeMappingModeForParameter(typeSystem, declaration, type)
+        if (declaration.origin == JvmLoweredDeclarationOrigin.FUNCTION_WITH_EXPOSED_INLINE_CLASS && type.isInlineClassType()) {
+            mode = mode.wrapInlineClassesMode()
+        }
         typeMapper.mapType(type, mode, sw, materialized)
     }
 
