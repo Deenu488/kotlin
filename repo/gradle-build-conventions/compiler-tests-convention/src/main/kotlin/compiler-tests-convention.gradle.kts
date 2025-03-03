@@ -21,6 +21,9 @@ tasks.withType<Test>().configureEach {
     inputs.property("os.name", org.gradle.internal.os.OperatingSystem.current().name)
     inputs.files(extension.testData).withPathSensitivity(PathSensitivity.RELATIVE)
 
+    val rootDir = project.rootDir
+    outputs.cacheIf { workingDir != rootDir }
+
     develocity.testRetry {
         maxRetries = if (kotlinBuildProperties.isTeamcityBuild) 3 else 0
         failOnPassedAfterRetry.set(extension.allowFlaky.convention(false).map { !it })
