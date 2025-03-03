@@ -1,6 +1,7 @@
 plugins {
     kotlin("jvm")
     id("jps-compatible")
+    id("compiler-tests-convention")
 }
 
 dependencies {
@@ -23,6 +24,11 @@ dependencies {
 sourceSets {
     "main" {}
     "test" { projectDefault() }
+}
+
+compilerTests {
+    testData(project(":compiler").isolated, "testData/codegen")
+    testData(project(":compiler").isolated, "testData/klib")
 }
 
 fun Project.codegenTest(
