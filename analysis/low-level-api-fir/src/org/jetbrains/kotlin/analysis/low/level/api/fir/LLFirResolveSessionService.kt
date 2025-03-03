@@ -6,28 +6,12 @@
 package org.jetbrains.kotlin.analysis.low.level.api.fir
 
 import com.intellij.openapi.project.Project
-import org.jetbrains.annotations.TestOnly
-import org.jetbrains.kotlin.analysis.api.projectStructure.KaBuiltinsModule
-import org.jetbrains.kotlin.analysis.api.projectStructure.KaDanglingFileModule
-import org.jetbrains.kotlin.analysis.api.projectStructure.KaLibraryModule
-import org.jetbrains.kotlin.analysis.api.projectStructure.KaLibrarySourceModule
-import org.jetbrains.kotlin.analysis.api.projectStructure.KaModule
-import org.jetbrains.kotlin.analysis.api.projectStructure.KaNotUnderContentRootModule
-import org.jetbrains.kotlin.analysis.api.projectStructure.KaScriptModule
-import org.jetbrains.kotlin.analysis.api.projectStructure.KaSourceModule
+import org.jetbrains.kotlin.analysis.api.projectStructure.*
 import org.jetbrains.kotlin.analysis.low.level.api.fir.api.LLFirResolveSession
 import org.jetbrains.kotlin.analysis.low.level.api.fir.sessions.LLFirLibraryOrLibrarySourceResolvableModuleSession
 import org.jetbrains.kotlin.analysis.low.level.api.fir.sessions.LLFirSession
 import org.jetbrains.kotlin.analysis.low.level.api.fir.sessions.LLFirSessionCache
-import org.jetbrains.kotlin.analysis.low.level.api.fir.state.LLDiagnosticProvider
-import org.jetbrains.kotlin.analysis.low.level.api.fir.state.LLEmptyDiagnosticProvider
-import org.jetbrains.kotlin.analysis.low.level.api.fir.state.LLFirResolvableResolveSession
-import org.jetbrains.kotlin.analysis.low.level.api.fir.state.LLModuleProvider
-import org.jetbrains.kotlin.analysis.low.level.api.fir.state.LLModuleResolutionStrategy
-import org.jetbrains.kotlin.analysis.low.level.api.fir.state.LLModuleResolutionStrategyProvider
-import org.jetbrains.kotlin.analysis.low.level.api.fir.state.LLSessionProvider
-import org.jetbrains.kotlin.analysis.low.level.api.fir.state.LLSimpleResolutionStrategyProvider
-import org.jetbrains.kotlin.analysis.low.level.api.fir.state.LLSourceDiagnosticProvider
+import org.jetbrains.kotlin.analysis.low.level.api.fir.state.*
 import org.jetbrains.kotlin.analysis.low.level.api.fir.util.errorWithFirSpecificEntries
 import org.jetbrains.kotlin.analysis.utils.errors.unexpectedElementError
 
@@ -37,11 +21,6 @@ class LLFirResolveSessionService(project: Project) {
 
     fun getFirResolveSession(module: KaModule): LLFirResolveSession {
         return create(module, cache::getSession)
-    }
-
-    @TestOnly
-    fun getFirResolveSessionForBinaryModule(module: KaModule): LLFirResolveSession {
-        return create(module) { cache.getSession(it, true) }
     }
 
     private fun create(module: KaModule, factory: (KaModule) -> LLFirSession): LLFirResolvableResolveSession {
@@ -97,7 +76,6 @@ private object LLSourceModuleResolutionStrategyProvider : LLModuleResolutionStra
         }
     }
 }
-
 
 private class LLBinaryModuleResolutionStrategyProvider(private val useSiteModule: KaModule) : LLModuleResolutionStrategyProvider {
     override fun getKind(module: KaModule): LLModuleResolutionStrategy {
