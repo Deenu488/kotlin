@@ -7,7 +7,6 @@
 
 package org.jetbrains.kotlin.gradle.tasks.configuration
 
-import com.intellij.util.lang.JavaVersion
 import org.gradle.api.Project
 import org.gradle.api.attributes.Attribute
 import org.gradle.api.file.FileCollection
@@ -101,7 +100,7 @@ internal open class KaptConfig<TASK : KaptTask>(
             // the attributes that are potentially needed to resolve dependencies on MPP modules, and the classpath configuration does.
             classStructureConfiguration.dependencies.add(project.dependencies.create(project.files(project.provider { taskProvider.get().classpath })))
             classStructureConfiguration.incoming.artifactView { viewConfig ->
-                viewConfig.attributes.setAttribute(artifactType, CLASS_STRUCTURE_ARTIFACT_TYPE)
+                viewConfig.attributes.attribute(artifactType, CLASS_STRUCTURE_ARTIFACT_TYPE)
             }.files
         } else null
     }
@@ -114,13 +113,13 @@ internal open class KaptConfig<TASK : KaptTask>(
                 else
                     StructureTransformLegacyAction::class.java
             project.dependencies.registerTransform(transformActionClass) { transformSpec ->
-                transformSpec.from.setAttribute(artifactType, "jar")
-                transformSpec.to.setAttribute(artifactType, CLASS_STRUCTURE_ARTIFACT_TYPE)
+                transformSpec.from.attributes.attribute(artifactType, "jar")
+                transformSpec.to.attributes.attribute(artifactType, CLASS_STRUCTURE_ARTIFACT_TYPE)
             }
 
             project.dependencies.registerTransform(transformActionClass) { transformSpec ->
-                transformSpec.from.setAttribute(artifactType, "directory")
-                transformSpec.to.setAttribute(artifactType, CLASS_STRUCTURE_ARTIFACT_TYPE)
+                transformSpec.from.attributes.attribute(artifactType, "directory")
+                transformSpec.to.attributes.attribute(artifactType, CLASS_STRUCTURE_ARTIFACT_TYPE)
             }
 
             project.extensions.extraProperties["KaptStructureTransformAdded"] = true
