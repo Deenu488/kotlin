@@ -1,0 +1,22 @@
+================ Step #1 =================
+
+Cleaning output files:
+  out/production/module/META-INF/module.kotlin_module
+  out/production/module/MainKt.class
+End of files
+Compiling files:
+  src/main.kt
+End of files
+After build round. Marked as dirty by Kotlin:
+  src/aliases.kt
+Exit code: ADDITIONAL_PASS_REQUIRED
+------------------------------------------
+Cleaning output files:
+  out/production/module/AliasesKt.class
+  out/production/module/META-INF/module.kotlin_module
+End of files
+Compiling files:
+  src/aliases.kt
+End of files
+Exit code: OK
+------------------------------------------
