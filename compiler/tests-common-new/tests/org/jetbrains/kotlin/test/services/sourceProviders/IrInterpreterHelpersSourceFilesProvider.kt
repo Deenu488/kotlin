@@ -23,7 +23,7 @@ class IrInterpreterHelpersSourceFilesProvider(testServices: TestServices) : Addi
         private val STDLIB_PATH = (System.getProperty("stdlib.path") ?: "./libraries/stdlib")
         private val UNSIGNED_PATH = arrayOf(
             "$STDLIB_PATH/unsigned/src/kotlin",
-            "$STDLIB_PATH/JVM/src/kotlin/util/UnsignedJVM.kt"
+            "$STDLIB_PATH/jvm/src/kotlin/util/UnsignedJVM.kt"
         )
         private val RUNTIME_PATHS = arrayOf(
             "$STDLIB_PATH/src/kotlin/ranges/Progressions.kt",

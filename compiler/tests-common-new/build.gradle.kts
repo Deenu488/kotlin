@@ -118,12 +118,13 @@ projectTest(
         "third-party/jsr305",
         File(rootDir, "third-party/jsr305").absolutePath
     )
-    inputs.dir(File(rootDir, "libraries/stdlib/")).withPathSensitivity(PathSensitivity.RELATIVE) //TODO only kt files
+    inputs.files(files(File(rootDir, "libraries/stdlib/")).asFileTree.matching {
+        include("**.kt")
+    }).withPathSensitivity(PathSensitivity.RELATIVE) //TODO only kt files
     systemProperty(
         "stdlib.path",
         File(rootDir, "libraries/stdlib/").absolutePath
     )
-    inputs.file(File(rootDir, "compiler/cli/cli-common/resources/META-INF/extensions/compiler.xml")).withPathSensitivity(PathSensitivity.RELATIVE)
 }
 
 testsJar()
