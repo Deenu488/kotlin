@@ -62,7 +62,7 @@ where advanced options include:
                              -Xjvm-default=disable            -> -jvm-default=disable
                              -Xjvm-default=all-compatibility  -> -jvm-default=enable
                              -Xjvm-default=all                -> -jvm-default=no-compatibility
-  -Xjvm-expose-boxed         Expose inline classes as is instead of underlying type to be called from Java.
+  -Xjvm-expose-boxed         Expose inline classes and functions, accepting and returning them, to Java.
   -Xklib=<path>              Paths to cross-platform libraries in the .klib format.
   -Xlambdas={class|indy}     Select the code generation scheme for lambdas.
                              -Xlambdas=indy                  Generate lambdas using 'invokedynamic' with 'LambdaMetafactory.metafactory'.
