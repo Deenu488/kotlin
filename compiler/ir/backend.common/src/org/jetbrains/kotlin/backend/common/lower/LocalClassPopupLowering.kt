@@ -6,6 +6,8 @@
 package org.jetbrains.kotlin.backend.common.lower
 
 import org.jetbrains.kotlin.backend.common.*
+import org.jetbrains.kotlin.descriptors.DescriptorVisibilities
+import org.jetbrains.kotlin.descriptors.DescriptorVisibility
 import org.jetbrains.kotlin.ir.IrStatement
 import org.jetbrains.kotlin.ir.declarations.*
 import org.jetbrains.kotlin.ir.expressions.IrBody
@@ -27,6 +29,8 @@ open class LocalClassPopupLowering(
     private data class ExtractedLocalClass(
         val local: IrClass, val newContainer: IrDeclarationParent, val extractedUnder: IrStatement?
     )
+
+    protected open fun extractedClassVisibility(klass: IrClass): DescriptorVisibility = DescriptorVisibilities.PRIVATE
 
     override fun lower(irBody: IrBody, container: IrDeclaration) {
         val extractedLocalClasses = arrayListOf<ExtractedLocalClass>()
@@ -63,6 +67,7 @@ open class LocalClassPopupLowering(
         }, null)
 
         for ((local, newContainer, extractedUnder) in extractedLocalClasses) {
+            local.visibility = extractedClassVisibility(local)
             when (newContainer) {
                 is IrStatementContainer -> {
                     val insertIndex = extractedUnder?.let { newContainer.statements.indexOf(it) } ?: -1

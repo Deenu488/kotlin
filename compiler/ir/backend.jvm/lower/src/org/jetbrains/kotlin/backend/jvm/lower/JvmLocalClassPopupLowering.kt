@@ -11,6 +11,7 @@ import org.jetbrains.kotlin.backend.common.phaser.PhaseDescription
 import org.jetbrains.kotlin.backend.jvm.JvmBackendContext
 import org.jetbrains.kotlin.backend.jvm.ir.findInlineLambdas
 import org.jetbrains.kotlin.backend.jvm.isEnclosedInConstructor
+import org.jetbrains.kotlin.descriptors.DescriptorVisibility
 import org.jetbrains.kotlin.ir.declarations.*
 
 /**
@@ -27,6 +28,8 @@ internal class JvmLocalClassPopupLowering(context: JvmBackendContext) : LocalCla
         super.lower(irFile)
         inlineLambdaToScope.clear()
     }
+
+    override fun extractedClassVisibility(klass: IrClass): DescriptorVisibility = klass.visibility
 
     // On JVM, we only pop up local classes in field initializers and anonymous init blocks, so that InitializersLowering would not copy
     // them to each constructor. (Moving all local classes is not possible because of cases where they use reified type parameters,
