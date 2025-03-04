@@ -49,10 +49,8 @@ class MuteWithDatabaseWatcher : MethodWatcher<FrameworkMethod> {
                 }
                 throw AssumptionViolatedException(mutedMessage(testClass, testMethod))
             }
-        } else {
-            if (mutedTest?.isFlaky == false) {
-                Exception("Muted non-flaky test $testKey finished successfully. Please remove it from csv file")
-            }
+        } else if (mutedTest?.isFlaky == false) {
+            throw Exception("Muted non-flaky test $testKey finished successfully. Please remove it from csv file")
         }
     }
 
