@@ -75,7 +75,7 @@ private fun findPathInternal(
 /**
  * Try to find the use of type parameter of the parent type ([path]`.last()`) in the child ([path]`.first()`)
  *
- * It checks whether a typical parameter with the [indexInChild] index is inherited from the [path]`.last()` parent,
+ * It checks whether a type parameter with the [indexInChild] index is inherited from the [path]`.last()` parent,
  * if so, the index of the parent's type parameter is returned, if not, `null`.
  *
  * If [path] is empty then `null` is returned.
@@ -116,9 +116,10 @@ fun mapTypeParameterIndex(indexInChild: Int, path: List<IrSimpleType>): Int? {
  * Checks if type parameter is defined in [typeOfClass] class definition.
  */
 private fun IrTypeParameter.belongsClass(typeOfClass: IrSimpleType): Boolean {
-    val classOfType = typeOfClass.getClass() ?: return false
     val classInParameter = parent as? IrClass ?: return false
+    val classOfType = typeOfClass.getClass() ?: return false
 
-    return classOfType.classId != null && classOfType.classId == classInParameter.classId
+    val classId = classOfType.classId
+    return classId != null && classId == classInParameter.classId
 }
 
