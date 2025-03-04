@@ -31,6 +31,7 @@ public sealed class KaCompilationResult {
      *
      * @property output Output files produced by the compiler. For the JVM target, these are class files and '.kotlin_module'.
      * @property capturedValues Context values captured by a [KtCodeFragment]. Empty for an ordinary [KtFile].
+     * @property forbiddenToCache When the flag is raised, caching this result is forbidden
      */
     @KaExperimentalApi
     public class Success(
@@ -163,7 +164,8 @@ public class KaCodeCompilationException(cause: Throwable) : RuntimeException(cau
  *
  * Used for debugger's code fragments compilation.
  *
- * @param getInvocationPsiAtStackDepth A function providing PSI of last invocation in the current execution stack,
+ * @property getInvocationPsiAtStackDepth A function providing PSI of last invocation in the current execution stack,
  * skipping the number of frames equals to passed argument
  */
+@KaExperimentalApi
 public class DebuggerExtension(public val getInvocationPsiAtStackDepth: (Int) -> KtCallExpression?)

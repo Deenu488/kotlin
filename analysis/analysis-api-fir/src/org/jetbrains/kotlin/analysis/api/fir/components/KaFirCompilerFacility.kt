@@ -77,20 +77,11 @@ import org.jetbrains.kotlin.fir.references.FirThisReference
 import org.jetbrains.kotlin.fir.references.toResolvedNamedFunctionSymbol
 import org.jetbrains.kotlin.fir.references.toResolvedSymbol
 import org.jetbrains.kotlin.fir.resolve.referencedMemberSymbol
-import org.jetbrains.kotlin.fir.resolve.substitution.ConeSubstitutorByMap
 import org.jetbrains.kotlin.fir.resolve.substitution.substitutorByMap
 import org.jetbrains.kotlin.fir.symbols.FirBasedSymbol
 import org.jetbrains.kotlin.fir.symbols.impl.*
 import org.jetbrains.kotlin.fir.symbols.lazyResolveToPhaseRecursively
-import org.jetbrains.kotlin.fir.types.ConeKotlinType
-import org.jetbrains.kotlin.fir.types.ConeTypeParameterType
-import org.jetbrains.kotlin.fir.types.FirResolvedTypeRef
-import org.jetbrains.kotlin.fir.types.FirTypeProjectionWithVariance
-import org.jetbrains.kotlin.fir.types.FirTypeRef
-import org.jetbrains.kotlin.fir.types.builder.buildResolvedTypeRef
-import org.jetbrains.kotlin.fir.types.classId
-import org.jetbrains.kotlin.fir.types.coneType
-import org.jetbrains.kotlin.fir.types.type
+import org.jetbrains.kotlin.fir.types.*
 import org.jetbrains.kotlin.fir.utils.exceptions.withFirEntry
 import org.jetbrains.kotlin.ir.IrElement
 import org.jetbrains.kotlin.ir.ObsoleteDescriptorBasedAPI
@@ -108,7 +99,6 @@ import org.jetbrains.kotlin.ir.symbols.IrTypeParameterSymbol
 import org.jetbrains.kotlin.ir.symbols.UnsafeDuringIrConstructionAPI
 import org.jetbrains.kotlin.ir.types.IrSimpleType
 import org.jetbrains.kotlin.ir.types.IrType
-import org.jetbrains.kotlin.ir.types.IrTypeSubstitutor
 import org.jetbrains.kotlin.ir.util.StubGeneratorExtensions
 import org.jetbrains.kotlin.ir.util.classId
 import org.jetbrains.kotlin.ir.visitors.IrVisitorVoid
@@ -133,7 +123,6 @@ import org.jetbrains.kotlin.utils.exceptions.errorWithAttachment
 import org.jetbrains.kotlin.utils.exceptions.rethrowIntellijPlatformExceptionIfNeeded
 import org.jetbrains.kotlin.utils.exceptions.withPsiEntry
 import java.util.*
-import kotlin.collections.set
 
 /**
  * A source file to be compiled as a part of some [ChunkToCompile].
@@ -147,6 +136,7 @@ private class FileToCompile(val ktFile: KtFile, val firFile: FirFile)
  * @param hasCodeFragments Whether [files] contain at least one code fragment.
  * @param attachPrecompiledBinaries Whether to attach compiled bytecode of the module instead of compiling the module files.
  * @param files Selected files that are either from the same module, or should be compiled as they are from the same module.
+ * @param typeArgumentsToConvert Type params to type arguments mapping which should be converted to IR
  */
 private class ChunkToCompile(
     val mainFile: KtFile?,
@@ -313,7 +303,7 @@ internal class KaFirCompilerFacility(
             }
         }
 
-        return chunkRegistrar.computeChunks(codeFragmentMappings?.reifiedTypeParametersMapping ?: linkedMapOf())
+        return chunkRegistrar.computeChunks(codeFragmentMappings?.reifiedTypeParametersMapping.orEmpty())
     }
 
     /**
@@ -711,13 +701,9 @@ internal class KaFirCompilerFacility(
             irGeneratorExtensions = if (codeFragmentMappings != null) emptyList() else irGeneratorExtensions
         )
 
-        val convertedMapping = buildMap<IrTypeParameterSymbol, IrType> {
-            codeFragmentMappings?.reifiedTypeParametersMapping?.forEach { (firTypeParameter, coneType) ->
-                val irTypeParameterSymbol =
-                    fir2IrResult.components.classifierStorage.getIrTypeParameterSymbol(firTypeParameter, ConversionTypeOrigin.DEFAULT)
-                val irTypeArgument = coneType.toIrType(fir2IrResult.components)
-                put(irTypeParameterSymbol, irTypeArgument)
-            }
+        val convertedMapping = codeFragmentMappings?.reifiedTypeParametersMapping.orEmpty().entries.associate { (firTypeParam, coneType) ->
+            val irTypeParam = fir2IrResult.components.classifierStorage.getIrTypeParameterSymbol(firTypeParam, ConversionTypeOrigin.DEFAULT)
+            irTypeParam to coneType.toIrType(fir2IrResult.components)
         }
 
         if (diagnosticReporter.hasErrors) {
@@ -928,11 +914,28 @@ internal class KaFirCompilerFacility(
         )
 
         val capturedReifiedTypeParametersMap =
-            collectReifiedTypeParametersMapping(capturedData.reifiedTypeParameters, debuggerExtension)
-                .mapValues { it.component2().coneType }.toMutableMap()
+            collectReifiedTypeParametersMapping(capturedData.reifiedTypeParameters, debuggerExtension).toMutableMap()
 
-        val typeSubstitutor = substitutorByMap(capturedReifiedTypeParametersMap, firResolveSession.useSiteFirSession, true)
+        val typeSubstitutor = substitutorByMap(capturedReifiedTypeParametersMap, firResolveSession.useSiteFirSession)
 
+        // The parameters are ordered in the map according the order of declaring function in execution stack, e.g.:
+        //
+        // fun <reified T3> foo3() {
+        //     ...suspension point...
+        // }
+        // fun <reified T2> foo2() {
+        //     foo3<T2>()
+        // }
+        // fun <reified T1> foo1() {
+        //     foo2<T1>()
+        // }
+        // ... entry point...
+        // fun main() {
+        //     foo1<Int>()
+        // }
+        //
+        // Parameters will be ordered as T3, T2, T1, i.e. argument follows the parameter.
+        // Thus, processing them in reversive order gives the transitive closure of substitution.
         val typeParametersIterator = capturedReifiedTypeParametersMap.keys.reversed().iterator()
         while (typeParametersIterator.hasNext()) {
             val typeParameter = typeParametersIterator.next()
@@ -954,8 +957,8 @@ internal class KaFirCompilerFacility(
 
     private fun collectReifiedTypeParametersMapping(
         capturedReifiedTypeParameters: Set<FirTypeParameterSymbol>,
-        debuggerExtension: DebuggerExtension?
-    ): LinkedHashMap<FirTypeParameterSymbol, FirTypeRef> {
+        debuggerExtension: DebuggerExtension?,
+    ): Map<FirTypeParameterSymbol, ConeKotlinType> {
 
         fun ConeKotlinType.extractTypeParameterOrNull(): FirTypeParameterSymbol? {
             if (this is ConeTypeParameterType) return lookupTag.typeParameterSymbol
@@ -972,7 +975,7 @@ internal class KaFirCompilerFacility(
 
         // We need to save the order to make a substitution on the correct order later
         val mapping = linkedMapOf<FirTypeParameterSymbol, FirTypeRef>()
-        if (debuggerExtension == null) return mapping
+        if (debuggerExtension == null) return linkedMapOf()
         val needMapping = capturedReifiedTypeParameters.toMutableSet()
 
         // We basically roll back along the execution stack until either all required type parameters are mapped on arguments, or
@@ -997,7 +1000,7 @@ internal class KaFirCompilerFacility(
             rollbackFramesCount++
         }
 
-        return mapping
+        return mapping.mapValues { (_, firTypeRef) -> firTypeRef.coneType }
     }
 
     private fun extractReifiedTypeArgumentsFromCall(call: FirFunctionCall): Map<FirTypeParameterSymbol, FirTypeRef> {
