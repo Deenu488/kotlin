@@ -125,6 +125,12 @@ public class IrBlackBoxCodegenTestForPowerAssertGenerated extends AbstractIrBlac
     }
 
     @Test
+    @TestMetadata("InlinePrefixUnaryPlus.kt")
+    public void testInlinePrefixUnaryPlus() {
+      runTest("plugins/power-assert/testData/codegen/arithmetic/InlinePrefixUnaryPlus.kt");
+    }
+
+    @Test
     @TestMetadata("InlineSubtraction.kt")
     public void testInlineSubtraction() {
       runTest("plugins/power-assert/testData/codegen/arithmetic/InlineSubtraction.kt");
@@ -159,6 +165,12 @@ public class IrBlackBoxCodegenTestForPowerAssertGenerated extends AbstractIrBlac
     }
 
     @Test
+    @TestMetadata("BooleanMixWithAndNot.kt")
+    public void testBooleanMixWithAndNot() {
+      runTest("plugins/power-assert/testData/codegen/boolean/BooleanMixWithAndNot.kt");
+    }
+
+    @Test
     @TestMetadata("BooleanMixWithOrFirst.kt")
     public void testBooleanMixWithOrFirst() {
       runTest("plugins/power-assert/testData/codegen/boolean/BooleanMixWithOrFirst.kt");
@@ -171,6 +183,12 @@ public class IrBlackBoxCodegenTestForPowerAssertGenerated extends AbstractIrBlac
     }
 
     @Test
+    @TestMetadata("BooleanNot.kt")
+    public void testBooleanNot() {
+      runTest("plugins/power-assert/testData/codegen/boolean/BooleanNot.kt");
+    }
+
+    @Test
     @TestMetadata("BooleanOr.kt")
     public void testBooleanOr() {
       runTest("plugins/power-assert/testData/codegen/boolean/BooleanOr.kt");
@@ -180,6 +198,34 @@ public class IrBlackBoxCodegenTestForPowerAssertGenerated extends AbstractIrBlac
     @TestMetadata("BooleanShortCircuit.kt")
     public void testBooleanShortCircuit() {
       runTest("plugins/power-assert/testData/codegen/boolean/BooleanShortCircuit.kt");
+    }
+  }
+
+  @Nested
+  @TestMetadata("plugins/power-assert/testData/codegen/callableReference")
+  @TestDataPath("$PROJECT_ROOT")
+  public class CallableReference {
+    @Test
+    public void testAllFilesPresentInCallableReference() {
+      KtTestUtil.assertAllTestsPresentByMetadataWithExcluded(this.getClass(), new File("plugins/power-assert/testData/codegen/callableReference"), Pattern.compile("^(.+)\\.kt$"), Pattern.compile("^(.+)\\.fir\\.kts?$"), TargetBackend.JVM_IR, true);
+    }
+
+    @Test
+    @TestMetadata("boundedFunctionReference.kt")
+    public void testBoundedFunctionReference() {
+      runTest("plugins/power-assert/testData/codegen/callableReference/boundedFunctionReference.kt");
+    }
+
+    @Test
+    @TestMetadata("classLiteralReference.kt")
+    public void testClassLiteralReference() {
+      runTest("plugins/power-assert/testData/codegen/callableReference/classLiteralReference.kt");
+    }
+
+    @Test
+    @TestMetadata("functionReference.kt")
+    public void testFunctionReference() {
+      runTest("plugins/power-assert/testData/codegen/callableReference/functionReference.kt");
     }
   }
 
@@ -279,15 +325,39 @@ public class IrBlackBoxCodegenTestForPowerAssertGenerated extends AbstractIrBlac
     }
 
     @Test
+    @TestMetadata("expressionWithLabel.kt")
+    public void testExpressionWithLabel() {
+      runTest("plugins/power-assert/testData/codegen/expressions/expressionWithLabel.kt");
+    }
+
+    @Test
+    @TestMetadata("expressionsWithAnnotation.kt")
+    public void testExpressionsWithAnnotation() {
+      runTest("plugins/power-assert/testData/codegen/expressions/expressionsWithAnnotation.kt");
+    }
+
+    @Test
     @TestMetadata("IfExpression.kt")
     public void testIfExpression() {
       runTest("plugins/power-assert/testData/codegen/expressions/IfExpression.kt");
     }
 
     @Test
-    @TestMetadata("IfWithCodeBlock.kt")
+    @TestMetadata("ifWithCodeBlock.kt")
     public void testIfWithCodeBlock() {
-      runTest("plugins/power-assert/testData/codegen/expressions/IfWithCodeBlock.kt");
+      runTest("plugins/power-assert/testData/codegen/expressions/ifWithCodeBlock.kt");
+    }
+
+    @Test
+    @TestMetadata("superExpression.kt")
+    public void testSuperExpression() {
+      runTest("plugins/power-assert/testData/codegen/expressions/superExpression.kt");
+    }
+
+    @Test
+    @TestMetadata("thisExpression.kt")
+    public void testThisExpression() {
+      runTest("plugins/power-assert/testData/codegen/expressions/thisExpression.kt");
     }
 
     @Test
@@ -764,6 +834,12 @@ public class IrBlackBoxCodegenTestForPowerAssertGenerated extends AbstractIrBlac
     @TestMetadata("GetOperator.kt")
     public void testGetOperator() {
       runTest("plugins/power-assert/testData/codegen/operator/GetOperator.kt");
+    }
+
+    @Test
+    @TestMetadata("invokeOpeartor.kt")
+    public void testInvokeOpeartor() {
+      runTest("plugins/power-assert/testData/codegen/operator/invokeOpeartor.kt");
     }
 
     @Test

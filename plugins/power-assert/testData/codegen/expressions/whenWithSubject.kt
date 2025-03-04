@@ -1,3 +1,4 @@
+// IGNORE_BACKEND_K1: ANY
 fun box(): String {
     return test1(2, 2, 3) +
             test2() +

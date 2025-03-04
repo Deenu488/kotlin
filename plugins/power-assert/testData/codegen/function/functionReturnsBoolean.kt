@@ -7,7 +7,8 @@ fun box(): String {
             test3() +
             test4() +
             test5() +
-            test6()
+            test6() +
+            test7()
 }
 
 fun funWithVararg(vararg a: String): Boolean { return a.size > 1 }
@@ -49,4 +50,15 @@ fun test5() = expectThrowableMessage {
 fun test6() = expectThrowableMessage {
     fun local(): Boolean { return false }
     assert(local())
+}
+
+class A {
+    override fun toString(): String {
+        return "A"
+    }
+}
+fun funWithNotPrimitiveParameter(b: Int, a: A): Boolean { return false }
+
+fun test7() = expectThrowableMessage {
+    assert(funWithNotPrimitiveParameter(1, A()))
 }

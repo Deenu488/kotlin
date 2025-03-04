@@ -38,3 +38,22 @@ assert(("Name" in listOf("Hello", "World")) in listOf(true))
                |  [Hello, World]
                false
 ---
+---
+assert('a' in "Hello")
+       |
+       false
+---
+---
+assert(11 in 1..10)
+          |   |
+          |   1..10
+          false
+---
+---
+assert(3 in mapOf(1 to "one", 2 to "two"))
+         |  |       |           |
+         |  |       |           (2, two)
+         |  |       (1, one)
+         |  {1=one, 2=two}
+         false
+---

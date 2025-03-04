@@ -28,3 +28,9 @@ assert(local())
        |
        false
 ---
+---
+assert(funWithNotPrimitiveParameter(1, A()))
+       |                               |
+       |                               A
+       false
+---
