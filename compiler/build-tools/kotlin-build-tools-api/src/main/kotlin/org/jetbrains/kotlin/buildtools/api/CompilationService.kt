@@ -43,12 +43,15 @@ public interface CompilationService {
     ): ClasspathEntrySnapshot
 
     /**
-     * Compatibility-driven version of [calculateClasspathSnapshot]. Please drop it whenever a breaking change of BTA is introduced.
+     * Calculates JVM classpath snapshot for [classpathEntry] used for detecting changes in incremental compilation with specified [granularity].
+     *
+     * The [ClassSnapshotGranularity.CLASS_LEVEL] granularity should be preferred for rarely changing dependencies as more lightweight in terms of the resulting snapshot size.
+     *
+     * @param classpathEntry path to existent classpath entry
+     * @param granularity determines granularity of tracking.
+     *
+     * This version of [calculateClasspathSnapshot] would not do any extra work to snapshot local classes used inside inline functions.
      */
-    @Deprecated(
-        "Use three-argument version of [calculateClasspathSnapshot] instead",
-        level = DeprecationLevel.WARNING
-    )
     public fun calculateClasspathSnapshot(
         classpathEntry: File,
         granularity: ClassSnapshotGranularity

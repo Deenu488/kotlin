@@ -126,12 +126,18 @@ internal class ClassListSnapshotterWithInlinedClassSupport(
     )
 
     /**
-     * regular snapshot might depend on a number of inlined snapshots
+     * General note:
+     * queueForRegularSnapshot is used to avoid loading class data twice. This requirement is a cause for most of the complexity
+     * in this class. I think it's important enough, because snapshotting is used by all kotlin-jvm customers, and CI never likes I/O.
      *
-     * inlined snapshots might add regular snapshots to queue
+     * High-level IC tests would still pass, if you remove all of these optimizations.
      *
-     * it's impossible for regular snapshots to loop if the input is well-formed
-     * (i.e. doesn't have two classes which are each other's outer classes, or a larger cycle like this)
+     * Note on implementation logic:
+     *  - regular snapshot might depend on a number of inlined snapshots
+     *  - inlined snapshots might add regular snapshots to queue
+     *
+     *  - it's impossible for regular snapshots to loop if the input is well-formed
+     *  - (i.e. doesn't have two classes which are each other's outer classes, or a larger cycle like this)
      */
     private val queueForRegularSnapshot = mutableListOf<Pair<ClassDescriptorForProcessing, ClassFileWithContents>>()
 
@@ -186,15 +192,13 @@ internal class ClassListSnapshotterWithInlinedClassSupport(
     }
 
     private fun isInaccessible(classFileWithContents: ClassFileWithContents): Boolean {
-        val answer = if (classFileWithContents.classInfo.isInaccessible()) {
+        return if (classFileWithContents.classInfo.isInaccessible()) {
             true
         } else {
             val outerClassJvmName = classFileWithContents.classInfo.classId.outerClassId?.let { JvmClassName.byClassId(it) }
             val outerClassProvider = outerClassJvmName?.let { classNameToClassFileMap[outerClassJvmName] }
             outerClassProvider?.let { makeOrReuseClassSnapshot(outerClassProvider) } is InaccessibleClassSnapshot
         }
-
-        return answer
     }
 
     // we don't support reusing loaded data from regular snapshot to inlined snapshot, because the flow would require extra state
@@ -204,17 +208,17 @@ internal class ClassListSnapshotterWithInlinedClassSupport(
         val classesWithTransitiveDependencies = rootClasses.toMutableSet()
 
         fun getIncompleteClasses() =
-            classesWithTransitiveDependencies.zip(classesWithTransitiveDependencies.map { jvmClassName ->
+            classesWithTransitiveDependencies.zip(classesWithTransitiveDependencies.mapNotNull { jvmClassName ->
                 jvmClassName.toDescriptor()
             }).filter { (_, descriptor) ->
-                descriptor != null && descriptor.inlinedSnapshot == null
+                descriptor.inlinedSnapshot == null
             }
 
         var incompleteClasses = getIncompleteClasses()
         while (incompleteClasses.isNotEmpty()) {
             for ((jvmClassName, descriptor) in incompleteClasses) {
                 val classFileWithContentsProvider =
-                    classNameToClassFileMap[jvmClassName]!! // not null by virtue of `descriptor != null` above
+                    classNameToClassFileMap[jvmClassName]!! // not null by virtue of `mapNotNull` above
                 val classFileWithContents = metrics.measure(GradleBuildTime.LOAD_CONTENTS_OF_CLASSES) {
                     classFileWithContentsProvider.loadContents()
                 }

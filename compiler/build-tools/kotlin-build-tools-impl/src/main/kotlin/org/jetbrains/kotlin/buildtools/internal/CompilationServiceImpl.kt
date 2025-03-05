@@ -86,10 +86,6 @@ internal object CompilationServiceImpl : CompilationService {
         )
     }
 
-    @Deprecated(
-        "Use three-argument version of [calculateClasspathSnapshot] instead",
-        level = DeprecationLevel.WARNING
-    )
     override fun calculateClasspathSnapshot(
         classpathEntry: File,
         granularity: ClassSnapshotGranularity
