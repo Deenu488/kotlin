@@ -623,42 +623,40 @@ internal class TypeOperatorLowering(private val backendContext: JvmBackendContex
 
             var syntheticParameterIndex = 0
 
-            fun buildValueParameter(type: IrType) = buildValueParameter(this) {
-                name = Name.identifier("p${syntheticParameterIndex++}")
-                this.type = type
-                kind = IrParameterKind.Regular
-            }
-
             var argumentStart = 0
             parameters = (targetFun.parameters zip targetRef.arguments).mapNotNull { (parameter, argument) ->
                 if (argument == null) return@mapNotNull null
-                when (parameter.kind) {
+                val (newParameterType, newArgument) = when (parameter.kind) {
                     IrParameterKind.DispatchReceiver -> when (targetFun) {
                         is IrSimpleFunction -> {
                             // Fake overrides may have inexact dispatch receiver type.
-                            dynamicCallArguments.add(argument)
-                            buildValueParameter(targetFun.parentAsClass.defaultType)
+                            targetFun.parentAsClass.defaultType to argument
                         }
                         is IrConstructor -> {
                             // At this point, outer class instances in inner class constructors are represented as regular value parameters.
                             // However, in a function reference to such constructors, bound receiver value is stored as a dispatch receiver.
                             argumentStart++
-                            dynamicCallArguments.add(argument)
-                            buildValueParameter(targetFun.parameters[0].type)
+                            targetFun.parameters[0].type to argument
                         }
                     }
                     IrParameterKind.Context, IrParameterKind.ExtensionReceiver -> {
                         argumentStart++
-                        dynamicCallArguments.add(argument)
-                        buildValueParameter(parameter.type)
+                        parameter.type to argument
                     }
                     IrParameterKind.Regular -> {
                         val capturedValueArgument = targetRef.arguments[argumentStart]
                             ?: fail("Captured value argument #$argumentStart (${parameter.render()}) not provided")
                         argumentStart++
-                        dynamicCallArguments.add(capturedValueArgument)
-                        buildValueParameter(parameter.type)
+                        parameter.type to capturedValueArgument
                     }
+                }
+
+                dynamicCallArguments.add(newArgument)
+
+                buildValueParameter(this) {
+                    name = Name.identifier("p${syntheticParameterIndex++}")
+                    type = newParameterType
+                    kind = IrParameterKind.Regular
                 }
             }
         }
