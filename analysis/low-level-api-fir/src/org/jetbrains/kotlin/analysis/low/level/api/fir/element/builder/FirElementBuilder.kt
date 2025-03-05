@@ -117,8 +117,8 @@ internal class FirElementBuilder(private val moduleComponents: LLFirModuleResolv
         }
 
         val psi = getPsiAsFirElementSource(element) ?: return null
-        val firFile = element.containingKtFile
-        val fileStructure = moduleComponents.fileStructureCache.getFileStructure(firFile)
+        val ktFile = element.containingKtFile
+        val fileStructure = moduleComponents.fileStructureCache.getFileStructure(ktFile)
 
         val structureElement = fileStructure.getStructureElementFor(element, nonLocalContainer)
         val mappings = structureElement.mappings
