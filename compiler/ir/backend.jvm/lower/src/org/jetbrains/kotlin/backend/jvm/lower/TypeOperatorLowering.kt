@@ -609,7 +609,7 @@ internal class TypeOperatorLowering(private val backendContext: JvmBackendContex
         fun fail(message: String): Nothing =
             throw AssertionError("$message, targetRef:\n${targetRef.dump()}")
 
-        val dynamicCallArguments = ArrayList<IrExpression>()
+        val dynamicCallArguments: List<IrExpression>
 
         val irDynamicCallTarget = backendContext.irFactory.buildFun {
             origin = JvmLoweredDeclarationOrigin.INVOKEDYNAMIC_CALL_TARGET
@@ -622,34 +622,34 @@ internal class TypeOperatorLowering(private val backendContext: JvmBackendContex
 
             var syntheticParameterIndex = 0
             var argumentStart = 0
-            for ((parameter, argument) in targetFun.parameters zip targetRef.arguments) {
-                if (argument == null) continue
+            dynamicCallArguments = (targetFun.parameters zip targetRef.arguments).mapNotNull { (parameter, argument) ->
+                if (argument == null) return@mapNotNull null
                 when (parameter.kind) {
                     IrParameterKind.DispatchReceiver -> when (targetFun) {
                         is IrSimpleFunction -> {
                             // Fake overrides may have inexact dispatch receiver type.
-                            addValueParameter("p${syntheticParameterIndex++}", targetFun.parentAsClass.defaultType)
-                            dynamicCallArguments.add(argument)
+                            addValueParameter(name = "p${syntheticParameterIndex++}", type = targetFun.parentAsClass.defaultType)
+                            argument
                         }
                         is IrConstructor -> {
                             // At this point, outer class instances in inner class constructors are represented as regular value parameters.
                             // However, in a function reference to such constructors, bound receiver value is stored as a dispatch receiver.
-                            addValueParameter("p${syntheticParameterIndex++}", targetFun.parameters[0].type)
-                            dynamicCallArguments.add(argument)
                             argumentStart++
+                            addValueParameter("p${syntheticParameterIndex++}", targetFun.parameters[0].type)
+                            argument
                         }
                     }
                     IrParameterKind.Context, IrParameterKind.ExtensionReceiver -> {
-                        addValueParameter("p${syntheticParameterIndex++}", parameter.type)
-                        dynamicCallArguments.add(argument)
                         argumentStart++
+                        addValueParameter("p${syntheticParameterIndex++}", parameter.type)
+                        argument
                     }
                     IrParameterKind.Regular -> {
-                        addValueParameter("p${syntheticParameterIndex++}", parameter.type)
                         val capturedValueArgument = targetRef.arguments[argumentStart]
                             ?: fail("Captured value argument #$argumentStart (${parameter.render()}) not provided")
-                        dynamicCallArguments.add(capturedValueArgument)
                         argumentStart++
+                        addValueParameter("p${syntheticParameterIndex++}", parameter.type)
+                        capturedValueArgument
                     }
                 }
             }
