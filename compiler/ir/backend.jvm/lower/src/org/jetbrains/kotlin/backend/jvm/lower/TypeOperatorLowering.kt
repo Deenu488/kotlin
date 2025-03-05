@@ -330,7 +330,7 @@ internal class TypeOperatorLowering(private val backendContext: JvmBackendContex
             irBlockBody {
                 val tmp = irTemporary(
                     irCall(backendContext.symbols.serializedLambda.getImplMethodName).apply {
-                        dispatchReceiver = irGet(lambdaParameter)
+                        arguments[0] = irGet(lambdaParameter)
                     }
                 )
                 +irWhen(
@@ -355,7 +355,7 @@ internal class TypeOperatorLowering(private val backendContext: JvmBackendContex
                     irCall(backendContext.symbols.illegalArgumentExceptionCtorString).also { ctorCall ->
                         // Replace argument with:
                         //  irCall(backendContext.irBuiltIns.anyClass.getSimpleFunction("toString")!!).apply {
-                        //      dispatchReceiver = irGet(lambdaParameter)
+                        //      arguments[0] = irGet(lambdaParameter)
                         //  }
                         // for debugging "Invalid lambda deserialization" exceptions.
                         ctorCall.arguments[0] = irString("Invalid lambda deserialization")
@@ -383,7 +383,7 @@ internal class TypeOperatorLowering(private val backendContext: JvmBackendContex
         val samMethod = deserializedLambdaInfo.functionalInterfaceMethod
 
         fun irGetLambdaProperty(getter: IrSimpleFunction) =
-            irCall(getter).apply { dispatchReceiver = irGet(lambdaParameter) }
+            irCall(getter).apply { arguments[0] = irGet(lambdaParameter) }
 
         return irAndAnd(
             irEquals(
@@ -417,7 +417,7 @@ internal class TypeOperatorLowering(private val backendContext: JvmBackendContex
 
     private fun JvmIrBuilder.irObjectEquals(receiver: IrExpression, arg: IrExpression) =
         irCall(equalsAny).apply {
-            dispatchReceiver = receiver
+            arguments[0] = receiver
             arguments[1] = arg
         }
 
@@ -440,7 +440,7 @@ internal class TypeOperatorLowering(private val backendContext: JvmBackendContex
         val dynamicCall = irCall(info.dynamicCallSymbol)
         for ((index, dynamicValueParameter) in info.dynamicCallSymbol.owner.parameters.withIndex()) {
             val capturedArg = irCall(backendContext.symbols.serializedLambda.getCapturedArg).also { call ->
-                call.dispatchReceiver = irGet(lambdaParameter)
+                call.arguments[0] = irGet(lambdaParameter)
                 call.arguments[1] = irInt(index)
             }
             val expectedType = dynamicValueParameter.type
