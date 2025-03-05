@@ -191,7 +191,10 @@ open class UpgradeCallableReferences(
                     startOffset = expression.startOffset
                     endOffset = expression.endOffset
                     type = expression.typeOperand
-                    overriddenFunctionSymbol = selectSAMOverriddenFunction(expression.typeOperand)
+                    overriddenFunctionSymbol = selectSAMOverriddenFunction(expression.typeOperand).apply {
+                        owner.startOffset = expression.startOffset
+                        owner.endOffset = expression.endOffset
+                    }
                 }
             }
             return super.visitTypeOperator(expression, data)
