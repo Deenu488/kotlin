@@ -3,6 +3,7 @@ Buildfile: [TestData]/build.xml
 
 build:
   [kotlinc] Compiling [[TestData]/main.kt] => [[Temp]/hello.jar]
+  [kotlinc] warning: language version 1.9 is deprecated and its support will be removed in a future version of Kotlin
   [kotlinc] [TestData]/main.kt:4:13: error: the feature "break continue in inline lambdas" is only available since language version 2.2
   [kotlinc]             break
   [kotlinc]             ^^^^^
