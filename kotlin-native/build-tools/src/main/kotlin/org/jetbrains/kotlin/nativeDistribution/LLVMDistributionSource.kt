@@ -10,10 +10,10 @@ import org.jetbrains.kotlin.konan.target.HostManager
 import org.jetbrains.kotlin.konan.target.KonanTarget
 import java.nio.file.Path
 import java.nio.file.Paths
-import java.util.Properties
 import kotlin.io.path.absolutePathString
 import kotlin.io.path.isDirectory
 
+private const val ROOT_PROPERTY_NAME = "kotlin.native.llvm"
 private val supportedHosts = listOf(KonanTarget.LINUX_X64, KonanTarget.MACOS_ARM64, KonanTarget.MACOS_X64, KonanTarget.MINGW_X64)
 
 enum class LLVMDistributionKind {
@@ -21,7 +21,7 @@ enum class LLVMDistributionKind {
     ESSENTIALS,
 }
 
-data class RemoteLLVMDistribution(val host: KonanTarget, val kind: LLVMDistributionKind, val address: String) {
+data class RemoteLLVMDistribution(val host: KonanTarget, val kind: LLVMDistributionKind, val address: String, val version: String) {
     val name: String
         get() = address.substringAfterLast("/")
 
@@ -32,17 +32,23 @@ data class RemoteLLVMDistribution(val host: KonanTarget, val kind: LLVMDistribut
 sealed interface LLVMDistributionSource {
     class Default(val distributions: List<RemoteLLVMDistribution>) : LLVMDistributionSource
     class Next(val distributions: List<RemoteLLVMDistribution>) : LLVMDistributionSource
-    class Local(val path: Path) : LLVMDistributionSource
+    class Local(val path: Path, val version: String) : LLVMDistributionSource
 }
 
 private fun Project.getRemoteLLVMDistribution(source: String, kind: LLVMDistributionKind, host: KonanTarget): RemoteLLVMDistribution? {
-    val propertyName = "kotlin.native.llvm.${source}.${kind.name.lowercase()}.${host.name.lowercase()}"
-    val address = findProperty(propertyName) as String?
+    val addressPropertyName = "${ROOT_PROPERTY_NAME}.${source}.${host.name.lowercase()}.${kind.name.lowercase()}"
+    val address = findProperty(addressPropertyName) as String?
     if (address == null) {
-        logger.warn("Missing the $source LLVM distribution ($kind) for $host. Specify it with $propertyName")
+        logger.warn("Missing the $source LLVM distribution ($kind) for $host. Specify it with $addressPropertyName")
         return null
     }
-    return RemoteLLVMDistribution(host, kind, address)
+    val versionPropertyName = "${ROOT_PROPERTY_NAME}.${source}.${host.name.lowercase()}.version"
+    val version = findProperty(addressPropertyName) as String?
+    if (version == null) {
+        logger.warn("Missing the $source LLVM distribution version for $host. Specify it with $versionPropertyName")
+        return null
+    }
+    return RemoteLLVMDistribution(host, kind, address, version)
 }
 
 private fun Project.getRemoteLLVMDistributions(source: String): List<RemoteLLVMDistribution> {
@@ -62,19 +68,20 @@ private fun Project.getRemoteLLVMDistributions(source: String): List<RemoteLLVMD
  */
 val Project.llvmDistributionSource: LLVMDistributionSource
     get() {
-        val llvmProperty = property("kotlin.native.llvm") as String
+        val llvmProperty = property(ROOT_PROPERTY_NAME) as String
         return when (llvmProperty) {
             "default" -> LLVMDistributionSource.Default(getRemoteLLVMDistributions("default"))
             "next" -> LLVMDistributionSource.Next(getRemoteLLVMDistributions("next"))
             else -> {
                 val path = Paths.get(llvmProperty)
                 check(path.isAbsolute) {
-                    "Path to the local LLVM distribution must be absolute. kotlin.native.llvm=`$path`"
+                    "Path to the local LLVM distribution must be absolute. $ROOT_PROPERTY_NAME=`$path`"
                 }
                 check(path.isDirectory()) {
-                    "The local LLVM distribution must be a directory. kotlin.native.llvm=`$path`"
+                    "The local LLVM distribution must be a directory. $ROOT_PROPERTY_NAME=`$path`"
                 }
-                LLVMDistributionSource.Local(path)
+                val version = property("${ROOT_PROPERTY_NAME}.next.${HostManager.host.name}.version") as String
+                LLVMDistributionSource.Local(path, version)
             }
         }
     }
@@ -88,9 +95,14 @@ private val LLVMDistributionKind.nameForProperties: String
 private val List<RemoteLLVMDistribution>.remoteAsProperties: Map<String, String>
     get() = buildMap {
         put("predefinedLlvmDistributions", this@remoteAsProperties.joinToString(separator = " ") { it.name })
+        val versionPerHost = mutableMapOf<String, String>()
         this@remoteAsProperties.forEach {
             put("${it.name}.default", it.dir)
             put("llvm.${it.host}.${it.kind.nameForProperties}", it.name)
+            versionPerHost[it.host.name] = it.version
+        }
+        versionPerHost.forEach { (host, version) ->
+            put("llvmVersion.$host", version)
         }
     }
 
