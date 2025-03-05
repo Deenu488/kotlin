@@ -25,6 +25,7 @@ import org.jetbrains.kotlin.ir.UNDEFINED_OFFSET
 import org.jetbrains.kotlin.ir.builders.*
 import org.jetbrains.kotlin.ir.builders.declarations.addValueParameter
 import org.jetbrains.kotlin.ir.builders.declarations.buildFun
+import org.jetbrains.kotlin.ir.builders.declarations.buildValueParameter
 import org.jetbrains.kotlin.ir.declarations.*
 import org.jetbrains.kotlin.ir.expressions.*
 import org.jetbrains.kotlin.ir.expressions.impl.IrCompositeImpl
@@ -609,7 +610,7 @@ internal class TypeOperatorLowering(private val backendContext: JvmBackendContex
         fun fail(message: String): Nothing =
             throw AssertionError("$message, targetRef:\n${targetRef.dump()}")
 
-        val dynamicCallArguments: List<IrExpression>
+        val dynamicCallArguments = mutableListOf<IrExpression>()
 
         val irDynamicCallTarget = backendContext.irFactory.buildFun {
             origin = JvmLoweredDeclarationOrigin.INVOKEDYNAMIC_CALL_TARGET
@@ -621,35 +622,42 @@ internal class TypeOperatorLowering(private val backendContext: JvmBackendContex
             val targetFun = targetRef.symbol.owner
 
             var syntheticParameterIndex = 0
+
+            fun buildValueParameter(type: IrType) = buildValueParameter(this) {
+                name = Name.identifier("p${syntheticParameterIndex++}")
+                this.type = type
+                kind = IrParameterKind.Regular
+            }
+
             var argumentStart = 0
-            dynamicCallArguments = (targetFun.parameters zip targetRef.arguments).mapNotNull { (parameter, argument) ->
+            parameters = (targetFun.parameters zip targetRef.arguments).mapNotNull { (parameter, argument) ->
                 if (argument == null) return@mapNotNull null
                 when (parameter.kind) {
                     IrParameterKind.DispatchReceiver -> when (targetFun) {
                         is IrSimpleFunction -> {
                             // Fake overrides may have inexact dispatch receiver type.
-                            addValueParameter(name = "p${syntheticParameterIndex++}", type = targetFun.parentAsClass.defaultType)
-                            argument
+                            dynamicCallArguments.add(argument)
+                            buildValueParameter(targetFun.parentAsClass.defaultType)
                         }
                         is IrConstructor -> {
                             // At this point, outer class instances in inner class constructors are represented as regular value parameters.
                             // However, in a function reference to such constructors, bound receiver value is stored as a dispatch receiver.
                             argumentStart++
-                            addValueParameter("p${syntheticParameterIndex++}", targetFun.parameters[0].type)
-                            argument
+                            dynamicCallArguments.add(argument)
+                            buildValueParameter(targetFun.parameters[0].type)
                         }
                     }
                     IrParameterKind.Context, IrParameterKind.ExtensionReceiver -> {
                         argumentStart++
-                        addValueParameter("p${syntheticParameterIndex++}", parameter.type)
-                        argument
+                        dynamicCallArguments.add(argument)
+                        buildValueParameter(parameter.type)
                     }
                     IrParameterKind.Regular -> {
                         val capturedValueArgument = targetRef.arguments[argumentStart]
                             ?: fail("Captured value argument #$argumentStart (${parameter.render()}) not provided")
                         argumentStart++
-                        addValueParameter("p${syntheticParameterIndex++}", parameter.type)
-                        capturedValueArgument
+                        dynamicCallArguments.add(capturedValueArgument)
+                        buildValueParameter(parameter.type)
                     }
                 }
             }
