@@ -58,7 +58,6 @@ internal class PreKotlin220Wrapper(
         granularity: ClassSnapshotGranularity,
         parseInlinedLocalClasses: Boolean
     ): ClasspathEntrySnapshot {
-        @Suppress("DEPRECATION")
         return base.calculateClasspathSnapshot(classpathEntry, granularity)
     }
 }
