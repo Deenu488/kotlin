@@ -358,6 +358,7 @@ enum class LanguageFeature(
     // See the single usage at org.jetbrains.kotlin.resolve.calls.inference.components.ConstraintInjector.TypeCheckerStateForConstraintInjector.runForkingPoint
     // We enable it for already released 2.1 because it's a bug fix
     ForkIsNotSuccessfulWhenNoBranchIsSuccessful(KOTLIN_2_1, kind = OTHER), // KT-75444
+    ContextSensitiveResolutionUsingExpectedType(KOTLIN_2_1, kind = TEST_ONLY), // KT-16768
 
     // 2.2
 
@@ -470,7 +471,6 @@ enum class LanguageFeature(
     IrInlinerBeforeKlibSerialization(sinceVersion = null, kind = UNSTABLE_FEATURE), // KT-69765
     NestedTypeAliases(sinceVersion = null, kind = UNSTABLE_FEATURE), // KT-45285
     ForbidUsingSupertypesWithInaccessibleContentInTypeArguments(sinceVersion = null, kind = BUG_FIX), // KT-66691, KT-66742
-    ContextSensitiveResolutionUsingExpectedType(sinceVersion = null, kind = TEST_ONLY), // KT-16768
     ;
 
     init {
