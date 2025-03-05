@@ -493,12 +493,10 @@ internal class SpecialAccessLowering(
         }
 
         val (fieldLocation, receiver) = fieldLocationAndReceiver(call)
-        val (_, setterValue) = (realSetter.parameters zip call.arguments)
-            .single { (parameter, _) -> parameter.kind == IrParameterKind.Regular }
         return generateReflectiveFieldSet(
             fieldLocation,
             realSetter.correspondingPropertySymbol!!.owner.name.asString(),
-            setterValue!!,
+            call.arguments.last()!!,
             call.type,
             receiver,
             call.symbol
