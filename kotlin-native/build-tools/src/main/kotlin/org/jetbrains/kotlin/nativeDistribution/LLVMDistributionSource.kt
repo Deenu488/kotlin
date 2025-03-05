@@ -56,15 +56,15 @@ private fun Project.getRemoteLLVMDistributions(source: String): List<RemoteLLVMD
 /**
  * Reads `kotlin.native.llvm` property to determine which LLVM to use.
  * Possible options:
- * - `current`, `default` (or absent)
+ * - `default`
  * - `next`
- * - path to the locally built LLVM distribution
+ * - absolute path to the locally built LLVM distribution
  */
 val Project.llvmDistributionSource: LLVMDistributionSource
     get() {
-        val llvmProperty = findProperty("kotlin.native.llvm") as String?
+        val llvmProperty = property("kotlin.native.llvm") as String
         return when (llvmProperty) {
-            null, "current", "default" -> LLVMDistributionSource.Default(getRemoteLLVMDistributions("default"))
+            "default" -> LLVMDistributionSource.Default(getRemoteLLVMDistributions("default"))
             "next" -> LLVMDistributionSource.Next(getRemoteLLVMDistributions("next"))
             else -> {
                 val path = Paths.get(llvmProperty)
