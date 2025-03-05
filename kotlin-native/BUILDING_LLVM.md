@@ -19,6 +19,10 @@ It's possible to:
 * either edit [gradle.properties](gradle.properties),
 * or pass `-Pkotlin.native.llvm=<path>` when executing Gradle tasks from the command line.
 
+It's important to correctly specify llvm version. Look up `<version>` in `<llvm-distribution>/lib/clang/<version>/include`.
+`kotlin.native.llvm.next.<host>.version` Gradle property is used with llvm distributions provided
+by `kotlin.native.llvm=<path>`.
+
 Now we are ready to build Kotlin/Native itself. The process is described in [README.md](README.md).
 
 *NOTE*: In [gradle.properties](gradle.properties) we also have defined special `default` and `next`
