@@ -613,6 +613,14 @@ abstract class BaseIrGenerator(private val currentClass: IrClass, final override
             }
             sealedSerializerId -> {
                 needToCopyAnnotations = true
+
+                typeArgs = listOf(kType)
+                // instantiate serializer only inside sealed class/interface Companion
+                if (serializerClassOriginal == kType.classOrUpperBound()?.owner.classSerializer(pluginContext) && this@BaseIrGenerator !is SerializableCompanionIrGenerator) {
+                    // otherwise call Companion.serializer()
+                    callSerializerFromCompanion(kType, typeArgs, emptyList(), sealedSerializerId)?.let { return it }
+                }
+
                 args = mutableListOf<IrExpression>().apply {
                     add(irString(kType.serialName()))
                     add(classReference(kType.classOrUpperBound()!!))
@@ -662,7 +670,6 @@ abstract class BaseIrGenerator(private val currentClass: IrClass, final override
                         )
                     )
                 }
-                typeArgs = listOf(kType)
             }
             enumSerializerId -> {
                 serializerClass = pluginContext.referenceClass(enumSerializerId)
