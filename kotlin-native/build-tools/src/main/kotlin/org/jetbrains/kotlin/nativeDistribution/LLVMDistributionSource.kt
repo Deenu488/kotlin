@@ -43,7 +43,7 @@ private fun Project.getRemoteLLVMDistribution(source: String, kind: LLVMDistribu
         return null
     }
     val versionPropertyName = "${ROOT_PROPERTY_NAME}.${source}.${host.name.lowercase()}.version"
-    val version = findProperty(addressPropertyName) as String?
+    val version = findProperty(versionPropertyName) as String?
     if (version == null) {
         logger.warn("Missing the $source LLVM distribution version for $host. Specify it with $versionPropertyName")
         return null
@@ -106,13 +106,14 @@ private val List<RemoteLLVMDistribution>.remoteAsProperties: Map<String, String>
         }
     }
 
-private val Path.localAsProperties: Map<String, String>
+private val LLVMDistributionSource.Local.localAsProperties: Map<String, String>
     get() = buildMap {
         val host = HostManager.host
-        val absolutePath = absolutePathString()
+        val absolutePath = path.absolutePathString()
         LLVMDistributionKind.values().forEach { kind ->
             put("llvm.$host.${kind.nameForProperties}", absolutePath)
         }
+        put("llvmVersion.$host", version)
     }
 
 /**
@@ -120,7 +121,7 @@ private val Path.localAsProperties: Map<String, String>
  */
 val LLVMDistributionSource.asProperties: Map<String, String>
     get() = when (this) {
-        is LLVMDistributionSource.Local -> this.path.localAsProperties
+        is LLVMDistributionSource.Local -> this.localAsProperties
         is LLVMDistributionSource.Default -> this.distributions.remoteAsProperties
         is LLVMDistributionSource.Next -> this.distributions.remoteAsProperties
     }
