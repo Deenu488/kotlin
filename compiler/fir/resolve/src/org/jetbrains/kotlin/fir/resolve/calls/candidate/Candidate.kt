@@ -17,6 +17,7 @@ import org.jetbrains.kotlin.fir.expressions.FirThisReceiverExpression
 import org.jetbrains.kotlin.fir.expressions.builder.buildPropertyAccessExpressionCopy
 import org.jetbrains.kotlin.fir.expressions.builder.buildThisReceiverExpressionCopy
 import org.jetbrains.kotlin.fir.expressions.impl.FirExpressionStub
+import org.jetbrains.kotlin.fir.render
 import org.jetbrains.kotlin.fir.resolve.FirSamResolver
 import org.jetbrains.kotlin.fir.resolve.calls.*
 import org.jetbrains.kotlin.fir.resolve.calls.stages.TypeArgumentMapping
@@ -220,6 +221,26 @@ class Candidate(
         _postponedAtoms += atom
     }
 
+    // ------------------------ Context-sensitively resolved arguments ------------------------------------
+
+    private var _updatedArgumentsFromContextSensitiveResolution: MutableMap<FirPropertyAccessExpression, FirExpression>? =
+        null
+
+    fun setUpdatedArgumentFromContextSensitiveResolution(old: FirPropertyAccessExpression, new: FirExpression) {
+
+        if (_updatedArgumentsFromContextSensitiveResolution == null) {
+            _updatedArgumentsFromContextSensitiveResolution = mutableMapOf()
+        }
+
+        check(_updatedArgumentsFromContextSensitiveResolution!!.put(old, new) == null) {
+            "We shouldn't put the value for ${old.render()} twice"
+        }
+    }
+
+    fun getUpdatedArgumentFromContextSensitiveResolution(arg: FirExpression): FirExpression? {
+        if (arg !is FirPropertyAccessExpression) return null
+        return _updatedArgumentsFromContextSensitiveResolution?.get(arg)
+    }
     // ---------------------------------------- PCLA-related parts ----------------------------------------
 
     val postponedPCLACalls: MutableList<ConeResolutionAtom> = mutableListOf()
