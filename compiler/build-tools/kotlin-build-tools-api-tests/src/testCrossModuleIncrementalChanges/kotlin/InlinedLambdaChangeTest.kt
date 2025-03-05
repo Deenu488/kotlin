@@ -5,12 +5,12 @@
 package org.jetbrains.kotlin.buildtools.api.tests.compilation
 
 import org.jetbrains.kotlin.buildtools.api.CompilerExecutionStrategyConfiguration
-import org.jetbrains.kotlin.buildtools.api.tests.compilation.assertions.assertCompiledSources
 import org.jetbrains.kotlin.buildtools.api.tests.compilation.model.DefaultStrategyAgnosticCompilationTest
 import org.jetbrains.kotlin.buildtools.api.tests.compilation.scenario.scenario
 import org.jetbrains.kotlin.buildtools.api.tests.compilation.util.compile
 import org.jetbrains.kotlin.buildtools.api.tests.compilation.util.execute
 import org.jetbrains.kotlin.test.TestMetadata
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.DisplayName
 
 
@@ -224,6 +224,73 @@ class InlinedLambdaChangeTest : BaseCompilationTest() {
             lib.compile(expectedDirtySet = setOf("inlinedFunction.kt"))
             app.compile(expectedDirtySet = setOf())
             app.execute(mainClass = "CallSiteKt", exactOutput = INITIAL_OUTPUT)
+        }
+    }
+
+    @DefaultStrategyAgnosticCompilationTest
+    @DisplayName("Basic interaction with crossinline")
+    @TestMetadata("ic-scenarios/inline-local-class/inline-crossinline/lib")
+    fun testCrossInlineLambdaChange(strategyConfig: CompilerExecutionStrategyConfiguration) {
+        scenario(strategyConfig) {
+            val lib = module("ic-scenarios/inline-local-class/inline-crossinline/lib")
+            val app = module(
+                "ic-scenarios/inline-local-class/inline-crossinline/app",
+                dependencies = listOf(lib),
+                snapshotInlinedClassesInDependencies = true,
+            )
+
+            app.execute(mainClass = "CallSiteKt", exactOutput = INITIAL_OUTPUT)
+
+            lib.replaceFileWithVersion("inlinedB.kt", "changeLambdaBody")
+
+            lib.compile(expectedDirtySet = setOf("inlinedB.kt"))
+            app.compile(expectedDirtySet = setOf("callSite.kt"))
+            app.execute(mainClass = "CallSiteKt", exactOutput = WITH_NEW_LAMBDA_BODY)
+        }
+    }
+
+    @DefaultStrategyAgnosticCompilationTest
+    @DisplayName("Recompilation of call site affected by a anonymous object - basic")
+    @TestMetadata("ic-scenarios/inline-local-class/inline-anonymous-object/lib")
+    fun testAnonymousObjectBaseTypeChange(strategyConfig: CompilerExecutionStrategyConfiguration) {
+        scenario(strategyConfig) {
+            val lib = module("ic-scenarios/inline-local-class/inline-anonymous-object/lib")
+            val app = module(
+                "ic-scenarios/inline-local-class/inline-anonymous-object/app",
+                dependencies = listOf(lib),
+            )
+            // doesn't require inlined class snapshotting in this case
+
+            app.execute(mainClass = "CallSiteKt", exactOutput = INITIAL_OUTPUT)
+
+            lib.replaceFileWithVersion("baseType.kt", "changeCompute")
+
+            lib.compile(expectedDirtySet = setOf("baseType.kt"))
+            app.compile(expectedDirtySet = setOf())
+            app.execute(mainClass = "CallSiteKt", exactOutput = WITH_NEW_LAMBDA_BODY)
+        }
+    }
+
+    @Disabled("broken! other snapshotting strategies might work better here")
+    @DefaultStrategyAgnosticCompilationTest
+    @DisplayName("Recompilation of call site affected by a anonymous object - slightly evil")
+    @TestMetadata("ic-scenarios/inline-local-class/inline-anonymous-object-evil/lib")
+    fun testAnonymousObjectBaseTypeChangeWithOverloads(strategyConfig: CompilerExecutionStrategyConfiguration) {
+        scenario(strategyConfig) {
+            val lib = module("ic-scenarios/inline-local-class/inline-anonymous-object-evil/lib")
+            val app = module(
+                "ic-scenarios/inline-local-class/inline-anonymous-object-evil/app",
+                dependencies = listOf(lib),
+                snapshotInlinedClassesInDependencies = true,
+            )
+
+            app.execute(mainClass = "CallSiteKt", exactOutput = INITIAL_OUTPUT)
+
+            lib.replaceFileWithVersion("SomeClass.kt", "withOverload")
+
+            lib.compile(expectedDirtySet = setOf("SomeClass.kt", "callable.kt"))
+            app.compile(expectedDirtySet = setOf())
+            app.execute(mainClass = "CallSiteKt", exactOutput = WITH_NEW_LAMBDA_BODY)
         }
     }
 
