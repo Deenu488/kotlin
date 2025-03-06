@@ -74,6 +74,8 @@ fun IrFile.dumpTreesFromLineNumber(lineNumber: Int, options: DumpIrTreeOptions =
  * @property isHiddenDeclaration The filter that can be used to exclude some declarations from printing.
  * @property filePathRenderer allows to post-process the rendered IrFile name
  * @property printSourceOffsets If source offsets of elements should be printed.
+ * @property undefinedOffsetsForOverriddenFunctionSymbol If [IrRichFunctionReference.overriddenFunctionSymbol] should have its source
+ *   offsets printed as [UNDEFINED_OFFSET]
  */
 data class DumpIrTreeOptions(
     val normalizeNames: Boolean = false,
@@ -97,6 +99,7 @@ data class DumpIrTreeOptions(
     val isHiddenDeclaration: (IrDeclaration) -> Boolean = { false },
     val filePathRenderer: (IrFile, String) -> String = { _, name -> name },
     val printSourceOffsets: Boolean = false,
+    val undefinedOffsetsForOverriddenFunctionSymbol: Boolean = false
 ) {
     /**
      * A customizable filter to exclude some (or all) flags for declarations or declaration references.
@@ -373,8 +376,15 @@ class DumpIrTreeVisitor(
     }
 
     override fun visitRichFunctionReference(expression: IrRichFunctionReference, data: String) {
+        val overriddenFunctionSymbol = expression.overriddenFunctionSymbol
         expression.dumpLabeledElementWith(data) {
-            expression.overriddenFunctionSymbol.dumpInternal("overriddenFunctionSymbol")
+            if (options.undefinedOffsetsForOverriddenFunctionSymbol && overriddenFunctionSymbol.isBound) {
+                overriddenFunctionSymbol.owner.withUndefinedOffsets {
+                    overriddenFunctionSymbol.dumpInternal("overriddenFunctionSymbol")
+                }
+            } else {
+                overriddenFunctionSymbol.dumpInternal("overriddenFunctionSymbol")
+            }
             val parameterNames = getValueParameterNamesForDebug(expression.invokeFunction, expression.boundValues.size, options)
             expression.boundValues.forEachIndexed { index, value ->
                 val name = parameterNames[index]
@@ -382,6 +392,16 @@ class DumpIrTreeVisitor(
             }
             expression.invokeFunction.accept(this, "invoke")
         }
+    }
+
+    private fun IrElement.withUndefinedOffsets(block: () -> Unit) {
+        val originalStartOffset = startOffset
+        val originalEndOffset = endOffset
+        startOffset = UNDEFINED_OFFSET
+        endOffset = UNDEFINED_OFFSET
+        block()
+        startOffset = originalStartOffset
+        endOffset = originalEndOffset
     }
 
     override fun visitRichPropertyReference(expression: IrRichPropertyReference, data: String) {

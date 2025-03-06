@@ -189,6 +189,12 @@ class SerializedIrDumpHandler(
              * ```
              */
             printAnnotationsInFakeOverrides = false,
+
+            /* A workaround for mismatched offsets of IrRichFunctionReference.overriddenFunctionSymbol in multi-module serialization tests.
+             * The issue occurs because source offsets are included in serialized IR but not in metadata.
+             * Adding offsets to metadata only to fix few artificial tests would be unnecessary. It is better to always print these offsets as undefined.
+             */
+            undefinedOffsetsForOverriddenFunctionSymbol = true
         )
 
         val builder = dumper.builderForModule(module.name)
