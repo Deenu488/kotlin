@@ -587,18 +587,23 @@ private class CallInlining(
         reference: IrCallableReference<*>
     ) {
         val arguments = reference.getArgumentsWithIr().map { ParameterToArgument(it.first, it.second) }
-        for (it in arguments) {
-            val irExpression = it.argumentExpression
-            val newVariable = if (it.isImmutableVariableLoad) {
+        for (argument in arguments) {
+            val irExpression = argument.argumentExpression
+            val variableSymbol = if (argument.isImmutableVariableLoad) {
                 (irExpression as IrGetValue).symbol
             } else {
-                builder.at(irExpression).irTemporary(
-                    irExpression.doImplicitCastIfNeededTo(it.parameter.type),
-                    nameHint = callee.symbol.owner.name.asStringStripSpecialMarkers() + "_" + it.parameter.name.asStringStripSpecialMarkers(),
+                if (argument.isDefaultArg) {
+                    builder.at(UNDEFINED_OFFSET, UNDEFINED_OFFSET)
+                } else {
+                    builder.at(irExpression)
+                }
+                builder.irTemporary(
+                    irExpression.doImplicitCastIfNeededTo(argument.parameter.type),
+                    nameHint = callee.symbol.owner.name.asStringStripSpecialMarkers() + "_" + argument.parameter.name.asStringStripSpecialMarkers(),
                     origin = IrDeclarationOrigin.IR_TEMPORARY_VARIABLE_FOR_INLINED_PARAMETER,
                 ).symbol
             }
-            reference.arguments[it.parameter] = irGetValueWithoutLocation(newVariable)
+            reference.arguments[argument.parameter] = irGetValueWithoutLocation(variableSymbol)
         }
     }
 
@@ -609,7 +614,7 @@ private class CallInlining(
     ) {
         for (i in expressions.indices) {
             val irExpression = expressions[i]
-            val newVariable =
+            val variableSymbol =
                 if (irExpression is IrGetValue && irExpression.symbol.owner.isImmutable && irExpression.type == parameters[i].type) {
                     irExpression.symbol.owner
                 } else {
@@ -619,7 +624,7 @@ private class CallInlining(
                         isMutable = false,
                     )
                 }
-            expressions[i] = irGetValueWithoutLocation(newVariable.symbol)
+            expressions[i] = irGetValueWithoutLocation(variableSymbol.symbol)
         }
     }
 
