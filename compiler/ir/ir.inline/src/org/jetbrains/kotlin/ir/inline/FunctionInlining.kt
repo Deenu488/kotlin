@@ -16,7 +16,13 @@ import org.jetbrains.kotlin.ir.IrElement
 import org.jetbrains.kotlin.ir.IrStatement
 import org.jetbrains.kotlin.ir.UNDEFINED_OFFSET
 import org.jetbrains.kotlin.ir.builders.*
+import org.jetbrains.kotlin.ir.builders.IrBuilderWithScope
+import org.jetbrains.kotlin.ir.builders.at
+import org.jetbrains.kotlin.ir.builders.irBlock
+import org.jetbrains.kotlin.ir.builders.irGet
+import org.jetbrains.kotlin.ir.builders.irTemporary
 import org.jetbrains.kotlin.ir.declarations.*
+import org.jetbrains.kotlin.ir.declarations.IrParameterKind
 import org.jetbrains.kotlin.ir.expressions.*
 import org.jetbrains.kotlin.ir.expressions.impl.*
 import org.jetbrains.kotlin.ir.originalBeforeInline
@@ -24,7 +30,7 @@ import org.jetbrains.kotlin.ir.symbols.*
 import org.jetbrains.kotlin.ir.types.*
 import org.jetbrains.kotlin.ir.util.*
 import org.jetbrains.kotlin.ir.visitors.*
-import org.jetbrains.kotlin.name.Name
+import org.jetbrains.kotlin.name.Name.identifier
 import org.jetbrains.kotlin.util.OperatorNameConventions
 
 @PhaseDescription("FunctionInlining")
@@ -636,7 +642,6 @@ private class CallInlining(
         val arguments = buildParameterToArgument(callSite, callee)
         arguments.forEach { argument ->
             val parameter = argument.parameter
-            val evaluationBuilder = if (argument.isDefaultArg) inlinedBlockBuilder else callSiteBuilder
             val variableInitializer = argument.argumentExpression
             /*
              * We need to create temporary variable for each argument except inlinable lambda arguments.
@@ -646,63 +651,57 @@ private class CallInlining(
             if ((argument.isInlinableLambdaArgument || argument.isInlinablePropertyReference)
                 && inlineFunctionResolver.inlineMode != InlineMode.ALL_FUNCTIONS
             ) {
+                val evaluationBuilder = if (argument.isDefaultArg) inlinedBlockBuilder else callSiteBuilder
                 substituteMap[parameter] = variableInitializer
-                when (val arg = argument.argumentExpression) {
-                    is IrCallableReference<*> -> error("Can't inline given reference, it should've been lowered\n${arg.render()}")
+                when (variableInitializer) {
+                    is IrCallableReference<*> -> error("Can't inline given reference, it should've been lowered\n${variableInitializer.render()}")
                     is IrRichFunctionReference -> {
-                        evaluationBuilder.evaluateCapturedValues(arg.invokeFunction.parameters, arg.boundValues)
+                        evaluationBuilder.evaluateCapturedValues(variableInitializer.invokeFunction.parameters, variableInitializer.boundValues)
                     }
                     is IrRichPropertyReference -> {
-                        evaluationBuilder.evaluateCapturedValues(arg.getterFunction.parameters, arg.boundValues)
+                        evaluationBuilder.evaluateCapturedValues(variableInitializer.getterFunction.parameters, variableInitializer.boundValues)
                     }
-                    is IrBlock -> if (arg.origin == IrStatementOrigin.ADAPTED_FUNCTION_REFERENCE || arg.origin == IrStatementOrigin.LAMBDA) {
-                        evaluationBuilder.evaluateArguments(arg.statements.last() as IrFunctionReference)
+                    is IrBlock -> if (variableInitializer.origin == IrStatementOrigin.ADAPTED_FUNCTION_REFERENCE || variableInitializer.origin == IrStatementOrigin.LAMBDA) {
+                        evaluationBuilder.evaluateArguments(variableInitializer.statements.last() as IrFunctionReference)
                     }
                 }
             } else {
                 // inline parameters should never be stored to temporaries, as it would prevent their inlining
-                val variableSymbol =
-                    if (variableInitializer is IrGetValue && (variableInitializer.symbol as? IrValueParameterSymbol)?.owner?.isInlineParameter() == true) {
-                        variableInitializer.symbol
-                    } else {
-                        createTemporaryVariable(
-                            evaluationBuilder, inlinedBlockBuilder,
-                            parameter, variableInitializer, argument.isDefaultArg
-                        ).symbol
+                val inlineParameterVariable = (variableInitializer as? IrGetValue)
+                    ?.symbol
+                    ?.takeIf { it is IrValueParameterSymbol && it.owner.isInlineParameter() }
+                val variableSymbol = if (inlineParameterVariable != null) {
+                    inlineParameterVariable
+                } else {
+                    fun IrBuilderWithScope.computeInitializer() = irBlock(resultType = parameter.type) {
+                        +variableInitializer.doImplicitCastIfNeededTo(parameter.type)
                     }
+
+                    inlinedBlockBuilder.irTemporary(
+                        value = if (argument.isDefaultArg) {
+                            inlinedBlockBuilder
+                                .at(variableInitializer)
+                                .computeInitializer()
+                        } else {
+                            val tempVar = callSiteBuilder
+                                .at(UNDEFINED_OFFSET, UNDEFINED_OFFSET)
+                                .irTemporary(callSiteBuilder.computeInitializer())
+                            inlinedBlockBuilder
+                                .at(UNDEFINED_OFFSET, UNDEFINED_OFFSET)
+                                .irGet(tempVar)
+                        },
+                        origin = if (parameter.kind == IrParameterKind.ExtensionReceiver) {
+                            IrDeclarationOrigin.IR_TEMPORARY_VARIABLE_FOR_INLINED_EXTENSION_RECEIVER
+                        } else {
+                            IrDeclarationOrigin.IR_TEMPORARY_VARIABLE_FOR_INLINED_PARAMETER
+                        }
+                    ).apply {
+                        name = identifier(parameter.name.asStringStripSpecialMarkers())
+                    }.symbol
+                }
 
                 substituteMap[parameter] = irGetValueWithoutLocation(variableSymbol)
             }
-        }
-    }
-
-    private fun createTemporaryVariable(
-        evaluationBuilder: IrStatementsBuilder<*>,
-        inlinedBlockBuilder: IrStatementsBuilder<*>,
-        parameter: IrValueParameter,
-        variableInitializer: IrExpression,
-        isDefaultArg: Boolean
-    ): IrVariable {
-        fun IrBuilderWithScope.compute() = irBlock(resultType = parameter.type) {
-            +variableInitializer.doImplicitCastIfNeededTo(parameter.type)
-        }
-        val evaluatedInitializer = if (isDefaultArg) {
-            inlinedBlockBuilder.at(variableInitializer).compute()
-        } else {
-            val tempVar = evaluationBuilder.at(UNDEFINED_OFFSET, UNDEFINED_OFFSET).irTemporary(
-                evaluationBuilder.compute()
-            )
-            inlinedBlockBuilder.at(UNDEFINED_OFFSET, UNDEFINED_OFFSET).irGet(tempVar)
-        }
-        return inlinedBlockBuilder.irTemporary(
-            value = evaluatedInitializer,
-            origin = if (parameter.kind == IrParameterKind.ExtensionReceiver) {
-                IrDeclarationOrigin.IR_TEMPORARY_VARIABLE_FOR_INLINED_EXTENSION_RECEIVER
-            } else {
-                IrDeclarationOrigin.IR_TEMPORARY_VARIABLE_FOR_INLINED_PARAMETER
-            }
-        ).apply {
-            name = Name.identifier(parameter.name.asStringStripSpecialMarkers())
         }
     }
 
