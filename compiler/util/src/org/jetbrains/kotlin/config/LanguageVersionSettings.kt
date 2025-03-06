@@ -358,7 +358,7 @@ enum class LanguageFeature(
     // See the single usage at org.jetbrains.kotlin.resolve.calls.inference.components.ConstraintInjector.TypeCheckerStateForConstraintInjector.runForkingPoint
     // We enable it for already released 2.1 because it's a bug fix
     ForkIsNotSuccessfulWhenNoBranchIsSuccessful(KOTLIN_2_1, kind = OTHER), // KT-75444
-    ContextSensitiveResolutionUsingExpectedType(KOTLIN_2_1, kind = TEST_ONLY), // KT-16768
+    ContextSensitiveResolutionUsingExpectedType(KOTLIN_2_1), // KT-16768
 
     // 2.2
 
