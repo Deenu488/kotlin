@@ -216,6 +216,7 @@ val firCompilerCoreModules = arrayOf(
     ":compiler:fir:plugin-utils",
     ":compiler:fir:tree",
     ":compiler:fir:fir-jvm",
+    ":compiler:fir:fir-js",
     ":compiler:fir:native",
     ":compiler:fir:raw-fir:raw-fir.common",
     ":compiler:fir:raw-fir:psi2fir",
