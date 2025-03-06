@@ -637,6 +637,7 @@ private class CallInlining(
         arguments.forEach { argument ->
             val parameter = argument.parameter
             val evaluationBuilder = if (argument.isDefaultArg) inlinedBlockBuilder else callSiteBuilder
+            val variableInitializer = argument.argumentExpression
             /*
              * We need to create temporary variable for each argument except inlinable lambda arguments.
              * For simplicity and to produce simpler IR we don't create temporaries for every immutable variable,
@@ -645,7 +646,7 @@ private class CallInlining(
             if ((argument.isInlinableLambdaArgument || argument.isInlinablePropertyReference)
                 && inlineFunctionResolver.inlineMode != InlineMode.ALL_FUNCTIONS
             ) {
-                substituteMap[parameter] = argument.argumentExpression
+                substituteMap[parameter] = variableInitializer
                 when (val arg = argument.argumentExpression) {
                     is IrCallableReference<*> -> error("Can't inline given reference, it should've been lowered\n${arg.render()}")
                     is IrRichFunctionReference -> {
@@ -658,22 +659,19 @@ private class CallInlining(
                         evaluationBuilder.evaluateArguments(arg.statements.last() as IrFunctionReference)
                     }
                 }
-
-                return@forEach
-            }
-
-            val variableInitializer = argument.argumentExpression
-
-            // inline parameters should never be stored to temporaries, as it would prevent their inlining
-            if (variableInitializer is IrGetValue && (variableInitializer.symbol as? IrValueParameterSymbol)?.owner?.isInlineParameter() == true) {
-                substituteMap[parameter] = irGetValueWithoutLocation(variableInitializer.symbol)
             } else {
-                val parameterVariable = createTemporaryVariable(
-                    evaluationBuilder, inlinedBlockBuilder,
-                    parameter, variableInitializer, argument.isDefaultArg
-                )
-                substituteMap[parameter] = irGetValueWithoutLocation(parameterVariable.symbol)
-                return@forEach
+                // inline parameters should never be stored to temporaries, as it would prevent their inlining
+                val variableSymbol =
+                    if (variableInitializer is IrGetValue && (variableInitializer.symbol as? IrValueParameterSymbol)?.owner?.isInlineParameter() == true) {
+                        variableInitializer.symbol
+                    } else {
+                        createTemporaryVariable(
+                            evaluationBuilder, inlinedBlockBuilder,
+                            parameter, variableInitializer, argument.isDefaultArg
+                        ).symbol
+                    }
+
+                substituteMap[parameter] = irGetValueWithoutLocation(variableSymbol)
             }
         }
     }
