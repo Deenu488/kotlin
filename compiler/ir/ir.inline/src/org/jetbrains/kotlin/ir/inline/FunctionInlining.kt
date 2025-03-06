@@ -582,8 +582,7 @@ private class CallInlining(
 
     //-------------------------------------------------------------------------//
 
-    private fun evaluateArguments(
-        builder: IrStatementsBuilder<*>,
+    private fun IrStatementsBuilder<*>.evaluateArguments(
         reference: IrCallableReference<*>
     ) {
         val arguments = reference.getArgumentsWithIr().map { ParameterToArgument(it.first, it.second) }
@@ -593,11 +592,11 @@ private class CallInlining(
                 (irExpression as IrGetValue).symbol
             } else {
                 if (argument.isDefaultArg) {
-                    builder.at(UNDEFINED_OFFSET, UNDEFINED_OFFSET)
+                    at(UNDEFINED_OFFSET, UNDEFINED_OFFSET)
                 } else {
-                    builder.at(irExpression)
+                    at(irExpression)
                 }
-                builder.irTemporary(
+                irTemporary(
                     irExpression.doImplicitCastIfNeededTo(argument.parameter.type),
                     nameHint = callee.symbol.owner.name.asStringStripSpecialMarkers() + "_" + argument.parameter.name.asStringStripSpecialMarkers(),
                     origin = IrDeclarationOrigin.IR_TEMPORARY_VARIABLE_FOR_INLINED_PARAMETER,
@@ -607,8 +606,7 @@ private class CallInlining(
         }
     }
 
-    private fun evaluateCapturedValues(
-        builder: IrStatementsBuilder<*>,
+    private fun IrStatementsBuilder<*>.evaluateCapturedValues(
         parameters: List<IrValueParameter>,
         expressions: MutableList<IrExpression>
     ) {
@@ -618,7 +616,7 @@ private class CallInlining(
                 if (irExpression is IrGetValue && irExpression.symbol.owner.isImmutable && irExpression.type == parameters[i].type) {
                     irExpression.symbol.owner
                 } else {
-                    builder.at(irExpression).irTemporary(
+                    at(irExpression).irTemporary(
                         value = irExpression.doImplicitCastIfNeededTo(parameters[i].type),
                         nameHint = callee.symbol.owner.name.asStringStripSpecialMarkers() + "_${parameters[i].name.asStringStripSpecialMarkers()}",
                         isMutable = false,
@@ -651,13 +649,13 @@ private class CallInlining(
                 when (val arg = argument.argumentExpression) {
                     is IrCallableReference<*> -> error("Can't inline given reference, it should've been lowered\n${arg.render()}")
                     is IrRichFunctionReference -> {
-                        evaluateCapturedValues(evaluationBuilder, arg.invokeFunction.parameters, arg.boundValues)
+                        evaluationBuilder.evaluateCapturedValues(arg.invokeFunction.parameters, arg.boundValues)
                     }
                     is IrRichPropertyReference -> {
-                        evaluateCapturedValues(evaluationBuilder, arg.getterFunction.parameters, arg.boundValues)
+                        evaluationBuilder.evaluateCapturedValues(arg.getterFunction.parameters, arg.boundValues)
                     }
                     is IrBlock -> if (arg.origin == IrStatementOrigin.ADAPTED_FUNCTION_REFERENCE || arg.origin == IrStatementOrigin.LAMBDA) {
-                        evaluateArguments(evaluationBuilder, arg.statements.last() as IrFunctionReference)
+                        evaluationBuilder.evaluateArguments(arg.statements.last() as IrFunctionReference)
                     }
                 }
 
