@@ -23,6 +23,6 @@ public class A
 
 public fun box(): String
     val param: Int =
-        /* ACCESSOR use-site */ access$<get-privateVal>($this = tmp0)
+        /* ACCESSOR use-site */ access$<get-privateVal>($this = this)
     val block: Function0<Int> =
-        /* ACCESSOR use-site */ access$<get-privateValFunctional>($this = tmp2)
+        /* ACCESSOR use-site */ access$<get-privateValFunctional>($this = this)
